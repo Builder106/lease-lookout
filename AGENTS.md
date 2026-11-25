@@ -9,7 +9,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 # LeaseLookout
 
-A tenant-side "defensive API": upload a lease PDF, get its illegal/abusive clauses flagged against Connecticut housing law, each with a statute citation in plain English. MVP wedge: Wesleyan off-campus renters in Middletown, CT. Later (out of MVP scope): maintenance ledger, security-deposit demand letters, roommate finances.
+A tenant-side tool for getting a security deposit back: a move-in record, the landlord's legal return deadline, a statute-cited demand letter, and a small claims packet. The existing lease check (upload a PDF, flag illegal or abusive clauses against state housing law, each with a citation) stays as the background index that matches a dispute to its clause. First market: off-campus student renters in Connecticut and Massachusetts. Open source: code AGPL-3.0, `rules/` CC BY 4.0. See the 2026-11-25 pivot entry in `JOURNAL.md`.
 
 ## Stack
 

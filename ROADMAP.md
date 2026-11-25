@@ -1,21 +1,21 @@
-# Lease-Lookout Roadmap
+# LeaseLookout Roadmap
 
-Lease agreement compliance and anomaly detection roadmap.
+Helping renters get their security deposits back. See `docs/feature-audit-and-roadmap.md` for detail.
 
-## v1.1 — Compliance Engine & Rule Expansion
+## v1.1: Deposit Recovery
 
-- **Clause Extraction Heuristics**: Automated parsing of residential and commercial lease agreements for hidden fees, escalation clauses, and tenant protections.
-- **Legal Rule Verification**: Regional jurisdiction validation (state/municipal lease requirements).
+- **Move-In Record**: Room-by-room condition log with timestamped photos and a dated export.
+- **Deposit Deadline Tracker**: Statutory return deadline from the move-out date (CT § 47a-21(d), MA c. 186 § 15B(4)).
+- **Deposit Demand Letter**: Statute-cited letter template filled with the tenant's facts. Ships only after legal-aid review of the template.
+- **Small Claims Packet**: Filing checklist for the right court with the move-in record attached.
 
-## v1.2 — Redline & Summary Generator
+## v1.2: Ruleset Verification
 
-- **Plain-Language Tenant Reports**: Actionable risk scores and negotiation checklists.
-- **Export & Secure Sharing**: Encrypted document processing and redaction export.
+- **Deposit Rules Review**: Get CT and MA deposit rules reviewed and move them from `draft-unverified` to `attorney-reviewed`.
+- **Multi-State Expansion**: Graduate the MA, NY and RI rulesets into verified, test-covered modules.
 
 ## Out of Scope
 
-- Binding legal representation / formal counsel (informational audit only)
+- Binding legal representation or formal counsel (legal information only)
+- Lease negotiation tools (tenants rarely have leverage at signing)
 - Permanent unencrypted lease document storage
-
----
-For technical specifications, see [`docs/specs/`](docs/specs/).

@@ -79,27 +79,35 @@ LeaseLookout is a tenant-side "defensive API" designed to level the information 
 
 ## 5. New Feature Additions
 
-### Phase 1: Pre-Lease Signing Tools (Fall 2026)
+Re-prioritized on 2026-11-25 (see `JOURNAL.md`). Most tenants can't negotiate a lease in a tight market and can't afford a lawyer, so a list of void clauses at signing changes little. The security deposit is where tenants can win on their own: the law sets deadlines, disputes go to small claims court, and a clear letter that cites the statute often settles it.
 
-1. **Tenant Counter-Offer Generator ("Negotiation Cheat Sheet"):**
+### Phase 1: Deposit Recovery (Spring 2027, before the May move-out season)
 
-- *Description:* Generates polite, professionally formatted email drafts requesting clause modification or removal, citing the exact statutory provision (e.g., "Request removing § 14 per Conn. Gen. Stat. § 47a-4(a)(3)").
-- *Target User:* Wesleyan student renters negotiating off-campus leases.
+1. **Move-In Record (CT § 47a-7c, MA c. 186 § 15B):**
 
-1. **Multi-State Ruleset Expansion (MA, NY, RI):**
+- *Description:* Guided move-in walk-through. Renters log existing damage room by room with timestamped photos and get a dated record they can keep.
+- *Value:* The evidence that decides most deposit disputes, captured on day one.
 
-- *Description:* Graduate Massachusetts, New York, and Rhode Island rulesets from draft review packets into fully verified, test-covered ruleset modules.
+1. **Deposit Deadline Tracker (CT § 47a-21(d), MA c. 186 § 15B(4)):**
 
-### Phase 2: Move-In & Tenancy Protection (Spring 2027)
+- *Description:* Starts counting at move-out and shows the landlord's legal deadline (21 days in Connecticut; 30 days in Massachusetts, with a sworn itemized list of damages).
 
-1. **Pre-Occupancy Walk-Through Checklist (CT § 47a-7c):**
+1. **Deposit Demand Letter (CT § 47a-21, MA c. 186 § 15B):**
 
-- *Description:* Interactive move-in inspection tool enabling renters to log existing property damage, upload photos, and generate a timestamped walk-through document.
-- *Value:* Protects against illegal security deposit deductions at move-out.
+- *Description:* When the deadline passes or deductions look wrong, fills a demand letter template with the tenant's facts and the cited statute. Template language goes through legal-aid review before launch.
 
-1. **Security Deposit Demand Letter Drafts (CT § 47a-21):**
+1. **Small Claims Packet:**
 
-- *Description:* Automated post-tenancy tool for generating formal security deposit return demand letters with statutory 21-day interest calculations.
+- *Description:* If the letter doesn't work, a checklist and filled forms for the right small claims court, with the move-in record attached.
+
+### Phase 2: Lease Check as Background
+
+1. **Lease Indexing:** The existing clause scan runs at upload and stays available, but its main job becomes matching later disputes to the right clause and statute.
+1. **Multi-State Ruleset Expansion (MA, NY, RI):** Graduate the draft rulesets into verified, test-covered modules, starting with the deposit rules (a small, reviewable slice).
+
+### Deprioritized
+
+- **Tenant Counter-Offer Generator:** Useful only where tenants have bargaining power, which is rare in the current market.
 
 ---
 
