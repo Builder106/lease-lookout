@@ -1,0 +1,25 @@
+{
+  "jurisdiction": "US-VT",
+  "_note": "Vermont heat-and-water obligation under 9 V.S.A. § 4457(c) (Landlord obligations; habitability), retrieved verbatim from legislature.vermont.gov on 2026-06-20. § 4457(c) makes a reasonable amount of heat and an adequate connected supply of hot and cold water part of the implied warranty of habitability (except for summer-occupancy units and hunting camps). § 4457(b) makes any waiver of that warranty contrary to public policy, unenforceable, and void. status=draft-unverified: review by a Vermont tenant attorney / legal-aid clinic before public conclusions.",
+  "rules": [
+    {
+      "id": "vt-habitability-001",
+      "jurisdiction": "US-VT",
+      "title": "Disclaimer of the landlord's heat / hot-water duty",
+      "severity": "illegal",
+      "description": "Per 9 V.S.A. § 4457(c), as part of the implied warranty of habitability the landlord must ensure heating facilities capable of safely providing a reasonable amount of heat and an adequate, connected supply of hot and cold water (the exception is summer-occupancy units and hunting camps). Under § 4457(b) any waiver of the warranty is void. A clause disclaiming responsibility for heat or hot water in a year-round home is unenforceable.",
+      "tenant_explainer": "Heat and hot water are part of what your landlord must provide in Vermont for a year-round home. A lease clause saying the landlord 'is not responsible for heat or hot water' isn't enforceable.",
+      "citations": [
+        {"label": "9 V.S.A. § 4457(c)", "url": "https://legislature.vermont.gov/statutes/section/09/137/04457", "quote": "As part of the implied warranty of habitability, the landlord shall ensure that the dwelling unit has heating facilities that are capable of safely providing a reasonable amount of heat. … The landlord shall provide an adequate amount of water to each dwelling unit properly connected with hot and cold water lines."},
+        {"label": "9 V.S.A. § 4457(b)", "url": "https://legislature.vermont.gov/statutes/section/09/137/04457", "quote": "No rental agreement shall contain any provision by which the tenant waives the protections of the implied warranty of habitability. Any such waiver shall be deemed contrary to public policy and shall be unenforceable and void."}
+      ],
+      "patterns": [
+        "landlord\\s+(?:is|shall|will|shall\\s+be|will\\s+be)?\\s*not\\s+(?:be\\s+)?(?:responsible|liable)\\s+for[^.]{0,40}(?:heat|hot\\s+water|heating)",
+        "(?:no|not)\\s+(?:obligated|required)\\s+to\\s+(?:provide|supply)[^.]{0,30}(?:heat|hot\\s+water|heating)",
+        "tenant\\s+(?:is\\s+)?(?:solely\\s+)?responsible\\s+for[^.]{0,30}(?:providing\\s+)?(?:all\\s+)?(?:heat|hot\\s+water|heating)[^.]{0,40}(?:landlord\\s+(?:is\\s+)?not|at\\s+the\\s+tenant'?s?\\s+(?:sole\\s+)?(?:expense|cost))"
+      ],
+      "keywords": [],
+      "status": "draft-unverified"
+    }
+  ]
+}

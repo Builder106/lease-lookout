@@ -1,0 +1,148 @@
+{
+  "jurisdiction": "US-CT",
+  "_note": "Conn. Gen. Stat. § 47a-4 (Terms prohibited in rental agreement), retrieved verbatim from cga.ct.gov on 2026-06-05 (reflects P.A. 23-207, which added the (a)(9) late-charge cap and redesignated the heat/utility surcharge as (a)(10)). § 47a-4(b): 'A provision prohibited by subsection (a) of this section included in a rental agreement is unenforceable.' Citations deep-link to the section anchor on the official CGA chapter page. ALL rules remain status=draft-unverified: regex, severity, and plain-English framing must be reviewed by a CT tenant attorney / legal-aid clinic before public conclusions.",
+  "rules": [
+    {
+      "id": "ct-prohibited-001",
+      "jurisdiction": "US-CT",
+      "title": "Waiver of the tenant's legal rights or remedies",
+      "severity": "illegal",
+      "description": "Per § 47a-4(a)(1), a lease cannot make the tenant waive or forfeit rights or remedies under the landlord-tenant statutes (or any statute/ordinance) unless that law expressly permits waiver. Such a provision is unenforceable.",
+      "tenant_explainer": "A lease can't quietly strip away rights the law gives you. Broad language making you 'waive any and all rights' generally can't be enforced.",
+      "citations": [
+        {"label": "Conn. Gen. Stat. § 47a-4(a)(1) & (b)", "url": "https://www.cga.ct.gov/current/pub/chap_830.htm#sec_47a-4", "quote": "A rental agreement shall not provide that the tenant: (1) Agrees to waive or forfeit rights or remedies under this chapter and sections 47a-21, 47a-23 to 47a-23b … or under any section of the general statutes or any municipal ordinance unless such section or ordinance expressly states that such rights may be waived … (b) A provision prohibited by subsection (a) of this section included in a rental agreement is unenforceable."}
+      ],
+      "patterns": [
+        "waive[sd]?\\s+(?:any\\s+(?:and\\s+all\\s+)?|all\\s+|his\\s+|her\\s+|their\\s+|the\\s+tenant'?s?\\s+)?(?:rights?|remedies)",
+        "waiver\\s+of\\s+(?:any\\s+|all\\s+)?(?:rights?|remedies)"
+      ],
+      "keywords": ["waive any and all rights", "waives all rights and remedies"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "ct-prohibited-002",
+      "jurisdiction": "US-CT",
+      "title": "Confession of judgment",
+      "severity": "illegal",
+      "description": "Per § 47a-4(a)(2), a lease cannot authorize the landlord to confess judgment on a claim arising out of the rental agreement. Unenforceable.",
+      "tenant_explainer": "You can't sign away your right to defend yourself in court. A clause letting the landlord 'confess judgment' against you isn't enforceable.",
+      "citations": [
+        {"label": "Conn. Gen. Stat. § 47a-4(a)(2) & (b)", "url": "https://www.cga.ct.gov/current/pub/chap_830.htm#sec_47a-4", "quote": "A rental agreement shall not provide that the tenant: … (2) authorizes the landlord to confess judgment on a claim arising out of the rental agreement … (b) A provision prohibited by subsection (a) of this section … is unenforceable."}
+      ],
+      "patterns": ["confess(?:es)?\\s+judgment", "confession\\s+of\\s+judgment", "warrant\\s+of\\s+attorney\\s+to\\s+confess"],
+      "keywords": ["confession of judgment"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "ct-prohibited-003",
+      "jurisdiction": "US-CT",
+      "title": "Landlord exculpation / tenant indemnifies landlord",
+      "severity": "illegal",
+      "description": "Per § 47a-4(a)(3), a lease cannot make the tenant agree to exculpate or limit the landlord's liability arising under law, or to indemnify the landlord for that liability or related costs. Unenforceable.",
+      "tenant_explainer": "Your landlord can't use the lease to escape responsibility for their own negligence, or make you cover their legal costs. 'Hold harmless' / 'not liable for anything' clauses generally don't hold up.",
+      "citations": [
+        {"label": "Conn. Gen. Stat. § 47a-4(a)(3) & (b)", "url": "https://www.cga.ct.gov/current/pub/chap_830.htm#sec_47a-4", "quote": "A rental agreement shall not provide that the tenant: … (3) agrees to the exculpation or limitation of any liability of the landlord arising under law or to indemnify the landlord for that liability or the costs connected therewith … (b) A provision prohibited by subsection (a) of this section … is unenforceable."}
+      ],
+      "patterns": [
+        "hold\\s+(?:the\\s+)?landlord\\s+harmless",
+        "indemnify\\s+(?:and\\s+hold\\s+harmless\\s+)?(?:the\\s+)?landlord",
+        "landlord\\s+shall\\s+not\\s+be\\s+(?:held\\s+)?liable",
+        "releases?\\s+(?:the\\s+)?landlord\\s+from\\s+(?:any\\s+|all\\s+)?liability"
+      ],
+      "keywords": ["hold harmless", "indemnify the landlord"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "ct-prohibited-004",
+      "jurisdiction": "US-CT",
+      "title": "Waiver of interest on the security deposit",
+      "severity": "illegal",
+      "description": "Per § 47a-4(a)(4), a lease cannot make the tenant waive the right to interest on the security deposit owed under § 47a-21. Unenforceable.",
+      "tenant_explainer": "Your security deposit earns interest that's owed to you. A clause making you give up that interest can't be enforced.",
+      "citations": [
+        {"label": "Conn. Gen. Stat. § 47a-4(a)(4) & (b)", "url": "https://www.cga.ct.gov/current/pub/chap_830.htm#sec_47a-4", "quote": "A rental agreement shall not provide that the tenant: … (4) agrees to waive his right to the interest on the security deposit pursuant to section 47a-21 … (b) A provision prohibited by subsection (a) of this section … is unenforceable."}
+      ],
+      "patterns": ["waive[sd]?\\s+(?:any\\s+|the\\s+|his\\s+|her\\s+|their\\s+|all\\s+)?(?:right\\s+to\\s+(?:the\\s+)?)?interest\\s+on\\s+(?:the\\s+|his\\s+|her\\s+|their\\s+)?security\\s+deposit"],
+      "keywords": [],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "ct-prohibited-005",
+      "jurisdiction": "US-CT",
+      "title": "Self-help eviction (dispossess without a court order)",
+      "severity": "illegal",
+      "description": "Per § 47a-4(a)(5), a lease cannot let the landlord dispossess the tenant without resort to a court order. Unenforceable; Connecticut requires a court eviction (summary process).",
+      "tenant_explainer": "A landlord can't legally lock you out or force you out on their own — they have to go to court. Any clause saying otherwise isn't enforceable.",
+      "citations": [
+        {"label": "Conn. Gen. Stat. § 47a-4(a)(5) & (b)", "url": "https://www.cga.ct.gov/current/pub/chap_830.htm#sec_47a-4", "quote": "A rental agreement shall not provide that the tenant: … (5) agrees to permit the landlord to dispossess him without resort to court order … (b) A provision prohibited by subsection (a) of this section … is unenforceable."}
+      ],
+      "patterns": [
+        "without\\s+(?:resort(?:ing)?\\s+to|the\\s+necessity\\s+of|recourse\\s+to)\\s+(?:any\\s+|a\\s+)?(?:court|legal\\s+process|judicial\\s+process|summary\\s+process)",
+        "landlord\\s+may\\s+(?:re-?enter\\s+and\\s+take\\s+possession|retake\\s+possession|repossess|dispossess)",
+        "lock[\\s-]?out"
+      ],
+      "keywords": ["self-help", "without resort to court"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "ct-prohibited-006",
+      "jurisdiction": "US-CT",
+      "title": "Distraint / landlord's lien on the tenant's property for rent",
+      "severity": "illegal",
+      "description": "Per § 47a-4(a)(6), a lease cannot make the tenant consent to the distraint of their property for rent. Unenforceable.",
+      "tenant_explainer": "Your landlord can't seize or hold your belongings to cover unpaid rent. A clause letting them do that isn't enforceable.",
+      "citations": [
+        {"label": "Conn. Gen. Stat. § 47a-4(a)(6) & (b)", "url": "https://www.cga.ct.gov/current/pub/chap_830.htm#sec_47a-4", "quote": "A rental agreement shall not provide that the tenant: … (6) consents to the distraint of his property for rent … (b) A provision prohibited by subsection (a) of this section … is unenforceable."}
+      ],
+      "patterns": [
+        "distrain(?:t|ed|ing)?\\b",
+        "landlord'?s?\\s+lien\\s+(?:up)?on\\s+(?:the\\s+)?(?:tenant'?s?\\s+)?(?:personal\\s+)?(?:property|belongings|goods)"
+      ],
+      "keywords": ["distraint"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "ct-prohibited-007",
+      "jurisdiction": "US-CT",
+      "title": "Landlord's attorney's fees over the statutory cap",
+      "severity": "questionable",
+      "description": "Per § 47a-4(a)(7), a lease cannot make the tenant pay the landlord's attorney's fees in excess of fifteen per cent of any money-damages judgment against the tenant. Flag attorney's-fee clauses so the cap can be checked.",
+      "tenant_explainer": "If you lose a rent case, the most you can be made to pay toward the landlord's lawyer is 15% of the judgment. Watch for clauses demanding 'all' or 'reasonable' attorney's fees with no cap.",
+      "citations": [
+        {"label": "Conn. Gen. Stat. § 47a-4(a)(7) & (b)", "url": "https://www.cga.ct.gov/current/pub/chap_830.htm#sec_47a-4", "quote": "A rental agreement shall not provide that the tenant: … (7) agrees to pay the landlord's attorney's fees in excess of fifteen per cent of any judgment against the tenant in any action in which money damages are awarded … (b) A provision prohibited by subsection (a) of this section … is unenforceable."}
+      ],
+      "patterns": ["attorney'?s?\\s+fees", "attorneys'\\s+fees"],
+      "keywords": [],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "ct-prohibited-008",
+      "jurisdiction": "US-CT",
+      "title": "Late charge before the grace period, or over the statutory cap",
+      "severity": "questionable",
+      "description": "Per § 47a-4(a)(8)-(9), a lease cannot charge a late fee before the § 47a-15a grace period expires, demand 'reduced rent' only if paid before the grace period, or charge a late fee exceeding the § 47a-15a cap. § 47a-15a(b) caps a late charge at the lesser of $5/day (max $50) or 5% of the delinquent payment, and allows only one late charge. Flag late-fee clauses to check timing and amount.",
+      "tenant_explainer": "Connecticut gives you a grace period before rent is 'late' (9 days for a month-to-month tenancy). A late fee charged before that isn't allowed, and once it does apply it can't exceed $5/day up to $50, or 5% of the late rent — only one charge.",
+      "citations": [
+        {"label": "Conn. Gen. Stat. § 47a-4(a)(8)-(9) & (b)", "url": "https://www.cga.ct.gov/current/pub/chap_830.htm#sec_47a-4", "quote": "A rental agreement shall not provide that the tenant: … (8) agrees to pay a late charge prior to the expiration of the grace period set forth in section 47a-15a or to pay rent in a reduced amount if such rent is paid prior to the expiration of such grace period; (9) agrees to pay a late charge on rent payments made subsequent to such grace period in an amount exceeding the amounts set forth in section 47a-15a."},
+        {"label": "Conn. Gen. Stat. § 47a-15a — grace period & late-charge cap", "url": "https://www.cga.ct.gov/current/pub/chap_830.htm#sec_47a-15a", "quote": "If rent is unpaid when due and the tenant fails to pay rent within nine days thereafter or, in the case of a one-week tenancy, within four days thereafter … 'grace period' means the nine-day or four-day time periods … Such late charge may not exceed the lesser of (1) five dollars per day, up to a maximum of fifty dollars, or (2) five per cent of the delinquent rent payment … The landlord may not assess more than one late charge upon a delinquent rent payment."}
+      ],
+      "patterns": ["late\\s+(?:charge|fee|payment\\s+charge)", "(?:rent\\s+)?discount\\s+(?:of\\s+)?\\$?\\d+\\s+if\\s+paid"],
+      "keywords": [],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "ct-prohibited-009",
+      "jurisdiction": "US-CT",
+      "title": "Heat or utilities surcharge when included in rent",
+      "severity": "questionable",
+      "description": "Per § 47a-4(a)(10), if heat or utilities are included in the rental agreement, a lease cannot make the tenant pay a heat or utilities surcharge. Context-dependent on whether utilities are included.",
+      "tenant_explainer": "If your rent includes heat or utilities, the landlord can't tack on an extra 'surcharge' for them.",
+      "citations": [
+        {"label": "Conn. Gen. Stat. § 47a-4(a)(10) & (b)", "url": "https://www.cga.ct.gov/current/pub/chap_830.htm#sec_47a-4", "quote": "A rental agreement shall not provide that the tenant: … (10) agrees to pay a heat or utilities surcharge if heat or utilities is included in the rental agreement … (b) A provision prohibited by subsection (a) of this section … is unenforceable."}
+      ],
+      "patterns": ["(?:heat|utility|utilities)\\s+surcharge"],
+      "keywords": ["utility surcharge"],
+      "status": "draft-unverified"
+    }
+  ]
+}

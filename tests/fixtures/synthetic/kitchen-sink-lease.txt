@@ -1,0 +1,27 @@
+RESIDENTIAL LEASE AGREEMENT (Connecticut) — synthetic test fixture (KITCHEN SINK)
+This fixture deliberately plants one prohibited or abusive clause per rule. It is
+NOT a real or usable lease — it exists only to prove the engine flags each rule.
+
+1. Security Deposit. The Tenant shall pay a non-refundable security deposit equal to three months' rent. The Tenant shall also pay a non-refundable move-in fee and a non-refundable cleaning fee. The Tenant waives the right to interest on the security deposit. At move-out, the Landlord may deduct repainting and carpet cleaning costs from the security deposit. The security deposit shall be forfeited if the Tenant breaks the Lease early.
+
+2. Waiver of Rights. The Tenant waives any and all rights and remedies under the landlord-tenant act.
+
+3. Confession of Judgment. The Tenant authorizes the Landlord to confess judgment on any claim arising out of this Lease.
+
+4. Liability. The Tenant shall hold the Landlord harmless and shall indemnify the Landlord against any and all claims and costs.
+
+5. Default and Possession. Upon any default, the Landlord may re-enter and take possession of the premises without resort to court. The Tenant consents to the distraint of the Tenant's property for unpaid rent.
+
+6. Fees and Charges. The Tenant shall pay the Landlord's attorney's fees. A late fee applies to any rent not received on the first of the month. The Tenant shall also pay a monthly utility surcharge and a $75 application fee.
+
+7. Repairs. The Tenant is responsible for all repairs and maintenance of the premises. The Tenant accepts the premises as-is and waives the warranty of habitability.
+
+8. Entry. The Landlord may enter the premises at any time and without notice.
+
+9. Essential Services. If rent is unpaid, the Landlord may shut off heat and hot water until the balance is paid in full.
+
+10. Early Termination. Upon early termination, the Tenant shall be liable for all remaining rent for the entire term, immediately due and payable.
+
+11. Payment Method. Rent must be paid exclusively by electronic funds transfer through the online tenant portal.
+
+12. Move-In Inspection. The Landlord and Tenant may complete a move-in walk-through checklist noting the condition of the unit.

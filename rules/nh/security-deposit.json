@@ -1,0 +1,97 @@
+{
+  "jurisdiction": "US-NH",
+  "_note": "New Hampshire security-deposit rules, retrieved verbatim from the NH General Court statute site (gc.nh.gov; the legacy gencourt.state.nh.us host now 301-redirects here) on 2026-06-20. RSA 540-A:6, I(a): a landlord shall not demand or receive a security deposit exceeding one month's rent or $100, whichever is greater. RSA 540-A:5, II: 'security deposit' means ALL funds in excess of monthly rent transferred to the landlord for any purpose (so a 'non-refundable' deposit is still a deposit). RSA 540-A:6, II(a): the deposit continues to be the tenant's money, held in trust, and shall not be mingled with the landlord's money or become his asset. RSA 540-A:6, IV(a): deposit held one year or longer accrues interest. RSA 540-A:7, I: return + written itemized list of damages within 30 days of termination. RSA 540-A:8, III: any lease provision purporting to waive these rights is void. status=draft-unverified: must be reviewed by a NH tenant attorney / legal-aid clinic before public conclusions.",
+  "rules": [
+    {
+      "id": "nh-deposit-001",
+      "jurisdiction": "US-NH",
+      "title": "Security deposit exceeds one month's rent (or $100, whichever is greater)",
+      "severity": "illegal",
+      "description": "Per RSA 540-A:6, I(a), a landlord may not demand or receive a security deposit greater than one month's rent or $100, whichever is greater. A clause requiring two months' rent, or first + last + a security deposit on top, exceeds the cap.",
+      "tenant_explainer": "In New Hampshire your security deposit can't be more than one month's rent (or $100, if that's higher). If the lease asks for two months — or first, last, and a deposit on top — that's over the legal limit.",
+      "citations": [
+        {"label": "N.H. RSA 540-A:6, I(a)", "url": "https://gc.nh.gov/rsa/html/LV/540-A/540-A-6.htm", "quote": "A landlord shall not demand or receive any security deposit in an amount or value in excess of one month's rent or $100, whichever is greater."}
+      ],
+      "patterns": [
+        "security\\s+deposit\\s+(?:of\\s+|equal\\s+to\\s+|in\\s+the\\s+amount\\s+of\\s+|totaling\\s+)?(?:two|2|three|3|four|4|five|5|six|6)\\s+months?",
+        "(?:two|2|three|3|four|4|five|5|six|6)\\s+months?(?:'|’|s)?\\s+rent\\s+(?:as\\s+|for\\s+)?(?:a\\s+)?security\\s+deposit"
+      ],
+      "keywords": [],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "nh-deposit-002",
+      "jurisdiction": "US-NH",
+      "title": "Security deposit commingled / treated as the landlord's money",
+      "severity": "illegal",
+      "description": "Per RSA 540-A:6, II(a), a security deposit continues to be the tenant's money, must be held in trust, and shall not be mingled with the landlord's personal money or become an asset of the landlord. A clause letting the landlord commingle the deposit or treat it as his own funds contradicts the statute.",
+      "tenant_explainer": "Your deposit is still your money — the landlord just holds it in trust. A clause letting them mix it with their own funds or treat it as theirs isn't allowed in New Hampshire.",
+      "citations": [
+        {"label": "N.H. RSA 540-A:6, II(a)", "url": "https://gc.nh.gov/rsa/html/LV/540-A/540-A-6.htm", "quote": "Security deposits held by a landlord continue to be the money of the tenant and shall be held in trust by the person with whom such deposit is made and shall not be mingled with the personal moneys or become an asset of the landlord until the provisions of RSA 540-A:7 are complied with"}
+      ],
+      "patterns": [
+        "(?:security\\s+)?deposit[^.]{0,40}(?:commingl|mingl)\\w*",
+        "(?:commingl|mingl)\\w*[^.]{0,40}(?:security\\s+)?deposit",
+        "(?:security\\s+)?deposit[^.]{0,40}(?:becomes?|is|shall\\s+be|may\\s+be|will\\s+be)[^.]{0,20}(?:the\\s+)?(?:property|asset|funds?)\\s+of\\s+(?:the\\s+)?landlord",
+        "landlord\\s+may\\s+(?:mingle|mix|commingle|use|spend)\\s+(?:the\\s+)?(?:security\\s+)?deposit"
+      ],
+      "keywords": ["commingle the deposit"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "nh-deposit-003",
+      "jurisdiction": "US-NH",
+      "title": "Non-refundable security deposit",
+      "severity": "illegal",
+      "description": "Per RSA 540-A:5, II, a 'security deposit' is ALL funds in excess of the monthly rent transferred to the landlord for any purpose. Such funds remain the tenant's money held in trust (RSA 540-A:6, II(a)) and must be returned, less an itemized list of lawful deductions, within 30 days of termination (RSA 540-A:7, I); RSA 540-A:8, III voids any waiver. Labeling a deposit 'non-refundable' purports to waive that return right and is void.",
+      "tenant_explainer": "Calling a deposit 'non-refundable' doesn't make it a fee. Any money beyond your monthly rent is treated as a deposit you're owed back within 30 days of moving out, minus an itemized list of real damage — and the lease can't sign that right away.",
+      "citations": [
+        {"label": "N.H. RSA 540-A:5, II", "url": "https://gc.nh.gov/rsa/html/LV/540-A/540-A-5.htm", "quote": "\"Security deposit\" means all funds in excess of the monthly rent which are transferred from the tenant to the landlord for any purpose."},
+        {"label": "N.H. RSA 540-A:8, III", "url": "https://gc.nh.gov/rsa/html/LV/540-A/540-A-8.htm", "quote": "Any provision in any lease or rental agreement by which the tenant is purported to waive any of his rights under this subdivision, except as provided in RSA 540-A:6, III(d), shall be void."}
+      ],
+      "patterns": [
+        "non-?refundable\\s+(?:security\\s+)?deposit",
+        "(?:security\\s+)?deposit\\s+(?:is|shall\\s+be|will\\s+be)\\s+non-?refundable"
+      ],
+      "keywords": ["nonrefundable deposit"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "nh-deposit-004",
+      "jurisdiction": "US-NH",
+      "title": "Deposit not returned / no itemized list within 30 days of termination",
+      "severity": "illegal",
+      "description": "Per RSA 540-A:7, I, a landlord must return the security deposit and pay any interest due within 30 days of the termination of the tenancy, and where damages are claimed must give the tenant a written, itemized list. A clause setting a longer return window, or letting the landlord keep the deposit without an itemized accounting, conflicts with the statute (and RSA 540-A:8, III voids the waiver).",
+      "tenant_explainer": "Your landlord has 30 days after the tenancy ends to return your deposit, and if they keep any of it they have to give you an itemized written list of the damages. A lease that gives them 60 days, or lets them keep it with no breakdown, doesn't override that.",
+      "citations": [
+        {"label": "N.H. RSA 540-A:7, I", "url": "https://gc.nh.gov/rsa/html/LV/540-A/540-A-7.htm", "quote": "a landlord shall return a security deposit to a tenant and pay the interest due, if any, within 30 days from the termination of the tenancy. If there are any damages to the premises, excluding reasonable wear and tear, the landlord may deduct the costs of repair from the security deposit. The landlord shall provide the tenant with a written, itemized list of any damages for which the landlord claims the tenant is liable"}
+      ],
+      "patterns": [
+        "(?:security\\s+)?deposit[^.]{0,60}(?:within|after)\\s+(?:forty-?five|45|sixty|60|ninety|90)\\b[^.]{0,8}days",
+        "(?:retain|keep|forfeit\\w*)[^.]{0,40}(?:security\\s+)?deposit[^.]{0,40}without\\s+(?:any\\s+)?(?:itemiz\\w*|written|accounting)",
+        "no\\s+itemized\\s+(?:list|statement)[^.]{0,30}(?:required|necessary)"
+      ],
+      "keywords": [],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "nh-deposit-005",
+      "jurisdiction": "US-NH",
+      "title": "Tenant waives interest on a deposit held one year or longer",
+      "severity": "illegal",
+      "description": "Per RSA 540-A:6, IV(a), a landlord holding a security deposit for one year or longer must pay the tenant interest at the rate paid on regular savings accounts at the bank where it is held. RSA 540-A:8, III voids any lease provision purporting to waive that right. A clause stating the deposit earns no interest, or that the tenant waives interest, is void.",
+      "tenant_explainer": "If your landlord holds your deposit for a year or more, they owe you interest on it. A lease line saying 'the deposit bears no interest' or 'tenant waives any interest' doesn't hold up in New Hampshire.",
+      "citations": [
+        {"label": "N.H. RSA 540-A:6, IV(a)", "url": "https://gc.nh.gov/rsa/html/LV/540-A/540-A-6.htm", "quote": "A landlord who holds a security deposit for a period of one year or longer shall pay to the tenant interest on the deposit at a rate equal to the interest rate paid on regular savings accounts in the New Hampshire bank, savings and loan association, or credit union in which it is deposited"},
+        {"label": "N.H. RSA 540-A:8, III", "url": "https://gc.nh.gov/rsa/html/LV/540-A/540-A-8.htm", "quote": "Any provision in any lease or rental agreement by which the tenant is purported to waive any of his rights under this subdivision, except as provided in RSA 540-A:6, III(d), shall be void."}
+      ],
+      "patterns": [
+        "(?:security\\s+)?deposit[^.]{0,40}(?:shall\\s+|will\\s+|does\\s+)?(?:bear|earn|accrue)\\s+no\\s+interest",
+        "no\\s+interest\\s+(?:shall|will)\\s+be\\s+(?:paid|due)[^.]{0,30}(?:security\\s+)?deposit",
+        "tenant\\s+waives?\\s+(?:any\\s+|all\\s+)?interest[^.]{0,30}deposit"
+      ],
+      "keywords": ["no interest on the deposit"],
+      "status": "draft-unverified"
+    }
+  ]
+}

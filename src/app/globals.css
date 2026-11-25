@@ -1,0 +1,336 @@
+/* LeaseLookout — "Know Your Rights" zine
+ * The product is a riso-printed tenant-union pamphlet. Light = warm cream
+ * stock + ink-black; dark = the same zine screenprinted on black, neon inks
+ * glowing. Hot-pink is the red flag / alarm + primary; electric-blue is
+ * structure & links; riso-yellow says "check this". Bricolage Grotesque shouts
+ * the headlines; Instrument Serif is the lease's own voice; JetBrains Mono is
+ * the receipts (every statute citation). Chunky ink borders, hard offset
+ * shadows (a slightly mis-registered print run), rotated stamps, halftone dots. */
+@import 'tailwindcss';
+
+:root {
+  /* Cream stock + ink */
+  --background: #f3ead8;
+  --foreground: #11110d;
+  --card: #fffdf7;
+  --card-foreground: #11110d;
+  --popover: #fffdf7;
+  --popover-foreground: #11110d;
+
+  /* Hot pink — the red flag / alarm / primary */
+  --primary: #ff2e88;
+  --primary-foreground: #11110d;
+  /* Electric blue — structure & links */
+  --secondary: #2b4bf2;
+  --secondary-foreground: #f3ead8;
+
+  --muted: #eadcc0;
+  --muted-foreground: #5c574a;
+  --accent: #eadcc0;
+  --accent-foreground: #11110d;
+  --destructive: #ff2e88;
+  --destructive-foreground: #11110d;
+
+  --border: #11110d;
+  --input-background: #fffdf7;
+  --ring: #ff2e88;
+  --radius: 0.125rem;
+
+  /* Hard offset shadow ink (mis-registration). Flips to neon in dark. */
+  --shadow-color: #11110d;
+
+  /* Severity = the three zine inks */
+  --sev-unenforceable: #ff2e88; /* illegal — won't hold up */
+  --sev-unenforceable-tint: #ffe0ee;
+  --sev-check: #f5b700; /* questionable — worth a look */
+  --sev-check-tint: #fbefc7;
+  --sev-info: #2b4bf2; /* good to know */
+  --sev-info-tint: #dee4ff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* The zine, screenprinted on black */
+    --background: #0f0f0c;
+    --foreground: #f3ead8;
+    --card: #17170f;
+    --card-foreground: #f3ead8;
+    --popover: #17170f;
+    --popover-foreground: #f3ead8;
+
+    --primary: #ff3d95;
+    --primary-foreground: #11110d;
+    --secondary: #5b7cff;
+    --secondary-foreground: #0f0f0c;
+
+    --muted: #1a1a15;
+    --muted-foreground: #b3ac9c;
+    --accent: #1a1a15;
+    --accent-foreground: #f3ead8;
+    --destructive: #ff3d95;
+    --destructive-foreground: #11110d;
+
+    --border: #f3ead8;
+    --input-background: #17170f;
+    --ring: #ff3d95;
+
+    /* Neon-blue offset = the print run's mis-registration on black */
+    --shadow-color: #5b7cff;
+
+    --sev-unenforceable: #ff3d95;
+    --sev-unenforceable-tint: rgba(255, 61, 149, 0.2);
+    --sev-check: #ffc83d;
+    --sev-check-tint: rgba(255, 200, 61, 0.16);
+    --sev-info: #5b7cff;
+    --sev-info-tint: rgba(91, 124, 255, 0.16);
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input-background: var(--input-background);
+  --color-ring: var(--ring);
+
+  --color-sev-unenforceable: var(--sev-unenforceable);
+  --color-sev-unenforceable-tint: var(--sev-unenforceable-tint);
+  --color-sev-check: var(--sev-check);
+  --color-sev-check-tint: var(--sev-check-tint);
+  --color-sev-info: var(--sev-info);
+  --color-sev-info-tint: var(--sev-info-tint);
+
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-instrument-serif);
+  --font-mono: var(--font-jetbrains-mono);
+  --font-display: var(--font-bricolage);
+
+  --radius-sm: var(--radius);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: 'ss01', 'cv11';
+  }
+  /* Halftone dot field — the riso print texture, fixed behind everything. */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(var(--secondary) 1px, transparent 1.4px);
+    background-size: 8px 8px;
+    opacity: 0.06;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .font-serif {
+    font-family: var(--font-serif);
+    letter-spacing: -0.01em;
+  }
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+  .font-display {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+  ::selection {
+    background: var(--primary);
+    color: var(--primary-foreground);
+  }
+  section[id] {
+    scroll-margin-top: 4.5rem;
+  }
+}
+
+/* ── Zine instruments ───────────────────────────────────────────── */
+
+/* Mono section / issue tag — blue chip, slightly rotated like a stuck label. */
+.zine-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: var(--secondary);
+  color: var(--background);
+  padding: 5px 10px;
+  transform: rotate(-1.5deg);
+}
+.zine-tag.is-pink {
+  background: var(--primary);
+  color: #11110d;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Rotated rubber-stamp verdict. Text is ink on pink/yellow, cream on blue. */
+.stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.8125rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 5px 11px;
+  border: 2.5px solid var(--foreground);
+  white-space: nowrap;
+}
+.stamp.is-illegal {
+  background: var(--sev-unenforceable);
+  color: #11110d;
+  transform: rotate(-3deg);
+}
+.stamp.is-check {
+  background: var(--sev-check);
+  color: #11110d;
+  transform: rotate(2deg);
+}
+.stamp.is-info {
+  background: var(--sev-info);
+  color: var(--background);
+  transform: rotate(-1.5deg);
+}
+
+/* Hard offset shadow = a slightly mis-registered print run. */
+.ll-shadow {
+  box-shadow: 5px 6px 0 var(--shadow-color);
+}
+.ll-shadow-sm {
+  box-shadow: 3px 3px 0 var(--shadow-color);
+}
+.ll-elev {
+  box-shadow: 4px 5px 0 var(--shadow-color);
+}
+.ll-elev-lg {
+  box-shadow: 6px 8px 0 var(--shadow-color);
+}
+/* Card that lifts into a heavier offset on hover. */
+.ll-card {
+  box-shadow: 4px 5px 0 var(--shadow-color);
+  transition:
+    transform 0.18s cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 0.18s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.ll-card:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 6px 8px 0 var(--shadow-color);
+}
+
+/* Pink highlighter swipe under a key word (used on display headlines). */
+.zine-highlight {
+  background: var(--sev-check);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  padding: 0 0.08em;
+}
+
+/* Redacted / struck clause text from the lease. */
+.zine-strike {
+  background: var(--sev-unenforceable-tint);
+  text-decoration: line-through;
+  text-decoration-color: var(--primary);
+  text-decoration-thickness: 2px;
+  padding: 0 0.08em;
+}
+
+/* ── Motion (SSR-safe: runs on load, ends visible) ──────────────── */
+@keyframes ll-rise {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.ll-rise {
+  animation: ll-rise 0.42s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes ll-progress {
+  from {
+    width: 8%;
+  }
+  to {
+    width: 92%;
+  }
+}
+.ll-progress {
+  animation: ll-progress 2.4s ease-in-out forwards;
+}
+
+/* The stamp lands with a tiny rotate-in, like it was pressed onto the page. */
+.ll-stamp {
+  animation: ll-stamp 0.32s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+@keyframes ll-stamp {
+  from {
+    opacity: 0;
+    transform: scale(0.86) rotate(-8deg);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .ll-rise {
+    animation: none;
+  }
+  .stamp {
+    transform: none !important;
+  }
+  .zine-tag {
+    transform: none !important;
+  }
+}

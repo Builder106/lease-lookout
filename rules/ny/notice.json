@@ -1,0 +1,24 @@
+{
+  "jurisdiction": "US-NY",
+  "_note": "New York advance-notice requirement for rent increases / non-renewal (HSTPA 2019), retrieved verbatim from nysenate.gov on 2026-06-17. RPL § 226-c: where a landlord will not renew or will raise rent by 5% or more, written notice is required — 30 days (occupancy/lease under 1 year), 60 days (1 to under 2 years), 90 days (2 years or more). status=draft-unverified.",
+  "rules": [
+    {
+      "id": "ny-notice-001",
+      "jurisdiction": "US-NY",
+      "title": "Rent increase or non-renewal without statutory notice",
+      "severity": "questionable",
+      "description": "Per RPL § 226-c, a landlord who intends to raise rent by 5% or more, or not to renew, must give advance written notice scaled to how long the tenant has lived there: 30 days (under 1 year), 60 days (1 to under 2 years), or 90 days (2 years or more). A clause letting the landlord raise rent 'at any time' or on shorter notice conflicts with this. Flag to check the notice period.",
+      "tenant_explainer": "Your landlord has to give you real warning before a rent hike of 5% or more — 30, 60, or 90 days depending on how long you've lived there. A clause saying rent can go up 'at any time' or with only a few days' notice doesn't match the law.",
+      "citations": [
+        {"label": "N.Y. Real Property Law § 226-c", "url": "https://www.nysenate.gov/legislation/laws/RPP/226-C", "quote": "Whenever a landlord intends to offer to renew the tenancy with a rent increase equal to or greater than five percent … or the landlord does not intend to renew the tenancy, the landlord shall provide written notice … [at least] thirty days [if occupancy/lease is less than one year]; sixty days [one year or more but less than two years]; ninety days [two years or more]."}
+      ],
+      "patterns": [
+        "increase\\s+(?:the\\s+)?rent[^.]{0,40}(?:at\\s+any\\s+time|upon\\s+\\d+\\s+days|with\\s+\\d+\\s+days'?\\s+notice|without\\s+notice)",
+        "rent\\s+may\\s+be\\s+(?:increased|raised)\\s+(?:at\\s+any\\s+time|upon\\s+\\d+|without\\s+notice)",
+        "landlord\\s+may\\s+(?:increase|raise)\\s+(?:the\\s+)?rent\\s+at\\s+any\\s+time"
+      ],
+      "keywords": [],
+      "status": "draft-unverified"
+    }
+  ]
+}

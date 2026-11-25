@@ -1,0 +1,119 @@
+{
+  "jurisdiction": "US-NY",
+  "_note": "New York statutory bars on residential lease terms, retrieved verbatim from the NY State Senate legislation site (nysenate.gov) on 2026-06-17. These are non-waivable / void-as-against-public-policy provisions: RPL § 235-b(2) (habitability waiver void), GOL § 5-321 (landlord exculpation void), RPL § 259-c (jury-trial waiver null and void), RPAPL § 768 (self-help eviction is a crime), RPL § 227-e (mitigation-duty waiver void), RPL § 223-b (retaliation; complaint-penalty clause null and void). NY layers local law on top (NYC rent stabilization etc.) — this is the state baseline. ALL rules status=draft-unverified: must be reviewed by a New York tenant attorney / legal-aid clinic before public conclusions.",
+  "rules": [
+    {
+      "id": "ny-prohibited-001",
+      "jurisdiction": "US-NY",
+      "title": "\"As-is\" / waiver of the warranty of habitability",
+      "severity": "illegal",
+      "description": "Per RPL § 235-b, every residential lease carries an implied warranty that the premises are fit for human habitation; § 235-b(2) makes any agreement waiving or modifying that warranty void as contrary to public policy. An 'as-is' or habitability-waiver clause is unenforceable.",
+      "tenant_explainer": "You can't sign away your right to a livable home. 'Tenant accepts the unit as-is' or 'waives the warranty of habitability' is void in New York — the landlord still owes you a safe, habitable place.",
+      "citations": [
+        {"label": "N.Y. Real Property Law § 235-b(1)-(2)", "url": "https://www.nysenate.gov/legislation/laws/RPP/235-B", "quote": "In every written or oral lease or rental agreement for residential premises the landlord or lessor shall be deemed to covenant and warrant that the premises so leased or rented … are fit for human habitation … Any agreement by a lessee or tenant of a dwelling waiving or modifying his rights as set forth in this section shall be void as contrary to public policy."}
+      ],
+      "patterns": [
+        "accepts?\\s+(?:the\\s+)?(?:premises|unit|apartment|dwelling)\\s+(?:in\\s+)?(?:its\\s+)?(?:present|current|existing)\\s+condition",
+        "(?:premises|unit|apartment|dwelling)[^.]{0,30}\\bas[\\s-]?is\\b",
+        "\\bas[\\s-]?is\\b[^.]{0,30}(?:condition|where[\\s-]?is)",
+        "waive[sd]?[^.]{0,40}(?:implied\\s+)?warranty\\s+of\\s+habitability",
+        "(?:disclaim\\w*|no|without)\\s+(?:any\\s+|all\\s+)?(?:implied\\s+)?warrant(?:y|ies)\\s+of\\s+habitability"
+      ],
+      "keywords": ["warranty of habitability"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "ny-prohibited-002",
+      "jurisdiction": "US-NY",
+      "title": "Landlord exculpation for its own negligence",
+      "severity": "illegal",
+      "description": "Per GOL § 5-321, a lease covenant exempting the landlord from liability for injury to person or property caused by the landlord's negligence is void as against public policy and wholly unenforceable.",
+      "tenant_explainer": "Your landlord can't use the lease to escape responsibility for harm caused by their own negligence. 'Landlord not liable for any injury' / 'hold harmless' clauses are void in New York.",
+      "citations": [
+        {"label": "N.Y. General Obligations Law § 5-321", "url": "https://www.nysenate.gov/legislation/laws/GOB/5-321", "quote": "Every covenant, agreement or understanding in or in connection with or collateral to any lease of real property exempting the lessor from liability for damages for injuries to person or property caused by or resulting from the negligence of the lessor, his agents, servants or employees, in the operation or maintenance of the demised premises … shall be deemed to be void as against public policy and wholly unenforceable."}
+      ],
+      "patterns": [
+        "hold\\s+(?:the\\s+)?landlord\\s+harmless",
+        "indemnify\\s+(?:and\\s+hold\\s+harmless\\s+)?(?:the\\s+)?landlord",
+        "landlord\\s+shall\\s+not\\s+be\\s+(?:held\\s+)?liable",
+        "releases?\\s+(?:the\\s+)?landlord\\s+from\\s+(?:any\\s+|all\\s+)?liability"
+      ],
+      "keywords": ["hold harmless", "indemnify the landlord"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "ny-prohibited-003",
+      "jurisdiction": "US-NY",
+      "title": "Waiver of jury trial (personal injury / property damage)",
+      "severity": "illegal",
+      "description": "Per RPL § 259-c, a lease provision waiving trial by jury in any action between landlord and tenant for personal injury or property damage is null and void.",
+      "tenant_explainer": "A lease can't make you give up your right to a jury in a case about injury or property damage. That waiver is null and void in New York.",
+      "citations": [
+        {"label": "N.Y. Real Property Law § 259-c", "url": "https://www.nysenate.gov/legislation/laws/RPP/259-C", "quote": "Any provision in a lease, executed after the effective date of this act, that a trial by jury is waived in any action, proceeding or counterclaim brought by either of the parties thereto against the other in any action for personal injury or property damage, is null and void."}
+      ],
+      "patterns": [
+        "waive[sd]?\\s+(?:any\\s+|the\\s+|his\\s+|her\\s+|their\\s+|its\\s+)?(?:right\\s+to\\s+(?:a\\s+)?)?(?:trial\\s+by\\s+jury|jury\\s+trial)",
+        "waiver\\s+of\\s+(?:a\\s+|the\\s+)?(?:trial\\s+by\\s+jury|jury\\s+trial)"
+      ],
+      "keywords": ["waiver of trial by jury", "waive trial by jury"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "ny-prohibited-004",
+      "jurisdiction": "US-NY",
+      "title": "Self-help eviction (lockout, seizing property, cutting utilities)",
+      "severity": "illegal",
+      "description": "Per RPAPL § 768, evicting or attempting to evict an occupant who has lawfully occupied a unit 30 days or longer — other than by court process — is unlawful, including by force, by changing/disabling the locks, by removing the occupant's possessions, or by interrupting essential services. It is a class A misdemeanor. A lease clause purporting to authorize any of this is unenforceable.",
+      "tenant_explainer": "A landlord can't lock you out, take your belongings, or shut off your utilities to force you out — they have to go to court. In New York doing so is a crime, and any lease clause saying otherwise doesn't hold up.",
+      "citations": [
+        {"label": "N.Y. Real Property Actions and Proceedings Law § 768", "url": "https://www.nysenate.gov/legislation/laws/RPA/768", "quote": "It shall be unlawful for any person to evict or attempt to evict an occupant of a dwelling unit who has lawfully occupied the dwelling unit for thirty consecutive days or longer … by … (a) using or threatening the use of force … (b) … interruption or discontinuance of essential services … (c) removing the occupant's possessions … [or] removing, plugging or otherwise rendering the lock to such dwelling unit inoperable, or changing the lock … without supplying the occupant with a key. Any person who intentionally violates … this section shall be guilty of a class A misdemeanor."}
+      ],
+      "patterns": [
+        "without\\s+(?:resort(?:ing)?\\s+to|the\\s+necessity\\s+of|recourse\\s+to)\\s+(?:any\\s+|a\\s+)?(?:court|legal\\s+process|judicial\\s+process|summary\\s+process)",
+        "landlord\\s+may\\s+(?:re-?enter\\s+and\\s+take\\s+possession|retake\\s+possession|repossess|dispossess)",
+        "lock[\\s-]?out",
+        "(?:shut(?:ting)?\\s+off|discontinu\\w+|interrupt\\w+|terminat\\w+)\\s+(?:the\\s+)?(?:essential\\s+)?(?:services|utilities|heat|water|electricity)",
+        "chang(?:e|ing)\\s+(?:the\\s+)?locks?"
+      ],
+      "keywords": ["self-help", "without resort to court"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "ny-prohibited-005",
+      "jurisdiction": "US-NY",
+      "title": "Tenant owes all remaining rent on early termination (ignores duty to mitigate)",
+      "severity": "illegal",
+      "description": "Per RPL § 227-e, when a tenant vacates early the landlord must in good faith take reasonable and customary actions to re-rent at fair market value (or the lease rate, whichever is lower); any lease provision exempting that duty is void as contrary to public policy. A clause making the tenant automatically liable for all remaining rent regardless of re-renting is unenforceable to that extent.",
+      "tenant_explainer": "If you leave early, your landlord can't just bill you for every remaining month — New York requires them to make a real effort to re-rent the place, and a clause waiving that duty is void.",
+      "citations": [
+        {"label": "N.Y. Real Property Law § 227-e", "url": "https://www.nysenate.gov/legislation/laws/RPP/227-E", "quote": "… the landlord shall, in good faith and according to the landlord's resources and abilities, take reasonable and customary actions to rent the premises at fair market value or at the rate agreed to during the term of the tenancy, whichever is lower. … Any provision in a lease that exempts a landlord's duty to mitigate damages under this section shall be void as contrary to public policy."}
+      ],
+      "patterns": [
+        "accelerat\\w*[^.]{0,30}rent",
+        "rent[^.]{0,30}accelerat\\w*",
+        "(?:all|entire|remaining|remainder\\s+of\\s+the)\\s+rent[^.]{0,50}(?:immediately\\s+due|due\\s+(?:and\\s+payable\\s+)?(?:in\\s+full|immediately)|for\\s+the\\s+(?:remainder|balance|entire\\s+(?:remaining\\s+)?term))",
+        "(?:liable|responsible)\\s+for[^.]{0,30}(?:all|the\\s+entire|the\\s+remaining)\\s+rent[^.]{0,40}term"
+      ],
+      "keywords": ["acceleration of rent"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "ny-prohibited-006",
+      "jurisdiction": "US-NY",
+      "title": "Penalty for complaining, or retaliation waiver",
+      "severity": "illegal",
+      "description": "Per RPL § 223-b, a landlord may not retaliate against a tenant for a good-faith habitability complaint, for enforcing tenant rights, or for organizing; § 223-b(5-a) makes any lease provision that assesses a fee, penalty, or charge against a tenant for filing a bona-fide complaint null and void.",
+      "tenant_explainer": "Your landlord can't punish you for complaining about conditions or joining a tenants' group. A lease clause that fines you for filing a complaint is null and void in New York.",
+      "citations": [
+        {"label": "N.Y. Real Property Law § 223-b(1), (5-a)", "url": "https://www.nysenate.gov/legislation/laws/RPP/223-B", "quote": "No landlord … shall serve a notice to quit upon any tenant or commence any action to recover real property or summary proceeding to recover possession of real property in retaliation for [a good-faith complaint or enforcement of rights or tenant-organization activity]. … Any lease provision which seeks to assess a fee, penalty or dollar charge … against a tenant because such tenant files a bona fide complaint … shall be null and void."}
+      ],
+      "patterns": [
+        "retaliat\\w*",
+        "(?:fee|penalty|penalties|charge|fine)[^.]{0,50}(?:filing|file[sd]?|making|made|submitting)?[^.]{0,20}(?:a\\s+)?complaint",
+        "(?:fee|penalty|penalties|charge|fine)[^.]{0,40}(?:complain|reporting\\s+(?:a\\s+)?(?:violation|condition)|housing\\s+code)"
+      ],
+      "keywords": [],
+      "status": "draft-unverified"
+    }
+  ]
+}

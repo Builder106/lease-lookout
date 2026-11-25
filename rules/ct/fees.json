@@ -1,0 +1,39 @@
+{
+  "jurisdiction": "US-CT",
+  "_note": "Conn. Gen. Stat. § 47a-4d (Fees for tenant screening reports; prohibited pre-tenancy fees), retrieved verbatim from cga.ct.gov on 2026-06-05. § 47a-4d(b): the only payments a landlord may demand before/at the beginning of a tenancy are a security deposit, first month's rent, a key/special-equipment deposit, and a tenant-screening fee; move-in and move-out fees are barred. § 47a-4d(c): a screening fee may not exceed $50 (plus a CPI adjustment). status=draft-unverified.",
+  "rules": [
+    {
+      "id": "ct-fees-001",
+      "jurisdiction": "US-CT",
+      "title": "Move-in or move-out fee",
+      "severity": "illegal",
+      "description": "Per § 47a-4d(b), a landlord may not charge a tenant a move-in or move-out fee. Such a fee is prohibited outright (distinct from a lawful security deposit).",
+      "tenant_explainer": "Connecticut flatly bans move-in and move-out fees. The only money a landlord can collect up front is your security deposit, first month's rent, a key/equipment deposit, and (if applicable) a screening fee.",
+      "citations": [
+        {"label": "Conn. Gen. Stat. § 47a-4d(b)", "url": "https://www.cga.ct.gov/current/pub/chap_830.htm#sec_47a-4d", "quote": "No landlord may demand from a prospective tenant any payment, fee or charge for the processing, review or acceptance of any rental application, or demand any other payment, fee or charge before or at the beginning of the tenancy, except a security deposit … advance payment for the first month's rent or a deposit for a key or any special equipment, or a fee for a tenant screening report …. No landlord may charge a tenant a move-in or move-out fee."}
+      ],
+      "patterns": ["move-?in\\s+(?:fee|charge)", "move-?out\\s+(?:fee|charge)"],
+      "keywords": ["move-in fee", "move-out fee"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "ct-fees-002",
+      "jurisdiction": "US-CT",
+      "title": "Application / processing fee (beyond a capped screening fee)",
+      "severity": "questionable",
+      "description": "Per § 47a-4d(b)-(c), the only pre-tenancy charge a landlord may demand toward an application is a tenant-screening-report fee, capped at $50 (plus a CPI adjustment). A separate 'application', 'processing', or 'administrative' fee — or a screening fee over the cap — is prohibited. Flag to check the amount and purpose.",
+      "tenant_explainer": "A landlord can charge a screening-report fee (capped at about $50) — but not a separate application, processing, or administrative fee. If you're being charged more than ~$50 or an extra application fee, it likely isn't allowed.",
+      "citations": [
+        {"label": "Conn. Gen. Stat. § 47a-4d(b) & (c)", "url": "https://www.cga.ct.gov/current/pub/chap_830.htm#sec_47a-4d", "quote": "No landlord may demand from a prospective tenant any payment, fee or charge for the processing, review or acceptance of any rental application … except … a fee for a tenant screening report …. (c) … a landlord may charge a fee not exceeding fifty dollars plus an adjustment reflecting any increase in the consumer price index … for a tenant screening report …."}
+      ],
+      "patterns": [
+        "(?:rental\\s+)?application\\s+fee",
+        "processing\\s+fee",
+        "administrative\\s+fee",
+        "\\badmin\\s+fee\\b"
+      ],
+      "keywords": ["application fee"],
+      "status": "draft-unverified"
+    }
+  ]
+}

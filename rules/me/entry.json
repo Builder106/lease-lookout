@@ -1,0 +1,24 @@
+{
+  "jurisdiction": "US-ME",
+  "_note": "Maine landlord-entry rule, retrieved verbatim from the Maine Legislature statute site (legislature.maine.gov) on 2026-06-20. 14 M.R.S. §6025(2): except in an emergency or where impracticable, the landlord must give reasonable notice of intent to enter and may enter only at reasonable times, and 24 hours is presumed reasonable notice. §6025(4): any agreement by a tenant to waive these rights is against public policy and void. status=draft-unverified: review by a Maine tenant attorney / Pine Tree Legal before publishing conclusions.",
+  "rules": [
+    {
+      "id": "me-entry-001",
+      "jurisdiction": "US-ME",
+      "title": "Landlord entry without notice / at any time",
+      "severity": "illegal",
+      "description": "Per 14 M.R.S. §6025(2), except in an emergency (or where giving notice is impracticable) the landlord must give reasonable notice of intent to enter and may enter only at reasonable times — 24 hours is presumed reasonable. §6025(4) makes any tenant waiver of these rights void as against public policy. A clause allowing entry 'at any time' or 'without notice' is unenforceable.",
+      "tenant_explainer": "Except in an emergency, your landlord has to give you reasonable notice before entering — Maine treats 24 hours as reasonable — and can only come in at reasonable times. A lease letting them enter 'anytime' or 'without notice' is void.",
+      "citations": [
+        {"label": "14 M.R.S. §6025(2) (Landlord obligations)", "url": "https://legislature.maine.gov/statutes/14/title14sec6025.html", "quote": "Except in the case of emergency or if it is impracticable to do so, the landlord shall give the tenant reasonable notice of the landlord's intent to enter and shall enter only at reasonable times. Twenty-four hours is presumed to be a reasonable notice in the absence of evidence to the contrary."},
+        {"label": "14 M.R.S. §6025(4) (Waiver)", "url": "https://legislature.maine.gov/statutes/14/title14sec6025.html", "quote": "Any agreement by a tenant to waive any of the rights or benefits provided by this section is against public policy and is void."}
+      ],
+      "patterns": [
+        "(?:enter|entry|access)[^.]{0,60}(?:at\\s+any\\s+time|without\\s+(?:prior\\s+|advance\\s+|any\\s+)?notice|at\\s+(?:the\\s+landlord'?s?\\s+)?(?:sole\\s+)?discretion)",
+        "(?:at\\s+any\\s+time|without\\s+(?:prior\\s+|advance\\s+|any\\s+)?notice)[^.]{0,50}(?:enter|entry)"
+      ],
+      "keywords": [],
+      "status": "draft-unverified"
+    }
+  ]
+}

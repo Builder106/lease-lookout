@@ -1,0 +1,25 @@
+{
+  "jurisdiction": "US-NH",
+  "_note": "New Hampshire landlord-entry rules, retrieved verbatim from the NH General Court statute site (gc.nh.gov; the legacy gencourt.state.nh.us host now 301-redirects here) on 2026-06-20. RSA 540-A:3, IV: no landlord shall willfully enter the tenant's premises without prior consent, other than to make emergency repairs. RSA 540-A:3, V-d: a landlord may enter without consent ONLY to make emergency repairs (paragraphs IV and IV-a) or under a court order obtained pursuant to RSA 540-A:4. Enforcement: a violation of RSA 540-A:3 is actionable under RSA 540-A:4 and carries the consumer-protection remedies of RSA 358-A:10. status=draft-unverified: must be reviewed by a NH tenant attorney / legal-aid clinic before public conclusions.",
+  "rules": [
+    {
+      "id": "nh-entry-001",
+      "jurisdiction": "US-NH",
+      "title": "Landlord may enter without notice or consent (non-emergency)",
+      "severity": "illegal",
+      "description": "Per RSA 540-A:3, IV, a landlord may not willfully enter the tenant's premises without prior consent, except to make emergency repairs. A clause giving the landlord a right to enter at will, at any time, or without notice or consent for ordinary (non-emergency) purposes — inspections, showings, maintenance — contradicts the statute.",
+      "tenant_explainer": "Outside a real emergency, your landlord can't just let themselves in — New Hampshire requires your prior consent. A lease line saying they may enter 'at any time' or 'without notice' for inspections or showings doesn't hold up.",
+      "citations": [
+        {"label": "N.H. RSA 540-A:3, IV", "url": "https://gc.nh.gov/rsa/html/LV/540-A/540-A-3.htm", "quote": "No landlord shall willfully enter into the premises of the tenant without prior consent, other than to make emergency repairs."},
+        {"label": "N.H. RSA 540-A:3, V-d", "url": "https://gc.nh.gov/rsa/html/LV/540-A/540-A-3.htm", "quote": "Notwithstanding any other provision of this chapter, a landlord may only enter a tenant's dwelling unit without the consent of the tenant: (a) To make emergency repairs pursuant to paragraphs IV and IV-a; or (b) If the landlord has obtained an order authorizing the entry from a court of competent jurisdiction pursuant to RSA 540-A:4."}
+      ],
+      "patterns": [
+        "landlord\\s+(?:may|shall\\s+have\\s+the\\s+right\\s+to|reserves?\\s+the\\s+right\\s+to|is\\s+entitled\\s+to)\\s+enter[^.]{0,60}(?:at\\s+any\\s+time|without\\s+(?:prior\\s+)?(?:notice|consent)|at\\s+(?:its|his|her|their)\\s+(?:sole\\s+)?discretion|whenever)",
+        "(?:enter|access)[^.]{0,40}(?:premises|unit|apartment|dwelling)[^.]{0,40}without\\s+(?:prior\\s+)?(?:notice|consent)",
+        "landlord\\s+may\\s+enter[^.]{0,50}(?:to\\s+)?(?:inspect|show|exhibit|conduct\\s+showings)[^.]{0,40}without\\s+(?:prior\\s+)?(?:notice|consent)"
+      ],
+      "keywords": ["enter at any time", "enter without notice"],
+      "status": "draft-unverified"
+    }
+  ]
+}

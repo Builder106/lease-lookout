@@ -1,0 +1,59 @@
+# Supabase project configuration (config-as-code).
+#
+# Purpose here: wire the "Know Your Rights" zine email templates in
+# supabase/templates/ so they ship from the repo via `supabase config push`
+# instead of being pasted into the dashboard.
+#
+# ─────────────────────────────────────────────────────────────────────────
+# READ BEFORE YOU PUSH — `supabase config push` applies THIS WHOLE FILE.
+# There is no `config pull` and no `--dry-run` (CLI 2.106). The CLI resolves
+# config.toml (filling CLI DEFAULTS for anything omitted) and writes that to
+# the linked project's auth config. Settings you don't declare here — site_url,
+# additional_redirect_urls, SMTP/Mailgun, external OAuth providers, signup
+# toggles, JWT expiry — can be RESET to defaults on push, which would break
+# production auth.
+#
+# This file intentionally declares ONLY the email templates, so a blind
+# `supabase config push` is NOT safe yet. Before the first push, either:
+#   1. Mirror the current dashboard auth settings into an [auth] section here
+#      (read them first: GET https://api.supabase.com/v1/projects/<ref>/config/auth
+#      with a personal access token), OR
+#   2. Skip config push and apply ONLY these templates via a Management API
+#      PATCH of mailer_* fields (surgical, touches nothing else).
+#
+# Note: pushing to `main` deploys Vercel only — it does NOT run config push.
+# Applying these templates to Supabase is a separate, manual CLI step.
+# ─────────────────────────────────────────────────────────────────────────
+
+project_id = "kkouofbrpcchruwtnory"
+
+# Sign-up confirmation — supabase/templates/confirm-signup.html
+[auth.email.template.confirmation]
+subject = "Confirm your LeaseLookout email"
+content_path = "./supabase/templates/confirm-signup.html"
+
+# Invite — supabase/templates/invite-user.html
+[auth.email.template.invite]
+subject = "You're invited to LeaseLookout"
+content_path = "./supabase/templates/invite-user.html"
+
+# Password reset — supabase/templates/reset-password.html
+[auth.email.template.recovery]
+subject = "Reset your LeaseLookout password"
+content_path = "./supabase/templates/reset-password.html"
+
+# Magic link / email OTP sign-in — supabase/templates/magic-link.html
+[auth.email.template.magic_link]
+subject = "Your LeaseLookout login link"
+content_path = "./supabase/templates/magic-link.html"
+
+# Email change confirmation — supabase/templates/change-email.html
+[auth.email.template.email_change]
+subject = "Confirm your new LeaseLookout email"
+content_path = "./supabase/templates/change-email.html"
+
+# Reauthentication code — supabase/templates/reauthentication.html
+# Token in the subject mirrors Supabase's default and previews the code in the inbox.
+[auth.email.template.reauthentication]
+subject = "{{ .Token }} is your LeaseLookout code"
+content_path = "./supabase/templates/reauthentication.html"

@@ -1,0 +1,52 @@
+# Python config for the LeaseLookout parser engine.
+# (The web app is npm/Next.js — see package.json.)
+#
+# A real [project] table is required because Vercel's Python builder runs `uv`,
+# which expects PEP-621 metadata. `tool.uv.package = false` tells uv to install
+# the dependencies without trying to build this repo as an installable package.
+#
+# uv is the only supported installer here — `uv sync` (see engine/README.md).
+# There is deliberately no requirements.txt; uv.lock is the pinned source of truth.
+#
+# OCR for scanned PDFs also needs the `tesseract` binary on PATH
+# (macOS: `brew install tesseract`; Debian/Ubuntu: `apt-get install tesseract-ocr`).
+# It is not a Python package, so uv cannot install it for you.
+
+[project]
+name = "leaselookout-engine"
+version = "0.1.0"
+description = "LeaseLookout lease-parsing engine (Connecticut illegal-clause detection)."
+requires-python = ">=3.12"
+dependencies = [
+    "pdfplumber>=0.11.4",  # digital-PDF text extraction
+    "pymupdf>=1.24",       # render PDF pages to images for OCR
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.2",
+    "pytest-cov>=5.0",
+]
+# Not used by the engine at runtime: the attorney/legal-aid review-packet generator
+# (scripts/build_review_packet_docx.py → docs/ruleset-review-*.docx).
+tooling = ["python-docx>=1.1"]
+
+[tool.uv]
+package = false
+# Empty so a bare `uv sync` — which is what Vercel's builder runs — installs only
+# the runtime dependencies, keeping pytest and python-docx out of the deployed
+# function. CI and local dev opt in explicitly with `--group dev`.
+default-groups = []
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["engine/tests", "tests"]
+addopts = "--cov=engine --cov=api --cov-report=term-missing --cov-fail-under=100"
+filterwarnings = ["error::DeprecationWarning"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["ANN401", "UP"]

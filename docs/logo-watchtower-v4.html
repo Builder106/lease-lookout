@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"/><title>LeaseLookout — open-leg tower</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#faf8f2;--ink:#23211e;--muted:#6b675e;--emerald:#1d6e62;--red:#b4422b;--border:rgba(35,33,30,.12);}
+  *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,sans-serif}
+  .wrap{max-width:1020px;margin:0 auto;padding:40px 48px 64px}
+  h1{font-family:"Instrument Serif",serif;font-weight:400;font-size:38px;letter-spacing:-.02em;margin:0 0 4px}
+  .sub{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 30px}
+  .row{display:grid;grid-template-columns:150px 1fr;align-items:center;gap:24px;padding:26px 0;border-top:1px solid var(--border)}
+  .name{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;color:var(--muted);line-height:1.5}
+  .name b{display:block;font-family:Inter;font-size:14px;letter-spacing:0;color:var(--ink);margin-bottom:5px;font-weight:600}
+  .sizes{display:flex;align-items:flex-end;gap:22px}.cell{display:flex;flex-direction:column;align-items:center;gap:7px}
+  .cap{font-family:"JetBrains Mono",monospace;font-size:9px;color:var(--muted)}.mark{color:var(--emerald)}
+  .tile{width:46px;height:46px;border-radius:11px;display:flex;align-items:center;justify-content:center}
+  .tile.paper{background:var(--paper);border:1px solid var(--border)}.tile.em{background:var(--emerald)}.tile.em .mark{color:var(--paper)}
+  .wordmark{display:flex;align-items:center;gap:7px;margin-left:8px}.wm{font-weight:600;font-size:23px;letter-spacing:-.01em}
+  .dark{background:#17150f;border-radius:12px;margin-top:38px;padding:26px 36px;color:#ece6d8}
+  .dark .name b{color:#ece6d8}.dark .row{border-top:1px solid rgba(236,230,216,.14)}.dark .mark{color:#5fae9f}
+  .darkhd{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;color:#9c968a;margin:0 0 6px}
+  svg{display:block}
+</style></head><body><div class="wrap">
+<h1>LeaseLookout — open-leg tower</h1>
+<p class="sub">open legs (you see through it) = tower, not chess piece · 48 / 32 / 24 / 16 px + tiles</p>
+<div id="light"></div><div class="dark"><p class="darkhd">On dark</p><div id="darkrow"></div></div>
+</div>
+<script>
+const MARKS={
+  canopy:`<svg class="mark" width="S" height="S" viewBox="0 0 24 24">
+    <path d="M6.6 7.3H17.4V8.8H6.6Z" fill="currentColor"/>
+    <path d="M8 8.8H16V12.7H8Z" fill="currentColor"/>
+    <path d="M9 12.7H10.8L8.3 20H6Z" fill="currentColor"/>
+    <path d="M13.2 12.7H15L17.7 20H15.2Z" fill="currentColor"/>
+    <path d="M9.3 9.8H14.7V11.1H9.3Z" fill="#b4422b"/></svg>`,
+  truss:`<svg class="mark" width="S" height="S" viewBox="0 0 24 24">
+    <path d="M8 8.4H16V12.4H8Z" fill="currentColor"/>
+    <path d="M9 12.4H10.8L8.3 20H6Z" fill="currentColor"/>
+    <path d="M13.2 12.4H15L17.7 20H15.2Z" fill="currentColor"/>
+    <path d="M8.1 16.1H15.9V17.1H8.1Z" fill="currentColor"/>
+    <path d="M9.3 9.4H14.7V10.7H9.3Z" fill="#b4422b"/></svg>`,
+  minimal:`<svg class="mark" width="S" height="S" viewBox="0 0 24 24">
+    <path d="M7.6 8H16.4V12.6H7.6Z" fill="currentColor"/>
+    <path d="M9 12.6H10.8L8.3 20H6Z" fill="currentColor"/>
+    <path d="M13.2 12.6H15L17.7 20H15.2Z" fill="currentColor"/>
+    <path d="M9.3 9.3H14.7V10.7H9.3Z" fill="#b4422b"/></svg>`,
+};
+const DEFS=[
+  ["canopy","Cabin + canopy + open legs","flat roof overhang + boxy cabin on open splayed legs; red window. ★ pick"],
+  ["truss","Open legs + cross-tie","adds a truss bar between the legs — most obviously a structure/tower."],
+  ["minimal","Boxy cabin + open legs","no roof; just the elevated cabin on open legs. Cleanest."],
+];
+const SIZES=[48,32,24,16];
+function row(k,t,d){
+  const m=s=>MARKS[k].replace(/width="S" height="S"/,`width="${s}" height="${s}"`);
+  const cells=SIZES.map(s=>`<div class="cell">${m(s)}<span class="cap">${s}</span></div>`).join("");
+  return `<div class="row"><div class="name"><b>${t}</b>${d}</div>
+    <div class="sizes">${cells}
+      <div class="cell"><div class="tile paper">${m(28)}</div><span class="cap">icon</span></div>
+      <div class="cell"><div class="tile em">${m(28)}</div><span class="cap">icon</span></div>
+      <div class="wordmark">${m(26)}<span class="wm">LeaseLookout</span></div></div></div>`;
+}
+document.getElementById("light").innerHTML=DEFS.map(d=>row(d[0],d[1],d[2])).join("");
+document.getElementById("darkrow").innerHTML=DEFS.map(d=>row(d[0],d[1],"")).join("");
+</script></body></html>

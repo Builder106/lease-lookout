@@ -1,0 +1,25 @@
+{
+  "jurisdiction": "US-RI",
+  "_note": "Rhode Island landlord-access rules, retrieved verbatim from the R.I. Legislature statute server (webserver.rilegislature.gov) on 2026-06-20, Title 34 Ch. 18 (Residential Landlord and Tenant Act), § 34-18-26 (Access). § 34-18-26(c): except in an emergency or where impracticable, the landlord must give the tenant at least two (2) days' notice of intent to enter and may enter only at reasonable times. § 34-18-26(b): no-notice entry is allowed only in an emergency, or during a tenant absence over seven (7) days when reasonably necessary to protect the property. A lease clause letting the landlord enter at will / without notice, or with less than two days' notice for ordinary entries, conflicts with § 34-18-26. ALL rules status=draft-unverified: must be reviewed by a Rhode Island tenant attorney / legal-aid clinic before public conclusions.",
+  "rules": [
+    {
+      "id": "ri-entry-001",
+      "jurisdiction": "US-RI",
+      "title": "Landlord entry without notice or at will",
+      "severity": "illegal",
+      "description": "Per R.I. Gen. Laws § 34-18-26(c), except in an emergency (or where giving notice is impracticable), the landlord must give the tenant at least two days' notice before entering and may enter only at reasonable times. A clause letting the landlord enter 'at any time', 'without notice', or 'at the landlord's discretion' for ordinary inspections, repairs, or showings conflicts with the two-day-notice requirement.",
+      "tenant_explainer": "Outside of a real emergency, your landlord has to give you at least two days' notice before entering, and only at reasonable times. A lease that lets them come in 'at any time' or 'without notice' isn't what Rhode Island law allows.",
+      "citations": [
+        {"label": "R.I. Gen. Laws § 34-18-26(c)", "url": "https://webserver.rilegislature.gov/Statutes/TITLE34/34-18/34-18-26.htm", "quote": "A landlord shall not abuse the right of access or use it to harass the tenant. Except in case of emergency or unless it is impracticable to do so, the landlord shall give the tenant at least two (2) days’ notice of his or her intent to enter and may enter only at reasonable times."},
+        {"label": "R.I. Gen. Laws § 34-18-26(b)", "url": "https://webserver.rilegislature.gov/Statutes/TITLE34/34-18/34-18-26.htm", "quote": "A landlord may enter the dwelling unit without consent of the tenant in case of emergency, or, during any absence of the tenant in excess of seven (7) days, if reasonably necessary for the protection of the property."}
+      ],
+      "patterns": [
+        "landlord\\s+may\\s+enter[^.]{0,40}(?:at\\s+any\\s+time|without\\s+notice|at\\s+(?:its|his|her|their)\\s+(?:sole\\s+)?discretion|at\\s+will)",
+        "(?:enter|access)[^.]{0,30}(?:premises|unit|dwelling|apartment)[^.]{0,30}(?:without\\s+(?:any\\s+)?(?:prior\\s+)?notice|at\\s+any\\s+time)",
+        "(?:enter|access)[^.]{0,40}(?:upon|with|after|giving)\\s+(?:only\\s+)?(?:twenty-?four|24|twelve|12|one|1)\\s+(?:\\(?\\d{1,2}\\)?\\s+)?hours?(?:'|’)?\\s+notice"
+      ],
+      "keywords": ["enter at any time", "without notice"],
+      "status": "draft-unverified"
+    }
+  ]
+}

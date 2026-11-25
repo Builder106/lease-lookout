@@ -1,0 +1,41 @@
+{
+  "jurisdiction": "US-VT",
+  "_note": "Vermont up-front rental-charge rules under 9 V.S.A. § 4456a (Residential rental application), retrieved verbatim from legislature.vermont.gov on 2026-06-20 (amended 2025, No. 69, § 10, eff. July 1, 2025). § 4456a(a): a landlord may NOT charge any application fee to apply for a residential dwelling unit. § 4456a(b)(2): a landlord may not require a Social Security number to complete a residential rental application or refuse an application for lack of one. NOTE: Vermont's residential rental statute (Chapter 137) sets NO statutory cap or limit on late fees — § 4455 (payment of rent) is silent on late charges — so this file does NOT flag late fees; a separate Vermont primary source would be required before doing so. All rules status=draft-unverified: review by a Vermont tenant attorney / legal-aid clinic before public conclusions.",
+  "rules": [
+    {
+      "id": "vt-fees-001",
+      "jurisdiction": "US-VT",
+      "title": "Application / screening fee to apply for a residential unit",
+      "severity": "illegal",
+      "description": "Per 9 V.S.A. § 4456a(a), a landlord or a landlord's agent may not charge any application fee to apply to enter into a rental agreement for a residential dwelling unit. A lease or application that demands an 'application fee', 'screening fee', or 'processing fee' to apply for a residential rental is unenforceable as to that charge.",
+      "tenant_explainer": "In Vermont a landlord can't charge you anything just to apply for an apartment — application, screening, and processing fees for a residential rental are not allowed.",
+      "citations": [
+        {"label": "9 V.S.A. § 4456a(a)", "url": "https://legislature.vermont.gov/statutes/section/09/137/04456a", "quote": "A landlord or a landlord’s agent shall not charge an application fee to any individual in order to apply to enter into a rental agreement for a residential dwelling unit. This subsection shall not be construed to prohibit a person from charging a fee to a person in order to apply to rent commercial or nonresidential property."}
+      ],
+      "patterns": [
+        "(?:rental\\s+|residential\\s+)?application\\s+fee",
+        "(?:tenant\\s+)?screening\\s+fee"
+      ],
+      "keywords": ["application fee"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "vt-fees-002",
+      "jurisdiction": "US-VT",
+      "title": "Social Security number required to apply",
+      "severity": "illegal",
+      "description": "Per 9 V.S.A. § 4456a(b)(2), a landlord or a landlord's agent may not require a Social Security number to complete a residential rental application or refuse an application because the applicant lacks one; the landlord must accept any unexpired government-issued ID, an Individual Taxpayer Identification Number, or a Social Security number (§ 4456a(b)(1)). A clause demanding a Social Security number as a condition of applying or renting is unenforceable.",
+      "tenant_explainer": "A Vermont landlord can't make you give a Social Security number to apply, and can't turn you down for not having one. A government ID or an ITIN has to be accepted instead.",
+      "citations": [
+        {"label": "9 V.S.A. § 4456a(b)", "url": "https://legislature.vermont.gov/statutes/section/09/137/04456a", "quote": "(1) In order to conduct a background or credit check, a landlord shall accept any of the following: (A) an original or a copy of any unexpired form of government-issued identification; (B) an Individual Taxpayer Identification Number; or (C) a Social Security number. (2) A landlord or a landlord’s agent shall not require a Social Security number for the completion of a residential rental application or refuse to accept an application due to the lack of a Social Security number."}
+      ],
+      "patterns": [
+        "(?:require[sd]?|must\\s+(?:provide|supply))[^.]{0,40}social\\s+security\\s+number",
+        "social\\s+security\\s+number[^.]{0,40}(?:is\\s+)?required",
+        "(?:no|without|lack\\s+of)[^.]{0,20}social\\s+security\\s+number[^.]{0,40}(?:reject|deni\\w+|refus\\w+|not\\s+(?:be\\s+)?accept\\w*)"
+      ],
+      "keywords": [],
+      "status": "draft-unverified"
+    }
+  ]
+}

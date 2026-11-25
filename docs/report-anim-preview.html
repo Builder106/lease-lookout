@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"/><title>Report cards — stagger + badge stamp</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --background: oklch(0.985 0.006 85);
+    --foreground: oklch(0.205 0.01 260);
+    --card: oklch(0.995 0.004 85);
+    --primary: oklch(0.46 0.07 178);
+    --muted: oklch(0.955 0.008 85);
+    --muted-foreground: oklch(0.5 0.01 260);
+    --border: oklch(0.205 0.01 260 / 0.1);
+    --sev-unenforceable: oklch(0.55 0.13 25);
+    --sev-unenforceable-tint: oklch(0.55 0.13 25 / 0.08);
+    --sev-check: oklch(0.65 0.13 65);
+    --sev-check-tint: oklch(0.65 0.13 65 / 0.1);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--background);color:var(--foreground);font-family:Inter,system-ui,sans-serif;padding:40px 48px}
+  .col{max-width:640px;display:flex;flex-direction:column;gap:16px}
+  .mono{font-family:"JetBrains Mono",monospace}
+  .card{border:1px solid var(--border);background:var(--card);border-radius:12px;padding:22px}
+  .top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+  .pill{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:2px 8px;font-size:.75rem;font-weight:500}
+  .pill.sev-illegal{background:var(--sev-unenforceable-tint);color:var(--sev-unenforceable)}
+  .pill.sev-check{background:var(--sev-check-tint);color:var(--sev-check)}
+  .pill .dot{width:7px;height:7px;border-radius:50%;background:currentColor}
+  .chip{border:1px solid var(--border);border-radius:6px;padding:2px 6px;font-size:.6875rem;text-transform:uppercase;letter-spacing:.02em;color:var(--muted-foreground)}
+  h3{margin:14px 0 0;font-size:1rem;font-weight:500;letter-spacing:-.01em}
+  .exp{margin:8px 0 0;font-size:.9375rem;line-height:1.6;color:var(--muted-foreground)}
+  .quote{margin-top:16px;border-radius:8px;background:color-mix(in oklch,var(--muted) 60%,transparent);padding:10px 14px;font-family:"JetBrains Mono",monospace;font-size:.8125rem;line-height:1.55;color:color-mix(in oklch,var(--foreground) 80%,transparent)}
+  .cite{margin-top:16px;font-family:"JetBrains Mono",monospace;font-size:.8125rem;font-weight:500;color:var(--primary)}
+  /* under test (mirrors globals.css) */
+  .ll-rise{animation:ll-rise .42s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes ll-rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .ll-stamp{transform-origin:left center;animation:ll-stamp .34s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes ll-stamp{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:none}}
+</style></head>
+<body>
+<div class="col" id="col"></div>
+<script>
+const CARDS=[
+  {sev:"illegal",label:"Likely unenforceable",title:"Landlord exculpation / hold-harmless",exp:"Connecticut doesn't let a lease waive the landlord's liability for its own negligence.",quote:"…hold the Landlord harmless and indemnify the Landlord against any and all claims…",cite:"Conn. Gen. Stat. § 47a-4(a)(3) ↗"},
+  {sev:"illegal",label:"Likely unenforceable",title:"Security deposit over the legal limit",exp:"Two months' rent is the cap for tenants under 62; this lease asks for three.",quote:"…a security deposit equal to three months' rent…",cite:"Conn. Gen. Stat. § 47a-21(b) ↗"},
+  {sev:"check",label:"Worth checking",title:"Late fee before the 9-day grace period",exp:"Connecticut bars a late fee until rent is 9 full days overdue.",quote:"…a late fee of $50 shall apply if rent is not received by the 3rd…",cite:"Conn. Gen. Stat. § 47a-15a ↗"},
+];
+document.getElementById("col").innerHTML=CARDS.map((c,i)=>{
+  const cardDelay=Math.min(i,6)*60;
+  return `<article class="ll-rise card" style="animation-delay:${cardDelay}ms">
+    <div class="top">
+      <span class="pill sev-${c.sev} ll-stamp" style="animation-delay:${cardDelay+300}ms"><span class="dot"></span>${c.label}</span>
+      <span class="chip">draft · not verified</span>
+    </div>
+    <h3>${c.title}</h3>
+    <p class="exp">${c.exp}</p>
+    <blockquote class="quote">${c.quote}</blockquote>
+    <div class="cite">${c.cite}</div>
+  </article>`;
+}).join("");
+</script></body></html>

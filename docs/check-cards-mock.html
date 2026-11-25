@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"/><title>#4 depth + hover + headline</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --background: oklch(0.985 0.006 85); --foreground: oklch(0.205 0.01 260);
+    --card: oklch(0.995 0.004 85); --primary: oklch(0.46 0.07 178);
+    --muted-foreground: oklch(0.5 0.01 260); --border: oklch(0.205 0.01 260 / 0.1);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--background);color:var(--foreground);font-family:Inter,system-ui,sans-serif;padding:48px 56px}
+  h1{font-family:"Instrument Serif",serif;font-weight:400;font-size:54px;line-height:1.04;letter-spacing:-.025em;margin:0 0 40px;max-width:13ch}
+  .ll-underline-draw{background-image:linear-gradient(var(--primary),var(--primary));background-repeat:no-repeat;background-position:left 100%;background-size:100% .08em;padding-bottom:.04em}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:.6875rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-foreground)}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:920px}
+  .ll-card{border:1px solid var(--border);background:var(--card);border-radius:12px;padding:20px;
+    box-shadow:0 1px 2px rgba(35,33,30,.04),0 4px 12px rgba(35,33,30,.05);
+    transition:transform .28s cubic-bezier(.4,0,.2,1),box-shadow .28s cubic-bezier(.4,0,.2,1)}
+  .ll-card:hover{transform:translateY(-3px);box-shadow:0 3px 6px rgba(35,33,30,.05),0 14px 32px rgba(35,33,30,.10)}
+  .icchip{display:inline-flex;border-radius:8px;padding:8px;color:var(--primary);background:color-mix(in oklch,var(--primary) 5%,transparent);transition:background .3s}
+  .ll-card:hover .icchip{background:color-mix(in oklch,var(--primary) 12%,transparent)}
+  .icchip svg{width:20px;height:20px;transition:transform .3s}
+  .ll-card:hover .icchip svg{transform:scale(1.1)}
+  h3{margin:12px 0 0;font-size:1rem;font-weight:500}
+  .desc{margin:6px 0 0;font-size:.875rem;line-height:1.55;color:var(--muted-foreground)}
+  .cite{margin-top:12px;font-family:"JetBrains Mono",monospace;font-size:.6875rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted-foreground);transition:color .25s}
+  .ll-card:hover .cite{color:var(--primary)}
+</style></head>
+<body>
+<h1>Know what your lease <span class="ll-underline-draw">really</span> says.</h1>
+<p class="eyebrow" style="margin-bottom:18px">04 — Coverage</p>
+<div class="grid">
+  <div class="ll-card" id="c1"><span class="icchip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="6" width="16" height="12" rx="2"/><path d="M4 10h16"/></svg></span><h3>Security deposits</h3><p class="desc">Caps, interest, and the return window after you move out.</p><p class="cite">CT · § 47a-21</p></div>
+  <div class="ll-card" id="c2"><span class="icchip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M6 6l12 12"/></svg></span><h3>Illegal fees &amp; charges</h3><p class="desc">Late fees before the grace period and disguised non-refundable fees.</p><p class="cite">CT · § 47a-4 · 15a</p></div>
+  <div class="ll-card" id="c3"><span class="icchip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="15" r="3"/><path d="M10 13l8-8 3 3-3 3"/></svg></span><h3>Entry &amp; privacy</h3><p class="desc">Landlord entry without reasonable notice or at unreasonable hours.</p><p class="cite">CT · § 47a-16</p></div>
+</div>
+</body></html>

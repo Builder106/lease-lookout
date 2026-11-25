@@ -1,0 +1,24 @@
+{
+  "jurisdiction": "US-CT",
+  "_note": "Conn. Gen. Stat. § 47a-13 (Failure of landlord to supply essential services; tenant's remedies) read with § 47a-4(a)(5) (no dispossession without court order), retrieved verbatim from cga.ct.gov on 2026-06-05. A landlord required to supply heat/water/electricity/gas must do so; cutting them off to pressure a tenant is unlawful self-help. status=draft-unverified.",
+  "rules": [
+    {
+      "id": "ct-utilities-001",
+      "jurisdiction": "US-CT",
+      "title": "Landlord may shut off utilities / essential services",
+      "severity": "illegal",
+      "description": "Where the landlord is required to supply heat, hot water, water, electricity, gas, or other essential services (§ 47a-13), a clause letting the landlord shut them off — e.g. to force payment or move-out — is unlawful self-help; the tenant has statutory remedies instead.",
+      "tenant_explainer": "A landlord can't cut off your heat, water, electricity, or gas to pressure you — even over unpaid rent. If essential services stop, the law gives you remedies; a clause saying they can shut them off doesn't hold up.",
+      "citations": [
+        {"label": "Conn. Gen. Stat. § 47a-13(a)", "url": "https://www.cga.ct.gov/current/pub/chap_830.htm#sec_47a-13", "quote": "If the landlord is required to supply heat, running water, hot water, electricity, gas or other essential service, and if the landlord fails to supply such essential service and the failure is not caused by conditions beyond the landlord's control, the tenant may give notice to the landlord specifying the breach and may elect to (1) procure reasonable amounts of [the service] … and deduct the actual and reasonable cost … from the rent; or (2) procure reasonable substitute housing …."},
+        {"label": "Conn. Gen. Stat. § 47a-4(a)(5) — no dispossession without court order", "url": "https://www.cga.ct.gov/current/pub/chap_830.htm#sec_47a-4", "quote": "A rental agreement shall not provide that the tenant: … (5) agrees to permit the landlord to dispossess him without resort to court order."}
+      ],
+      "patterns": [
+        "(?:shut\\s*off|shut\\s+down|discontinue|terminate|cut\\s+off|withhold|interrupt)[^.]{0,40}(?:heat|hot\\s+water|water|electric|electricity|gas|utilit\\w*|essential\\s+service)",
+        "(?:heat|hot\\s+water|water|electric|electricity|gas|utilit\\w*)[^.]{0,30}(?:shut\\s*off|discontinued|terminated|cut\\s+off)"
+      ],
+      "keywords": [],
+      "status": "draft-unverified"
+    }
+  ]
+}

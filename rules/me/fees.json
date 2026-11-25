@@ -1,0 +1,61 @@
+{
+  "jurisdiction": "US-ME",
+  "_note": "Maine fee rules, retrieved verbatim from the Maine Legislature statute site (legislature.maine.gov) on 2026-06-20. 14 M.R.S. §6028 (late-payment penalty: rent is not late until 15 days past due, and the penalty may not exceed 4% of one month's rent, and only if disclosed in writing at signing) and §6022-A (at the start of a tenancy a landlord may not require more than first month's rent + a security deposit capped by §6032 + a properly disclosed mandatory recurring fee). ALL rules status=draft-unverified: review by a Maine tenant attorney / Pine Tree Legal before publishing conclusions.",
+  "rules": [
+    {
+      "id": "me-fees-001",
+      "jurisdiction": "US-ME",
+      "title": "Late fee exceeds 4% of one month's rent",
+      "severity": "questionable",
+      "description": "Per 14 M.R.S. §6028(2), a landlord may not assess a late-payment penalty that exceeds 4% of the amount due for one month. A late fee stated as a percentage above 4% is unenforceable to that extent. A flat-dollar late fee or a per-day penalty can also exceed the cap, but whether it does depends on the monthly rent, so those are flagged for review rather than asserted illegal.",
+      "tenant_explainer": "Maine caps the late fee at 4% of one month's rent. A late fee set higher than 4% isn't allowed. A flat dollar amount or a daily charge might also break the cap depending on your rent — worth checking the math.",
+      "citations": [
+        {"label": "14 M.R.S. §6028(2) (Maximum penalty)", "url": "https://legislature.maine.gov/statutes/14/title14sec6028.html", "quote": "A landlord may not assess a penalty for the late payment of rent which exceeds 4% of the amount due for one month."}
+      ],
+      "patterns": [
+        "late\\s+(?:fee|charge|penalty)[^.]{0,40}(?:[5-9]|[1-9]\\d|\\d{3,})\\s*(?:%|percent)",
+        "late\\s+(?:fee|charge|penalty)[^.]{0,40}\\$\\s*\\d{3,}",
+        "(?:fee|charge|penalty)\\s+of\\s+\\$?\\d+(?:\\.\\d+)?\\s+(?:per|each|a)\\s+day[^.]{0,30}late"
+      ],
+      "keywords": [],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "me-fees-002",
+      "jurisdiction": "US-ME",
+      "title": "Late fee charged before the 15-day grace period",
+      "severity": "illegal",
+      "description": "Per 14 M.R.S. §6028(1), rent is not 'late' until 15 days past its due date, and §6028(3) requires the late penalty to have been disclosed in writing at signing. A clause imposing a late fee the moment rent is one day (or fewer than 15 days) past due is unenforceable.",
+      "tenant_explainer": "In Maine your rent isn't legally 'late' until 15 days after it's due, so a landlord can't charge a late fee on day one — and they can only charge one at all if it was spelled out in writing when you signed.",
+      "citations": [
+        {"label": "14 M.R.S. §6028(1) (Late payment)", "url": "https://legislature.maine.gov/statutes/14/title14sec6028.html", "quote": "A payment of rent is late if it is not made within 15 days from the time the payment is due."},
+        {"label": "14 M.R.S. §6028(3) (Notice in writing)", "url": "https://legislature.maine.gov/statutes/14/title14sec6028.html", "quote": "A landlord may not assess a penalty for the late payment of rent unless the landlord gave the tenant written notice at the time they entered into the rental agreement that a penalty, up to 4% of one month's rent, may be charged for the late payment of rent."}
+      ],
+      "patterns": [
+        "late\\s+(?:fee|charge|penalty)[^.]{0,50}(?:if\\s+(?:rent\\s+)?(?:is\\s+)?not\\s+(?:paid|received)|rent\\s+(?:is\\s+)?(?:not\\s+paid|unpaid))[^.]{0,30}(?:by\\s+the\\s+(?:1st|first|2nd|second|3rd|third|5th|fifth)|within\\s+(?:one|two|three|four|five|1|2|3|4|5)\\s+days?)",
+        "late\\s+(?:fee|charge|penalty)[^.]{0,40}(?:due|assessed|charged|applies?|imposed)[^.]{0,30}(?:immediately|same\\s+day|day\\s+(?:after|following))",
+        "(?:rent|payment)[^.]{0,20}(?:is|shall\\s+be|deemed)\\s+late[^.]{0,30}(?:if\\s+not\\s+(?:paid|received)\\s+)?(?:on|by|after)\\s+the\\s+(?:1st|first|2nd|second|3rd|third|5th|fifth)"
+      ],
+      "keywords": [],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "me-fees-003",
+      "jurisdiction": "US-ME",
+      "title": "Up-front charges beyond first month's rent and the lawful deposit",
+      "severity": "questionable",
+      "description": "Per 14 M.R.S. §6022-A, when a tenancy begins a landlord may not require an initial payment exceeding the first full month's rent, a security deposit capped by §6032, and any properly disclosed mandatory recurring fee. A separate up-front charge labeled 'move-in fee', 'last month's rent' on top of those, 'redecorating fee', or similar is suspect. Flag to check the purpose and total.",
+      "tenant_explainer": "At move-in, the most a Maine landlord can require up front is your first month's rent, the security deposit (capped at two months), and any properly disclosed recurring fee. An extra move-in charge, redecorating fee, or 'last month's rent' stacked on top probably isn't allowed — check the total.",
+      "citations": [
+        {"label": "14 M.R.S. §6022-A(1) (Limit on amount required to initiate tenancy)", "url": "https://legislature.maine.gov/statutes/14/title14sec6022-A.html", "quote": "Upon entering a lease or tenancy at will agreement, a landlord, landlord's agent or real estate broker may not require a tenant to pay an initial amount of money in excess of the total of the rent for the first full month of occupancy, a security deposit as limited by section 6032 and any mandatory recurring fee as defined in section 6000, subsection 1-A that is properly disclosed under section 6030-J."}
+      ],
+      "patterns": [
+        "move-?in\\s+(?:fee|charge)",
+        "(?:redecorat\\w*|decorating|cleaning|administrative|admin|processing|move-?out)\\s+fee",
+        "(?:non-?refundable\\s+)?(?:pet|amenity|key|lease)\\s+fee"
+      ],
+      "keywords": ["move-in fee"],
+      "status": "draft-unverified"
+    }
+  ]
+}

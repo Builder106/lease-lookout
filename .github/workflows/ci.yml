@@ -1,0 +1,186 @@
+name: CI
+
+on:
+  push:
+    branches: [main, staging]
+    paths-ignore:
+      - 'docs/**'
+      - '**.md'
+      - '.markdownlint*'
+  pull_request:
+    branches: [main]
+    paths-ignore:
+      - 'docs/**'
+      - '**.md'
+      - '.markdownlint*'
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  secrets:
+    name: Secret scan
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      pull-requests: read
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@v3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITLEAKS_NOTIFY_USER_LIST: ""
+
+  lint:
+    name: Lint & Format (Next.js)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '26'
+          cache: 'npm'
+      - run: npm ci
+      - name: Next lint
+        run: npx eslint . --max-warnings 0
+      - name: Prettier check
+        run: npx prettier --check "src/**/*.{ts,tsx,js,jsx,css}"
+
+  typecheck:
+    name: Typecheck & Compliance (Next.js)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '26'
+          cache: 'npm'
+      - run: npm ci
+      - name: Open-source license compliance scan
+        run: npx license-checker --summary --production
+      - name: npm dependency audit
+        run: npm audit --audit-level=high
+      - name: TypeScript validation
+        run: npm run typecheck
+
+  unit:
+    name: Unit tests (Vitest)
+    needs: [lint, typecheck]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '26'
+          cache: 'npm'
+      - run: npm ci
+      - name: Run unit tests with 100% coverage gate
+        run: npm run test:coverage
+
+  build:
+    name: Build & Bundle Budget (Next.js)
+    needs: [lint, typecheck]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '26'
+          cache: 'npm'
+      - run: npm ci
+      - name: Production build
+        run: npm run build
+      - name: Verify bundle size budget
+        run: |
+          echo "=== Next.js bundle output ==="
+          ls -lh .next/ 2>/dev/null || true
+          TOTAL_KB=$(du -sk .next 2>/dev/null | cut -f1 || echo 0)
+          echo "Next.js output size: ${TOTAL_KB} KB"
+
+  engine:
+    name: Engine tests (pytest)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10.3.3
+        with:
+          enable-cache: true
+      - name: Reject Any in Python annotations
+        run: uvx --from ruff==0.17.1 ruff check engine api scripts tests
+      - name: Install engine dependencies
+        # uv provisions the interpreter itself from requires-python, so there is
+        # no setup-python step. --frozen fails the run if uv.lock is out of date
+        # with pyproject.toml, so a hand-edited dependency can't skip the lock.
+        run: uv sync --frozen --group dev
+      - name: Python dependency audit
+        run: uv run --with pip-audit pip-audit
+      - name: Run engine tests
+        # pytest config (testpaths, pythonpath) lives in pyproject.toml.
+        env:
+          PYTHONWARNINGS: "error"
+        run: uv run --frozen --group dev pytest -q -W error
+
+  responsiveness:
+    name: Multi-viewport Responsiveness (Playwright)
+    needs: [lint, typecheck]
+    runs-on: ubuntu-24.04
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: https://example.supabase.co
+      NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV4YW1wbGUiLCJyb2xlIjoiYW5vbiIsImlhdCI6MTYwMDAwMDAwMCwiZXhwIjoxOTAwMDAwMDAwfQ.dummy
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '26'
+          cache: 'npm'
+      - run: npm ci
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v6
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            playwright-${{ runner.os }}-
+
+      - name: Install Playwright Chromium + system deps
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+
+      - name: Install Playwright system deps only (cache hit)
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
+      - name: Run multi-viewport responsiveness tests
+        run: npx playwright test
+      - name: Upload Playwright artifacts on failure
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: lease-lookout-playwright-report-${{ github.run_id }}
+          path: |
+            playwright-report/
+            test-results/
+          if-no-files-found: ignore
+          retention-days: 7
+
+  deploy:
+    name: Trigger Vercel Deployment
+    needs: [secrets, unit, build, engine, responsiveness]
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/staging')
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Trigger Staging Deploy Hook
+        if: github.ref == 'refs/heads/staging'
+        run: |
+          curl -sS -f -X POST "${{ secrets.VERCEL_DEPLOY_HOOK_STAGING }}"
+
+      - name: Trigger Production Deploy Hook
+        if: github.ref == 'refs/heads/main'
+        run: |
+          curl -sS -f -X POST "${{ secrets.VERCEL_DEPLOY_HOOK_PROD }}"

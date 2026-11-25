@@ -1,0 +1,24 @@
+{
+  "jurisdiction": "US-CT",
+  "_note": "Conn. Gen. Stat. § 47a-16 (When landlord may enter rented unit), retrieved verbatim from cga.ct.gov on 2026-06-05. § 47a-16(c): the landlord must give reasonable written or oral notice of intent to enter and may enter only at reasonable times, except in an emergency. status=draft-unverified.",
+  "rules": [
+    {
+      "id": "ct-entry-001",
+      "jurisdiction": "US-CT",
+      "title": "Landlord entry without notice / at any time",
+      "severity": "illegal",
+      "description": "Per § 47a-16, a landlord must give the tenant reasonable notice of intent to enter and may enter only at reasonable times (except in an emergency, by court order, or if the unit is abandoned). A clause permitting entry 'at any time' or 'without notice' is unenforceable to that extent (§ 47a-4(a)(1)).",
+      "tenant_explainer": "Your landlord generally has to give you reasonable notice before coming in, and can only enter at reasonable times — emergencies aside. A lease letting them enter 'anytime, without notice' isn't enforceable.",
+      "citations": [
+        {"label": "Conn. Gen. Stat. § 47a-16(c)", "url": "https://www.cga.ct.gov/current/pub/chap_830.htm#sec_47a-16", "quote": "A landlord shall not abuse the right of entry or use such right of entry to harass the tenant. The landlord shall give the tenant reasonable written or oral notice of his intent to enter and may enter only at reasonable times, except in case of emergency."},
+        {"label": "Conn. Gen. Stat. § 47a-4(a)(1) — waiver of statutory rights prohibited", "url": "https://www.cga.ct.gov/current/pub/chap_830.htm#sec_47a-4", "quote": "A rental agreement shall not provide that the tenant: (1) Agrees to waive or forfeit rights or remedies under this chapter …."}
+      ],
+      "patterns": [
+        "(?:enter|entry|access)[^.]{0,60}(?:at\\s+any\\s+time|without\\s+(?:prior\\s+|advance\\s+)?notice|at\\s+(?:the\\s+landlord'?s?\\s+)?(?:sole\\s+)?discretion)",
+        "(?:at\\s+any\\s+time|without\\s+(?:prior\\s+|advance\\s+)?notice)[^.]{0,50}(?:enter|entry)"
+      ],
+      "keywords": [],
+      "status": "draft-unverified"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "jurisdiction": "US-NH",
+  "_note": "New Hampshire statutory bars on landlord conduct that leases sometimes purport to authorize, retrieved verbatim from the NH General Court statute site on 2026-06-20; citations use the canonical gc.nh.gov host (the legacy gencourt.state.nh.us URLs 301-redirect there). RSA 540-A:3, I: no landlord shall willfully cause interruption or termination of utility service (water, heat, light, electricity, gas, etc.), except for temporary repairs/emergencies. RSA 540-A:3, II: no landlord shall willfully seize, hold, or deny a tenant access to and possession of the leased premises other than through proper judicial process (self-help eviction / lockout). RSA 540-A:3, III: same bar for the tenant's property. RSA 540:13-a: retaliatory eviction is a defense where the tenant reported a violation, used RSA 540-A / 540:13-d, or met/gathered with other tenants. IMPORTANT SCOPE NOTE — New Hampshire has NO statute that voids a residential lease's jury-trial-waiver, confession-of-judgment, landlord-exculpation/hold-harmless, or one-way-attorney-fee clause (RSA 540-A:8, III voids waivers only within the security-deposit subdivision, RSA 540-A:5-8); rules for those terms are deliberately omitted rather than invented. Habitability waiver is handled in habitability.json. status=draft-unverified: must be reviewed by a NH tenant attorney / legal-aid clinic before public conclusions.",
+  "rules": [
+    {
+      "id": "nh-prohibited-001",
+      "jurisdiction": "US-NH",
+      "title": "Self-help eviction / lockout (retaking possession without court process)",
+      "severity": "illegal",
+      "description": "Per RSA 540-A:3, II, a landlord may not willfully seize, hold, or otherwise deny a tenant access to and possession of the leased premises other than through proper judicial process. A clause letting the landlord re-enter, retake possession, change the locks, or remove the tenant 'without resort to legal process' is unenforceable.",
+      "tenant_explainer": "A landlord can't lock you out or retake the unit to force you out — they have to go through the courts. A lease clause letting them re-enter and take possession 'without legal process' doesn't hold up in New Hampshire.",
+      "citations": [
+        {"label": "N.H. RSA 540-A:3, II", "url": "https://gc.nh.gov/rsa/html/LV/540-A/540-A-3.htm", "quote": "No landlord shall willfully seize, hold, or otherwise directly or indirectly deny a tenant access to and possession of such tenant's rented or leased premises, other than through proper judicial process."}
+      ],
+      "patterns": [
+        "without\\s+(?:resort(?:ing)?\\s+to|the\\s+necessity\\s+of|recourse\\s+to)\\s+(?:any\\s+|a\\s+)?(?:court|legal\\s+process|judicial\\s+process|summary\\s+process|eviction\\s+proceedings)",
+        "landlord\\s+may\\s+(?:re-?enter\\s+and\\s+take\\s+possession|retake\\s+possession|repossess|dispossess)[^.]{0,60}(?:without|immediately)",
+        "landlord\\s+may[^.]{0,40}lock[\\s-]?(?:the\\s+)?(?:tenant\\s+)?out[^.]{0,40}(?:without|to\\s+(?:re-?gain|recover|retake|enforce))",
+        "chang(?:e|ing)\\s+(?:the\\s+)?locks?[^.]{0,40}(?:to\\s+(?:re-?gain|recover|retake)|without\\s+(?:notice|process))"
+      ],
+      "keywords": ["self-help", "without resort to legal process"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "nh-prohibited-002",
+      "jurisdiction": "US-NH",
+      "title": "Shutting off utilities or essential services",
+      "severity": "illegal",
+      "description": "Per RSA 540-A:3, I, a landlord may not willfully cause, directly or indirectly, the interruption or termination of any utility service supplied to the tenant — water, heat, light, electricity, gas, telephone, sewerage, elevator, or refrigeration — except for temporary interruptions necessary while repairs are in process or during temporary emergencies. A clause letting the landlord cut off utilities or services (e.g. to enforce the lease or force a move-out) is unenforceable.",
+      "tenant_explainer": "Your landlord can't shut off your heat, water, electricity, or other utilities to pressure you — even if the lease says they can. In New Hampshire the only allowed interruptions are short ones for actual repairs or emergencies.",
+      "citations": [
+        {"label": "N.H. RSA 540-A:3, I", "url": "https://gc.nh.gov/rsa/html/LV/540-A/540-A-3.htm", "quote": "No landlord shall willfully cause, directly or indirectly, the interruption or termination of any utility service being supplied to the tenant including, but not limited to water, heat, light, electricity, gas, telephone, sewerage, elevator or refrigeration, whether or not the utility service is under the control of the landlord, except for such temporary interruption as may be necessary while actual repairs are in process or during temporary emergencies."}
+      ],
+      "patterns": [
+        "landlord\\s+may\\s+(?:shut\\s+off|discontinue|terminate|interrupt|cut\\s+off|disconnect)[^.]{0,40}(?:utilit\\w+|services?|heat|water|electricity|gas|power)",
+        "(?:shut(?:ting)?\\s+off|discontinu\\w+|interrupt\\w+|terminat\\w+|disconnect\\w+)\\s+(?:of\\s+)?(?:the\\s+)?(?:tenant'?s?\\s+)?(?:essential\\s+)?(?:utilit\\w+|services?|heat|water|electricity)[^.]{0,40}(?:upon|for|if|to\\s+enforce)",
+        "(?:utilit\\w+|services?|heat|water|electricity)[^.]{0,40}(?:may\\s+be|shall\\s+be|will\\s+be)\\s+(?:shut\\s+off|discontinued|terminated|disconnected)[^.]{0,40}(?:default|breach|nonpayment|non-?payment)"
+      ],
+      "keywords": ["shut off utilities", "discontinue utility service"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "nh-prohibited-003",
+      "jurisdiction": "US-NH",
+      "title": "Seizing the tenant's property without court process",
+      "severity": "illegal",
+      "description": "Per RSA 540-A:3, III, a landlord may not willfully seize, hold, or otherwise deny a tenant access to and possession of the tenant's property other than by proper judicial process. A clause giving the landlord a lien on, or the right to seize or hold, the tenant's personal belongings for unpaid rent or other claims — outside of court — is unenforceable.",
+      "tenant_explainer": "Your landlord can't grab or hold onto your belongings to cover what you owe — they need a court order. A lease clause claiming a 'lien' on your property or a right to seize it for back rent doesn't hold up in New Hampshire.",
+      "citations": [
+        {"label": "N.H. RSA 540-A:3, III", "url": "https://gc.nh.gov/rsa/html/LV/540-A/540-A-3.htm", "quote": "No landlord shall willfully seize, hold, or otherwise directly or indirectly deny a tenant access to and possession of such tenant's property, other than by proper judicial process."}
+      ],
+      "patterns": [
+        "landlord\\s+(?:shall\\s+have|may\\s+(?:assert|claim|exercise))\\s+a\\s+lien\\s+(?:on|upon|against)[^.]{0,40}(?:tenant'?s?\\s+)?(?:personal\\s+)?(?:property|belongings|possessions|goods)",
+        "landlord\\s+may\\s+(?:seize|take\\s+possession\\s+of|hold|retain|withhold)[^.]{0,40}(?:tenant'?s?\\s+)?(?:personal\\s+)?(?:property|belongings|possessions|goods)[^.]{0,40}(?:unpaid|owed|due|default|nonpayment|non-?payment)",
+        "(?:tenant'?s?\\s+)?(?:personal\\s+property|belongings|possessions)[^.]{0,40}(?:may\\s+be|shall\\s+be)\\s+(?:held|seized|retained)[^.]{0,40}(?:as\\s+security|until[^.]{0,20}paid|for\\s+(?:unpaid\\s+)?rent)"
+      ],
+      "keywords": ["lien on the tenant's property"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "nh-prohibited-004",
+      "jurisdiction": "US-NH",
+      "title": "Penalty for complaining or for meeting with other tenants (retaliation)",
+      "severity": "questionable",
+      "description": "Per RSA 540:13-a, it is a defense to a possessory action that the eviction was in retaliation for the tenant reporting a suspected health/safety or RSA 540-A violation, using the procedures of RSA 540-A or RSA 540:13-d, or meeting or gathering with other tenants for any lawful purpose. A lease clause that purports to penalize, fine, or forbid a tenant for complaining about conditions or for joining/meeting with other tenants runs against this protection and is likely unenforceable; flagged as questionable because RSA 540:13-a frames the protection as an eviction defense rather than expressly voiding the clause.",
+      "tenant_explainer": "New Hampshire protects you from being evicted in retaliation for reporting bad conditions, using the tenant-protection laws, or meeting with other tenants. A lease that tries to fine you for complaining — or forbids you from organizing with neighbors — pushes against that protection and likely won't hold up.",
+      "citations": [
+        {"label": "N.H. RSA 540:13-a", "url": "https://gc.nh.gov/rsa/html/LV/540/540-13-a.htm", "quote": "Except in cases in which the tenant owes the landlord the equivalent of one week's rent or more, it shall be a defense to any possessory action, as to residential property, that such possessory action was in retaliation for the tenant: I. Reporting a violation or reporting in good faith what the tenant reasonably believes to be a violation of RSA 540-A or an unreasonable and substantial violation of a regulation or housing code … II. Initiating an action in good faith pursuant to RSA 540-A or availing himself of the procedures of RSA 540:13-d; or III. Meeting or gathering with other tenants for any lawful purpose."}
+      ],
+      "patterns": [
+        "(?:fee|penalty|penalties|charge|fine)[^.]{0,50}(?:filing|file[sd]?|making|made|submitting|report\\w*)[^.]{0,20}(?:a\\s+)?(?:complaint|violation)",
+        "tenant\\s+(?:shall\\s+not|may\\s+not|is\\s+prohibited\\s+from)[^.]{0,40}(?:meet\\w*|gather\\w*|organiz\\w*|associat\\w*)\\s+with\\s+(?:other\\s+)?tenants"
+      ],
+      "keywords": [],
+      "status": "draft-unverified"
+    }
+  ]
+}

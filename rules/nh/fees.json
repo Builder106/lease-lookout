@@ -1,0 +1,42 @@
+{
+  "jurisdiction": "US-NH",
+  "_note": "New Hampshire fee / up-front-charge rules, retrieved verbatim from the NH General Court statute site (gencourt.state.nh.us / gc.nh.gov) on 2026-06-20. NOTE on late fees: New Hampshire has NO statutory cap on residential late fees — the only RSA late-fee provision (RSA 451-C:7) governs self-service storage facilities, not residential leases — so this file deliberately contains NO late-fee rule (writing one would invent law). RSA 540-A:3, VIII requires written disclosure of any rental-application fee and refund of any amount beyond the actual documented background/credit-check and reasonable administrative cost within 30 days when the unit is not rented to the applicant. RSA 540-A:3, X bars requiring rent to be paid solely by electronic funds transfer. Enforcement: a violation of RSA 540-A:3, VIII is remediable under RSA 540-A:4 (return of the application monies). status=draft-unverified: must be reviewed by a NH tenant attorney / legal-aid clinic before public conclusions.",
+  "rules": [
+    {
+      "id": "nh-fees-001",
+      "jurisdiction": "US-NH",
+      "title": "Application / screening fee not refunded when the unit is not rented",
+      "severity": "illegal",
+      "description": "Per RSA 540-A:3, VIII, before collecting any rental-application fee a landlord must disclose its amount in writing, and if the fee is collected but the unit is not rented to that applicant, the landlord must refund any amount beyond the actual documented cost of the background check, credit check, and/or reasonable administrative costs within 30 days. A clause making an application or screening fee flatly non-refundable contradicts that.",
+      "tenant_explainer": "If you pay an application or screening fee and don't get the unit, New Hampshire makes the landlord refund whatever was left over after the real cost of running your background and credit check — within 30 days. A lease line calling the application fee 'non-refundable' overstates what they can keep.",
+      "citations": [
+        {"label": "N.H. RSA 540-A:3, VIII", "url": "https://gc.nh.gov/rsa/html/LV/540-A/540-A-3.htm", "quote": "Prior to collecting any fee as part of the rental application or renewal process, the landlord shall clearly disclose, in writing to prospective tenants, the amount of the fee and the requirement for a satisfactory criminal background and credit check, if any. If such fee is collected from an applicant, but the unit is not rented to that applicant, the landlord shall return any amount beyond the actual cost of the documented background check, credit check, and/or reasonable administrative costs to the applicant within 30 days of receipt."}
+      ],
+      "patterns": [
+        "(?:application|screening|processing)\\s+fee[^.]{0,40}non-?refundable",
+        "non-?refundable[^.]{0,20}(?:application|screening|processing)\\s+fee",
+        "(?:application|screening)\\s+fee[^.]{0,40}(?:not\\s+be\\s+refunded|will\\s+not\\s+be\\s+returned|shall\\s+be\\s+retained)"
+      ],
+      "keywords": ["non-refundable application fee"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "nh-fees-002",
+      "jurisdiction": "US-NH",
+      "title": "Rent payable only by electronic funds transfer",
+      "severity": "illegal",
+      "description": "Per RSA 540-A:3, X, a landlord may not require a tenant or prospective tenant to pay any amount due under a residential lease solely via electronic funds transfer (including automatic recurring transfers) and must allow at least one other non-electronic form of payment. A clause requiring rent to be paid only by autopay / ACH / electronic transfer is unlawful.",
+      "tenant_explainer": "Your landlord can't force you to pay rent only through autopay or an electronic transfer — New Hampshire requires them to accept at least one non-electronic option too. A lease that says rent must be paid solely by electronic transfer isn't allowed.",
+      "citations": [
+        {"label": "N.H. RSA 540-A:3, X", "url": "https://gc.nh.gov/rsa/html/LV/540-A/540-A-3.htm", "quote": "A landlord shall not require a tenant or prospective tenant to pay any amount due under a residential lease, renewal, or extension agreement solely via electronic funds transfer, including, but not limited to, any automatic, recurring electronic funds transfers. The landlord shall allow at least one other non-electronic form of payment for the purposes of this section."}
+      ],
+      "patterns": [
+        "rent[^.]{0,50}(?:paid|payable|made)\\s+(?:only|solely|exclusively)\\s+(?:by|via|through)[^.]{0,30}(?:electronic|ach|autopay|auto-?pay|electronic\\s+funds\\s+transfer|eft)",
+        "(?:only|solely|exclusively)[^.]{0,20}(?:electronic\\s+funds\\s+transfer|automatic\\s+(?:recurring\\s+)?(?:payment|transfer|withdrawal))[^.]{0,30}(?:accepted|permitted|allowed|required)",
+        "tenant\\s+(?:must|shall)\\s+(?:enroll\\s+in|use)\\s+(?:automatic|recurring|autopay|electronic)[^.]{0,30}(?:as\\s+the\\s+)?(?:only|sole)\\s+(?:method|means|form)\\s+of\\s+(?:rent\\s+)?payment"
+      ],
+      "keywords": ["electronic funds transfer only"],
+      "status": "draft-unverified"
+    }
+  ]
+}

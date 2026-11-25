@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>LeaseLookout — logo concepts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#faf8f2; --paper2:#f3efe5; --ink:#23211e; --muted:#6b675e;
+    --emerald:#1d6e62; --red:#b4422b; --border:rgba(35,33,30,.12);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,sans-serif;}
+  .wrap{max-width:1080px;margin:0 auto;padding:40px 48px 64px}
+  h1{font-family:"Instrument Serif",serif;font-weight:400;font-size:40px;letter-spacing:-.02em;margin:0 0 4px}
+  .sub{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 36px}
+  .row{display:grid;grid-template-columns:120px 1fr 64px 40px;align-items:center;gap:28px;
+       padding:26px 0;border-top:1px solid var(--border)}
+  .name{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .name b{display:block;font-family:Inter;font-size:14px;letter-spacing:0;text-transform:none;color:var(--ink);margin-bottom:4px;font-weight:600}
+  .mark{color:var(--ink)}
+  .wordmark{display:flex;align-items:center;gap:10px}
+  .wordmark .wm{font-weight:600;font-size:24px;letter-spacing:-.01em}
+  .fav{display:flex;align-items:center;justify-content:center}
+  .dark{background:#17150f;border-radius:12px;margin-top:40px;padding:30px 36px;color:#ece6d8}
+  .dark .name b{color:#ece6d8}
+  .dark .mark{color:#ece6d8}
+  .dark .row{border-top:1px solid rgba(236,230,216,.14)}
+  .darkhd{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#9c968a;margin:0 0 8px}
+  svg{display:block}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>LeaseLookout — logo concepts</h1>
+  <p class="sub">4 directions · mark · wordmark · favicon 32 · 16 — emerald = accent, red = the redline</p>
+
+  <!-- ROW TEMPLATE rendered 4x; defined inline for clarity -->
+  <div id="light"></div>
+
+  <div class="dark">
+    <p class="darkhd">On dark (system dark mode)</p>
+    <div id="darkrow"></div>
+  </div>
+</div>
+
+<script>
+const MARKS = {
+  reticle: `<svg class="mark" width="SIZE" height="SIZE" viewBox="0 0 24 24" fill="none" stroke-linecap="round">
+    <circle cx="12" cy="12" r="8.5" stroke="#1d6e62" stroke-width="1.6"/>
+    <path d="M12 2.4v2.3M12 19.3v2.3M2.4 12h2.3M19.3 12h2.3" stroke="currentColor" stroke-width="1.4"/>
+    <path d="M8.6 9h6.8M9.4 15h4.6" stroke="currentColor" stroke-width="1.3" opacity=".5"/>
+    <path d="M8 12h8" stroke="#b4422b" stroke-width="1.8"/></svg>`,
+  magnifier: `<svg class="mark" width="SIZE" height="SIZE" viewBox="0 0 24 24" fill="none" stroke-linecap="round">
+    <circle cx="10.4" cy="10.4" r="7" stroke="#1d6e62" stroke-width="1.6"/>
+    <path d="M15.6 15.6 21 21" stroke="#1d6e62" stroke-width="1.9"/>
+    <path d="M7 8.4h6.8M7 12.4h4.4" stroke="currentColor" stroke-width="1.3" opacity=".55"/>
+    <path d="M7 10.4h6.8" stroke="#b4422b" stroke-width="1.7"/></svg>`,
+  eye: `<svg class="mark" width="SIZE" height="SIZE" viewBox="0 0 24 24" fill="none" stroke-linecap="round">
+    <path d="M2.5 12C5.1 7.8 8.5 5.7 12 5.7s6.9 2.1 9.5 6.3c-2.6 4.2-6 6.3-9.5 6.3S5.1 16.2 2.5 12Z" stroke="currentColor" stroke-width="1.6"/>
+    <circle cx="12" cy="12" r="3.3" stroke="#1d6e62" stroke-width="1.6"/>
+    <circle cx="12" cy="12" r="1" fill="#b4422b"/></svg>`,
+  tower: `<svg class="mark" width="SIZE" height="SIZE" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8.2 20 9.7 13.2M15.8 20l-1.5-6.8" stroke="currentColor" stroke-width="1.6"/>
+    <path d="M7.6 13.2h8.8" stroke="#1d6e62" stroke-width="1.9"/>
+    <path d="M9.6 13.2 12 10l2.4 3.2" stroke="#1d6e62" stroke-width="1.6"/>
+    <path d="M4 20h16" stroke="currentColor" stroke-width="1.4"/>
+    <path d="M12 10V7l2.4 1L12 9" fill="#b4422b" stroke="#b4422b" stroke-width=".8" stroke-linejoin="round"/></svg>`,
+};
+const DEFS = [
+  ["reticle","Reticle / scope","“looking closely” — a precision scope on a redlined clause"],
+  ["magnifier","Magnifier","examine the fine print; the flagged line is red"],
+  ["eye","Eye","a lookout that watches the lease for you; emerald iris, red pupil"],
+  ["tower","Watchtower","the literal lookout, standing on the lease baseline"],
+];
+function rowHTML(key,title,desc){
+  const big = MARKS[key].replace("SIZE","56");
+  const wm  = MARKS[key].replace("SIZE","30");
+  const f32 = MARKS[key].replace("SIZE","32");
+  const f16 = MARKS[key].replace("SIZE","16");
+  return `<div class="row">
+    <div class="name"><b>${title}</b>${desc}</div>
+    <div class="wordmark">${wm}<span class="wm">LeaseLookout</span></div>
+    <div class="fav">${f32}</div>
+    <div class="fav">${f16}</div>
+  </div>`.replace('class="wordmark">'+wm, 'class="wordmark">'+big.replace("56","26"));
+}
+// simpler: build explicitly
+function buildRow(key,title,desc,dark){
+  const big = MARKS[key].replace('width="SIZE" height="SIZE"','width="52" height="52"');
+  const wmMark = MARKS[key].replace('width="SIZE" height="SIZE"','width="26" height="26"');
+  const f32 = MARKS[key].replace('width="SIZE" height="SIZE"','width="32" height="32"');
+  const f16 = MARKS[key].replace('width="SIZE" height="SIZE"','width="16" height="16"');
+  return `<div class="row">
+    <div class="name"><b>${title}</b>${desc}</div>
+    <div class="wordmark">${big}<span class="wm" style="margin-left:6px">LeaseLookout</span></div>
+    <div class="fav">${f32}</div>
+    <div class="fav">${f16}</div>
+  </div>`;
+}
+document.getElementById("light").innerHTML = DEFS.map(d=>buildRow(d[0],d[1],d[2],false)).join("");
+document.getElementById("darkrow").innerHTML = DEFS.map(d=>buildRow(d[0],d[1],"",true)).join("");
+</script>
+</body>
+</html>

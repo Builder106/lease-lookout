@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"/><title>LeaseLookout — original watchtower, refined</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#faf8f2;--ink:#23211e;--muted:#6b675e;--emerald:#1d6e62;--red:#b4422b;--border:rgba(35,33,30,.12);}
+  *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,sans-serif}
+  .wrap{max-width:1020px;margin:0 auto;padding:40px 48px 64px}
+  h1{font-family:"Instrument Serif",serif;font-weight:400;font-size:38px;letter-spacing:-.02em;margin:0 0 4px}
+  .sub{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 30px}
+  .row{display:grid;grid-template-columns:160px 1fr;align-items:center;gap:24px;padding:26px 0;border-top:1px solid var(--border)}
+  .name{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;color:var(--muted);line-height:1.5}
+  .name b{display:block;font-family:Inter;font-size:14px;letter-spacing:0;color:var(--ink);margin-bottom:5px;font-weight:600}
+  .sizes{display:flex;align-items:flex-end;gap:22px}.cell{display:flex;flex-direction:column;align-items:center;gap:7px}
+  .cap{font-family:"JetBrains Mono",monospace;font-size:9px;color:var(--muted)}.mark{color:var(--ink)}
+  .tile{width:46px;height:46px;border-radius:11px;display:flex;align-items:center;justify-content:center}
+  .tile.paper{background:var(--paper);border:1px solid var(--border)}.tile.em{background:var(--emerald)}.tile.em .mark{color:var(--paper)}
+  .wordmark{display:flex;align-items:center;gap:7px;margin-left:8px}.wm{font-weight:600;font-size:23px;letter-spacing:-.01em}
+  .dark{background:#17150f;border-radius:12px;margin-top:38px;padding:26px 36px;color:#ece6d8}
+  .dark .name b{color:#ece6d8}.dark .row{border-top:1px solid rgba(236,230,216,.14)}.dark .mark{color:#ece6d8}
+  .darkhd{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;color:#9c968a;margin:0 0 6px}
+  svg{display:block}
+</style></head><body><div class="wrap">
+<h1>The original watchtower — refined</h1>
+<p class="sub">your pick, cleaned for production · 56 / 32 / 24 / 16 px + tiles · red pennant = the redline</p>
+<div id="light"></div><div class="dark"><p class="darkhd">On dark</p><div id="darkrow"></div></div>
+</div>
+<script>
+const MARKS={
+  original:`<svg class="mark" width="S" height="S" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8.2 20 9.7 13.2M15.8 20l-1.5-6.8" stroke="currentColor" stroke-width="1.6"/>
+    <path d="M7.6 13.2h8.8" stroke="#1d6e62" stroke-width="1.9"/>
+    <path d="M9.6 13.2 12 10l2.4 3.2" stroke="#1d6e62" stroke-width="1.6"/>
+    <path d="M4 20h16" stroke="currentColor" stroke-width="1.4"/>
+    <path d="M12 10V7l2.4 1L12 9" fill="#b4422b" stroke="#b4422b" stroke-width=".8"/></svg>`,
+  refined:`<svg class="mark" width="S" height="S" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8.2 20 9.7 13.4M15.8 20 14.3 13.4" stroke="currentColor" stroke-width="1.8"/>
+    <path d="M7.4 13.4H16.6" stroke="#1d6e62" stroke-width="2"/>
+    <path d="M9.5 13.4 12 9.9l2.5 3.5" stroke="#1d6e62" stroke-width="1.8"/>
+    <path d="M4 20H20" stroke="currentColor" stroke-width="1.5"/>
+    <path d="M12 9.9V6.7l2.6 1.05L12 8.8Z" fill="#b4422b" stroke="#b4422b" stroke-width=".8"/></svg>`,
+  compact:`<svg class="mark" width="S" height="S" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8 20.4 9.6 13.2M16 20.4 14.4 13.2" stroke="currentColor" stroke-width="2.1"/>
+    <path d="M7 13.2H17" stroke="#1d6e62" stroke-width="2.3"/>
+    <path d="M9.3 13.2 12 9.4l2.7 3.8" stroke="#1d6e62" stroke-width="2.1"/>
+    <path d="M12 9.4V6l2.8 1.15L12 8.3Z" fill="#b4422b" stroke="#b4422b" stroke-width=".8"/></svg>`,
+};
+const DEFS=[
+  ["original","Original (as you picked)","exactly the first-set mark — for reference."],
+  ["refined","Refined — production mark","same composition; stroke weights nudged up, flag + joins tidied. ★ wordmark + UI"],
+  ["compact","Compact — favicon","baseline dropped (it crowds 16px), bolder strokes, bigger flag. ★ favicon + app icon"],
+];
+const SIZES=[56,32,24,16];
+function row(k,t,d){
+  const m=s=>MARKS[k].replace(/width="S" height="S"/,`width="${s}" height="${s}"`);
+  const cells=SIZES.map(s=>`<div class="cell">${m(s)}<span class="cap">${s}</span></div>`).join("");
+  return `<div class="row"><div class="name"><b>${t}</b>${d}</div>
+    <div class="sizes">${cells}
+      <div class="cell"><div class="tile paper">${m(30)}</div><span class="cap">icon</span></div>
+      <div class="cell"><div class="tile em">${m(30)}</div><span class="cap">icon</span></div>
+      <div class="wordmark">${m(28)}<span class="wm">LeaseLookout</span></div></div></div>`;
+}
+document.getElementById("light").innerHTML=DEFS.map(d=>row(d[0],d[1],d[2])).join("");
+document.getElementById("darkrow").innerHTML=DEFS.map(d=>row(d[0],d[1],"")).join("");
+</script></body></html>

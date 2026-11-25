@@ -1,0 +1,60 @@
+{
+  "jurisdiction": "US-RI",
+  "_note": "Rhode Island fee rules, retrieved verbatim from the R.I. Legislature statute server (webserver.rilegislature.gov) on 2026-06-20. Sources (Title 34 Ch. 18): § 34-18-59 (Fair limitation on rental application fees — a landlord may not require a prospective tenant to pay a rental application fee; background/credit checks are limited to actual cost and only when the tenant has not supplied a recent one); § 34-18-61 (Convenience fees prohibited — no convenience fee may be charged on a rent payment, unless a no-fee payment method is also accepted); § 34-18-15(a)(1) (fees beyond rent must be disclosed in the lease in the same section as the rent disclosure). IMPORTANT: Rhode Island has NO statutory cap or prohibition on late fees (confirmed against the Ch. 18 index — there is no late-fee section), so NO late-fee 'illegal' rule is written here; doing so would invent law. ALL rules status=draft-unverified: must be reviewed by a Rhode Island tenant attorney / legal-aid clinic before public conclusions.",
+  "rules": [
+    {
+      "id": "ri-fees-001",
+      "jurisdiction": "US-RI",
+      "title": "Rental application fee charged to a prospective tenant",
+      "severity": "illegal",
+      "description": "Per R.I. Gen. Laws § 34-18-59(a), a landlord, lessor, sub-lessor, real estate broker, property management company, or designee may not require or demand that a prospective tenant pay a rental application fee. (A background or credit check may be charged at no more than actual cost, and only when the applicant has not supplied a recent one — § 34-18-59(b).) A flat 'application fee' or 'processing fee' charged to apply is prohibited.",
+      "tenant_explainer": "In Rhode Island a landlord can't charge you a fee just to apply for an apartment. They can pass on the actual cost of a background or credit check (and only if you didn't already give them a recent one) — but a flat application or processing fee isn't allowed.",
+      "citations": [
+        {"label": "R.I. Gen. Laws § 34-18-59(a)", "url": "https://webserver.rilegislature.gov/Statutes/TITLE34/34-18/34-18-59.htm", "quote": "A landlord, lessor, sub-lessor, real estate broker, property management company, or designee shall not be allowed to require or demand any prospective tenant to pay for a rental application fee."}
+      ],
+      "patterns": [
+        "(?:rental\\s+)?application\\s+fee",
+        "(?:non-?refundable\\s+)?(?:processing|administrative|admin)\\s+fee[^.]{0,40}(?:application|apply|applicant)",
+        "fee\\s+(?:of\\s+)?\\$?\\d+[^.]{0,30}to\\s+apply"
+      ],
+      "keywords": ["application fee"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "ri-fees-002",
+      "jurisdiction": "US-RI",
+      "title": "Convenience fee added to a rent payment",
+      "severity": "illegal",
+      "description": "Per R.I. Gen. Laws § 34-18-61(a), a landlord may not charge a convenience fee on a tenant's rent payment. The only exception (§ 34-18-61(b)) is when the landlord also accepts a payment method that carries no such fee. A clause adding a surcharge, 'convenience fee', or processing fee to online/card rent payments without a free alternative is prohibited.",
+      "tenant_explainer": "Your landlord can't tack a 'convenience fee' onto your rent — for example a surcharge for paying online or by card — unless they also give you a way to pay that has no fee.",
+      "citations": [
+        {"label": "R.I. Gen. Laws § 34-18-61(a)", "url": "https://webserver.rilegislature.gov/Statutes/TITLE34/34-18/34-18-61.htm", "quote": "A landlord shall not charge a convenience fee to a tenant’s rental payment."}
+      ],
+      "patterns": [
+        "convenience\\s+fee",
+        "(?:surcharge|processing\\s+fee|service\\s+fee)[^.]{0,40}(?:rent\\s+payment|paying\\s+rent|online\\s+payment|pay(?:ing)?\\s+(?:by\\s+|via\\s+)?(?:card|credit\\s+card|debit))"
+      ],
+      "keywords": ["convenience fee"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "ri-fees-003",
+      "jurisdiction": "US-RI",
+      "title": "Undisclosed fees beyond rent",
+      "severity": "questionable",
+      "description": "Per R.I. Gen. Laws § 34-18-15(a)(1), if fees beyond the rent apply to the unit, the lease must disclose them in the same section as the rent disclosure and indicate that additional fees may apply. A clause reserving the landlord's right to impose unspecified or undisclosed fees later runs against this disclosure requirement; under § 34-18-15(a)(5) a tenant may recover any fees that were not disclosed as required.",
+      "tenant_explainer": "Any fees on top of rent have to be spelled out in the lease, right next to the rent. A clause that lets the landlord add 'such other fees as the landlord may impose' later, without listing them, isn't how Rhode Island requires fees to be disclosed — and you can claw back fees that weren't disclosed.",
+      "citations": [
+        {"label": "R.I. Gen. Laws § 34-18-15(a)(1)", "url": "https://webserver.rilegislature.gov/Statutes/TITLE34/34-18/34-18-15.htm", "quote": "If there are fees beyond the rent that apply to the rental of a unit, the lease shall disclose those fees in the same section as the rent disclosure and shall indicate that additional fees may apply."},
+        {"label": "R.I. Gen. Laws § 34-18-15(a)(5)", "url": "https://webserver.rilegislature.gov/Statutes/TITLE34/34-18/34-18-15.htm", "quote": "If a landlord fails to comply with subsections (a)(1) — (a)(4) of this section, the tenant may recover any fees paid for the unit that were not disclosed as required."}
+      ],
+      "patterns": [
+        "(?:such\\s+other|any\\s+other|additional|other)\\s+fees?[^.]{0,40}(?:landlord\\s+may\\s+(?:impose|charge|require)|as\\s+the\\s+landlord\\s+(?:may\\s+)?(?:determine|deem))",
+        "landlord\\s+reserves?\\s+the\\s+right\\s+to\\s+(?:impose|charge|assess)[^.]{0,30}(?:additional|other|further)\\s+fees?",
+        "(?:additional|other|further)\\s+fees?[^.]{0,40}(?:as\\s+(?:the\\s+landlord\\s+)?(?:may\\s+)?(?:determine|deem|see\\s+fit)|in\\s+(?:its|the\\s+landlord'?s)\\s+(?:sole\\s+)?discretion|from\\s+time\\s+to\\s+time)"
+      ],
+      "keywords": [],
+      "status": "draft-unverified"
+    }
+  ]
+}

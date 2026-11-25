@@ -1,0 +1,25 @@
+{
+  "jurisdiction": "US-MA",
+  "_note": "Massachusetts early-termination / lease-break penalty rule, quoted verbatim from 940 CMR 3.17(6) (the Attorney General's c. 93A landlord-tenant regulation) on mass.gov, retrieved 2026-06-20. 940 CMR 3.17(6)(c) makes it an unfair or deceptive practice to retain, as damages for a tenant's breach, any amount exceeding the damages the owner is actually entitled to under law; 940 CMR 3.17(6)(d) bars requiring rent for periods the tenant was not obligated to and did not occupy. A clause forcing the tenant to forfeit the deposit or pay all remaining rent on early move-out, regardless of the landlord's actual loss, is an unfair or deceptive practice. status=draft-unverified: must be reviewed by a Massachusetts tenant attorney / legal-aid clinic before public conclusions.",
+  "rules": [
+    {
+      "id": "ma-termination-001",
+      "jurisdiction": "US-MA",
+      "title": "Early-termination penalty exceeding the landlord's actual damages",
+      "severity": "questionable",
+      "description": "Per 940 CMR 3.17(6)(c), it is an unfair or deceptive practice for an owner to retain, as damages for a tenant's breach of lease, any amount exceeding the damages the owner is actually entitled to under law (or otherwise agreed). 940 CMR 3.17(6)(d) bars demanding rent for periods the tenant did not occupy and was not obligated to occupy. A clause that makes the tenant automatically forfeit the deposit or pay all remaining rent on early move-out — without regard to the landlord's real loss or re-renting — exceeds lawful damages.",
+      "tenant_explainer": "If you break the lease early, the landlord can charge for their actual losses — not an automatic penalty of the whole deposit or every remaining month. A clause that bills you flat for all remaining rent regardless of what the landlord actually lost may not hold up in Massachusetts.",
+      "citations": [
+        {"label": "940 CMR 3.17(6)(c)", "url": "https://www.mass.gov/doc/940-cmr-3-consumer-protection-general-regulations/download", "quote": "Retain as damages for a tenant's breach of lease, of the failure of a prospective tenant to enter into a written rental agreement after signing a rental application, any amount which exceeds the damages to which he is entitled under the law, or an amount which the parties have otherwise agreed as to the amount of the damages;"},
+        {"label": "940 CMR 3.17(6)(d)", "url": "https://www.mass.gov/doc/940-cmr-3-consumer-protection-general-regulations/download", "quote": "Require payment for rent for periods during which the tenant was not obligated to occupy and did not in fact occupy the dwelling unit unless otherwise agreed to in writing by the parties;"}
+      ],
+      "patterns": [
+        "(?:forfeit|forfeiture\\s+of)[^.]{0,30}(?:security\\s+)?deposit[^.]{0,40}(?:if|upon|on|for)[^.]{0,30}(?:early\\s+termination|vacat\\w*|terminat\\w*\\s+(?:the\\s+lease\\s+)?early|breaks?\\s+the\\s+lease|move[\\s-]?out)",
+        "(?:liable|responsible)\\s+for[^.]{0,30}(?:all|the\\s+entire|the\\s+remaining|remainder\\s+of\\s+the)\\s+rent[^.]{0,50}(?:remaining\\s+)?term",
+        "(?:all|entire|remaining|remainder\\s+of\\s+the)\\s+rent[^.]{0,50}(?:immediately\\s+due|due\\s+(?:and\\s+payable\\s+)?(?:in\\s+full|immediately)|(?:accelerat\\w*|due|owed|payable)[^.]{0,30}for\\s+the\\s+(?:remainder|balance|entire\\s+(?:remaining\\s+)?term))"
+      ],
+      "keywords": ["forfeit the deposit", "all remaining rent"],
+      "status": "draft-unverified"
+    }
+  ]
+}

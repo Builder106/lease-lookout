@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"/><title>Hero — magnifier glide</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{--background:oklch(0.985 0.006 85);--popover:oklch(0.995 0.004 85);--primary:oklch(0.46 0.07 178);--muted-foreground:oklch(0.5 0.01 260);--border:oklch(0.205 0.01 260 / 0.1);--sev:oklch(0.55 0.13 25);--sevt:oklch(0.55 0.13 25 / 0.08)}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--background);font-family:Inter,system-ui,sans-serif;padding:30px 56px;display:flex;gap:40px}
+  body.d{--background:oklch(0.145 0.008 260);--popover:oklch(0.175 0.008 260);--primary:oklch(0.7 0.09 178);--muted-foreground:oklch(0.68 0.01 85);--border:oklch(0.94 0.008 85 / 0.1);--sev:oklch(0.7 0.13 25);--sevt:oklch(0.7 0.13 25 / 0.12)}
+  .stage{position:relative;width:560px}
+  .rise{animation:rise .5s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .float{animation:float 7s ease-in-out 1s infinite}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+  .vis{position:relative}
+  .vis img{display:block;width:100%;height:auto}
+  .mag{position:absolute;inset:0;animation:magin 1.4s cubic-bezier(.4,0,.2,1) .5s both}
+  @keyframes magin{from{opacity:0;transform:translate(18%,-15%)}to{opacity:1;transform:translate(0,0)}}
+  .flag{position:absolute;bottom:18px;right:6px;width:18rem;max-width:84%;border:1px solid var(--border);background:var(--popover);border-radius:10px;padding:15px;box-shadow:0 2px 6px rgba(35,33,30,.06),0 16px 40px rgba(35,33,30,.13);animation:flagin .5s cubic-bezier(.4,0,.2,1) 1.55s both}
+  @keyframes flagin{from{opacity:0;transform:translateY(10px) scale(.985)}to{opacity:1;transform:none}}
+  .pill{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:2px 8px;font-size:.72rem;font-weight:500;color:var(--sev);background:var(--sevt)}
+  .pill .dot{width:7px;height:7px;border-radius:50%;background:currentColor}
+  .flag h3{margin:9px 0 0;font-size:.9rem;font-weight:500}.flag p{margin:4px 0 0;font-size:.78rem;line-height:1.35;color:var(--muted-foreground)}
+  .cite{margin-top:9px;display:inline-block;font-family:"JetBrains Mono",monospace;font-size:.72rem;color:var(--primary)}
+  .lbl{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-foreground)}
+</style></head>
+<body>
+<div><p class="lbl">light</p>
+<div class="stage">
+  <div class="rise"><div class="float vis">
+    <img src="hero-doc-3d.png" alt="">
+    <img class="mag" src="hero-mag-3d.png" alt="">
+  </div></div>
+  <div class="flag"><span class="pill"><span class="dot"></span>Likely unenforceable</span>
+    <h3>Landlord exculpation / hold-harmless</h3>
+    <p>Connecticut doesn't let a lease waive the landlord's liability for its own negligence.</p>
+    <span class="cite">Conn. Gen. Stat. § 47a-4(a)(3) ↗</span></div>
+</div></div>
+<script>
+  const d=document.querySelector("div").cloneNode(true);d.querySelector(".lbl").textContent="dark";
+  const w=document.createElement("div");w.className="d";w.style.cssText="background:oklch(0.145 0.008 260);margin:-30px -56px -30px 0;padding:30px 56px";
+  w.appendChild(d);document.body.appendChild(w);
+</script>
+</body></html>

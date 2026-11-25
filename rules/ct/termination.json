@@ -1,0 +1,25 @@
+{
+  "jurisdiction": "US-CT",
+  "_note": "Conn. Gen. Stat. § 47a-11a (Abandonment of unit by tenant), retrieved verbatim from cga.ct.gov on 2026-06-05: if a tenant abandons, the landlord SHALL make reasonable efforts to re-rent at fair rental in mitigation of damages. status=draft-unverified.",
+  "rules": [
+    {
+      "id": "ct-terminate-001",
+      "jurisdiction": "US-CT",
+      "title": "Tenant owes all remaining rent on early termination (ignores duty to mitigate)",
+      "severity": "illegal",
+      "description": "Per § 47a-11a, if a tenant leaves early the landlord must make reasonable efforts to re-rent the unit at a fair rental to mitigate damages. A clause accelerating all remaining rent — making the tenant automatically liable for the entire balance of the term regardless of re-renting — is unenforceable to that extent.",
+      "tenant_explainer": "If you break your lease early, your landlord can't just bill you for every remaining month — they're legally required to try to re-rent the place. A clause demanding the whole remaining rent up front ignores that duty.",
+      "citations": [
+        {"label": "Conn. Gen. Stat. § 47a-11a", "url": "https://www.cga.ct.gov/current/pub/chap_830.htm#sec_47a-11a", "quote": "(a) If the tenant abandons the dwelling unit, the landlord shall make reasonable efforts to rent it at a fair rental in mitigation of damages. (b) If the landlord fails to use reasonable efforts to rent the dwelling unit at a fair rental, the rental agreement is deemed to be terminated by the landlord as of the date the landlord has notice of the abandonment."}
+      ],
+      "patterns": [
+        "accelerat\\w*[^.]{0,30}rent",
+        "rent[^.]{0,30}accelerat\\w*",
+        "(?:all|entire|remaining|remainder\\s+of\\s+the)\\s+rent[^.]{0,50}(?:immediately\\s+due|due\\s+(?:and\\s+payable\\s+)?(?:in\\s+full|immediately)|for\\s+the\\s+(?:remainder|balance|entire\\s+(?:remaining\\s+)?term))",
+        "(?:liable|responsible)\\s+for[^.]{0,30}(?:all|the\\s+entire|the\\s+remaining)\\s+rent[^.]{0,40}term"
+      ],
+      "keywords": ["acceleration of rent"],
+      "status": "draft-unverified"
+    }
+  ]
+}

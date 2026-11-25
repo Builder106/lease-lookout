@@ -1,0 +1,62 @@
+{
+  "jurisdiction": "US-MA",
+  "_note": "Massachusetts move-in-charge and fee rules, quoted verbatim from M.G.L. c. 186, § 15B on malegislature.gov and 940 CMR 3.17 (the Attorney General's c. 93A landlord-tenant regulation) on mass.gov, both retrieved 2026-06-20. § 15B(1)(b) is an exhaustive list of the only four lawful up-front charges (first month, last month, a one-month security deposit, and the cost of a key and lock) — there is no lawful application, screening, move-in, amenity, or pet up-front fee. § 15B(1)(c) bars any interest or penalty for late rent until 30 days after it was due; 940 CMR 3.17(6)(a) restates that bar. status=draft-unverified: must be reviewed by a Massachusetts tenant attorney / legal-aid clinic before public conclusions.",
+  "rules": [
+    {
+      "id": "ma-fees-001",
+      "jurisdiction": "US-MA",
+      "title": "Late fee charged before rent is 30 days overdue",
+      "severity": "illegal",
+      "description": "Per M.G.L. c. 186, § 15B(1)(c), no lease may impose interest or a penalty for failure to pay rent until thirty days after the rent was due. The Attorney General's regulation 940 CMR 3.17(6)(a) makes charging such a late fee earlier an unfair or deceptive practice. A clause imposing a late fee on day 1, day 5, or any time inside the 30-day window is unenforceable.",
+      "tenant_explainer": "Massachusetts landlords can't charge a late fee until your rent is a full 30 days overdue. A 'late fee after 5 days' or '$50 if rent is late' clause isn't enforceable here.",
+      "citations": [
+        {"label": "M.G.L. c. 186, § 15B(1)(c)", "url": "https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section15B", "quote": "No lease or other rental agreement shall impose any interest or penalty for failure to pay rent until thirty days after such rent shall have been due."},
+        {"label": "940 CMR 3.17(6)(a)", "url": "https://www.law.cornell.edu/regulations/massachusetts/940-CMR-3-17", "quote": "It shall be an unfair and deceptive practice for an owner to: (a) Impose any interest or penalty for late payment or rent unless such payment is 30 days overdue;"}
+      ],
+      "patterns": [
+        "late\\s+(?:fee|charge|payment\\s+(?:fee|charge|penalty))[^.]{0,60}(?:after|if\\s+(?:rent\\s+is\\s+)?(?:more\\s+than\\s+)?|within|of)\\s+(?:one|two|three|four|five|ten|fifteen|twenty|1|2|3|4|5|6|7|10|15|20)\\s*(?:\\(\\d+\\)\\s*)?days?",
+        "(?:fee|penalty|charge)\\s+of\\s+\\$?\\d+[^.]{0,40}(?:if\\s+rent\\s+is\\s+(?:not\\s+)?(?:paid|late)|for\\s+late\\s+(?:payment|rent))",
+        "late\\s+fee\\s+of\\s+\\$?\\d+[^.]{0,30}per\\s+day"
+      ],
+      "keywords": ["late fee", "late charge"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "ma-fees-002",
+      "jurisdiction": "US-MA",
+      "title": "Application or tenant-screening fee charged up front",
+      "severity": "illegal",
+      "description": "Per M.G.L. c. 186, § 15B(1)(b), the only amounts a lessor may require at or before the start of a tenancy are first month's rent, last month's rent, a security deposit equal to one month's rent, and the cost of a new key and lock. 940 CMR 3.17(4)(a) restates this exhaustive list. An application fee, screening fee, or credit-check fee is not on that list and is an unlawful up-front charge.",
+      "tenant_explainer": "In Massachusetts a landlord can only collect four things before you move in: first month, last month, a one-month security deposit, and the cost of a new lock and key. An application fee or credit-check fee isn't allowed.",
+      "citations": [
+        {"label": "M.G.L. c. 186, § 15B(1)(b)", "url": "https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section15B", "quote": "At or prior to the commencement of any tenancy, no lessor or agent of the lessor may require a tenant or prospective tenant to pay, to the lessor or to an agent of the lessor, any amount in excess of the following: (i) rent for the first full month of occupancy; and, (ii) rent for the last full month of occupancy calculated at the same rate as the first month; and, (iii) a security deposit equal to the first month's rent"},
+        {"label": "940 CMR 3.17(4)(a)", "url": "https://www.law.cornell.edu/regulations/massachusetts/940-CMR-3-17", "quote": "It shall be an unfair or deceptive practice for an owner to: (a) require a tenant or prospective tenant, at or prior to the commencement of any tenancy, to pay any amount in excess of the following:"}
+      ],
+      "patterns": [
+        "(?:non-?refundable\\s+)?(?:application|screening|credit[\\s-]?check|processing)\\s+fee",
+        "applicant\\s+(?:shall|must|will|agrees?\\s+to)\\s+pay[^.]{0,40}(?:application|screening|credit)\\s+fee"
+      ],
+      "keywords": ["application fee", "screening fee"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "ma-fees-003",
+      "jurisdiction": "US-MA",
+      "title": "Move-in, amenity, pet, or other up-front fee not allowed by statute",
+      "severity": "questionable",
+      "description": "Per M.G.L. c. 186, § 15B(1)(b), the up-front charges a lessor may require are exhaustively limited to first month's rent, last month's rent, a one-month security deposit, and the cost of a key and lock. A move-in fee, amenity fee, redecorating fee, community fee, or non-refundable pet fee charged at or before move-in is outside that list and is an unlawful up-front charge.",
+      "tenant_explainer": "Beyond first month, last month, a one-month deposit, and the cost of a lock and key, Massachusetts landlords can't charge extra up-front fees — no move-in fee, pet fee, or amenity fee before you move in.",
+      "citations": [
+        {"label": "M.G.L. c. 186, § 15B(1)(b)(iv)", "url": "https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section15B", "quote": "(iv) the purchase and installation cost for a key and lock."},
+        {"label": "M.G.L. c. 186, § 15B(1)(d)", "url": "https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section15B", "quote": "No lessor or successor in interest shall at any time subsequent to the commencement of a tenancy demand rent in advance in excess of the current month's rent or a security deposit in excess of the amount allowed by this section."}
+      ],
+      "patterns": [
+        "(?:non-?refundable\\s+)?(?:move-?in|amenity|redecorating|community|administrative|admin|pet|cleaning)\\s+fee[^.]{0,50}(?:prior\\s+to|before|at|upon|due\\s+at)\\s+(?:move-?in|occupancy|lease\\s+signing|commencement\\s+of\\s+(?:the\\s+)?tenancy)",
+        "(?:due|payable|collected|required)\\s+(?:prior\\s+to|before|at|upon)\\s+(?:move-?in|occupancy|commencement)[^.]{0,50}(?:non-?refundable\\s+)?(?:move-?in|amenity|redecorating|community|administrative|admin|pet|cleaning)\\s+fee",
+        "(?:tenant\\s+)?(?:shall|must|agrees?\\s+to)\\s+pay[^.]{0,30}(?:a\\s+)?(?:non-?refundable\\s+)?(?:move-?in|amenity|pet|cleaning)\\s+fee[^.]{0,40}(?:prior\\s+to|before|at)\\s+(?:move-?in|occupancy|commencement)"
+      ],
+      "keywords": ["move-in fee", "pet fee", "amenity fee"],
+      "status": "draft-unverified"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "jurisdiction": "US-CT",
+  "_note": "Conn. Gen. Stat. § 47a-4c (Landlord prohibited from requiring electronic funds transfer as exclusive form of payment), retrieved verbatim from cga.ct.gov on 2026-06-05. status=draft-unverified.",
+  "rules": [
+    {
+      "id": "ct-payment-001",
+      "jurisdiction": "US-CT",
+      "title": "Rent payable only by autopay / electronic funds transfer",
+      "severity": "illegal",
+      "description": "Per § 47a-4c, for leases executed on or after October 1, 2013, a landlord cannot require electronic funds transfer (autopay/ACH/online-portal debit) as the exclusive form of paying rent or the security deposit. The tenant must be allowed another method (e.g. check).",
+      "tenant_explainer": "A landlord can't force you to pay rent only through autopay or an online portal. You have to be allowed at least one non-electronic option, like a check.",
+      "citations": [
+        {"label": "Conn. Gen. Stat. § 47a-4c", "url": "https://www.cga.ct.gov/current/pub/chap_830.htm#sec_47a-4c", "quote": "For any lease or rental agreement executed on or after October 1, 2013, no landlord of residential real property shall require electronic funds transfer as the exclusive form of payment of rent or a security deposit. … 'electronic funds transfer' means any transfer of funds that is initiated through an electronic terminal, telephone or computer …."}
+      ],
+      "patterns": [
+        "(?:electronic\\s+funds?\\s+transfer|\\bEFT\\b|\\bACH\\b|auto-?pay|automatic\\s+(?:payment|withdrawal|debit))[^.]{0,60}(?:exclusive|only|sole|required|mandatory)",
+        "(?:exclusive|only|sole|required|mandatory)[^.]{0,40}(?:form|method|means)\\s+of\\s+(?:payment|paying\\s+rent)[^.]{0,45}(?:electronic|ach|auto-?pay|online|portal)",
+        "rent\\s+(?:must|shall|can\\s+only|may\\s+only)\\s+be\\s+paid[^.]{0,40}(?:electronic|ach|auto-?pay|online\\s+portal|tenant\\s+portal)"
+      ],
+      "keywords": ["exclusive form of payment"],
+      "status": "draft-unverified"
+    }
+  ]
+}

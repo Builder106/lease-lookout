@@ -1,0 +1,30 @@
+RESIDENTIAL LEASE AGREEMENT (Vermont) — synthetic test fixture (KITCHEN SINK)
+This fixture deliberately plants one prohibited or abusive clause per Vermont rule,
+keyed to 9 V.S.A. Chapter 137 (Residential Rental Agreements), including 9 V.S.A. § 4461.
+It is NOT a real or usable lease — it exists only to prove the engine flags each VT rule.
+
+1. Security Deposit — Return. The Landlord shall return the security deposit within sixty (60) days after the Tenant vacates the dwelling unit.
+
+2. Security Deposit — Non-Refundable Portion. The security deposit shall be non-refundable.
+
+3. Security Deposit — Forfeiture. Upon any breach of this Lease or early departure, the entire security deposit shall be forfeited and retained by the Landlord as liquidated damages.
+
+4. Application. The Tenant shall pay a seventy-five dollar ($75) application fee before this application will be considered.
+
+5. Identification. The Tenant must provide a Social Security number to complete the rental application.
+
+6. Habitability. The Tenant accepts the premises as-is and waives the warranty of habitability.
+
+7. Liability. The Tenant shall hold the Landlord harmless, and the Landlord shall not be liable for any injury arising on the premises.
+
+8. Default and Possession. Upon default, the Landlord may re-enter and take possession of the premises without resort to court and may change the locks.
+
+9. Utilities. If rent is unpaid, the Landlord may shut off the utilities supplied to the Tenant until the balance is paid.
+
+10. Complaints. The Tenant shall pay a one hundred dollar ($100) penalty for filing any complaint with a housing agency.
+
+11. Waiver of Rights. The Tenant waives all rights and remedies under the Vermont Residential Rental Agreements Act.
+
+12. Entry. The Landlord may enter the premises at any time and without notice.
+
+13. Heat and Hot Water. The Landlord shall not be responsible for heat or hot water, which the Tenant shall arrange at the Tenant's sole expense.

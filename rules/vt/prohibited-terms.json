@@ -1,0 +1,117 @@
+{
+  "jurisdiction": "US-VT",
+  "_note": "Vermont statutory bars on residential lease terms (9 V.S.A. Chapter 137), retrieved verbatim from legislature.vermont.gov on 2026-06-20. § 4457(b): any provision waiving the implied warranty of habitability is contrary to public policy, unenforceable, and void. § 4463(a): no landlord may willfully cause interruption/termination of utility service (except temporary emergency repairs). § 4463(b)-(c): no landlord may deny a tenant access to the premises or to the tenant's property except through proper judicial process. § 4465: retaliation by changing lease terms or bringing/threatening an action against a tenant for complaining or organizing is prohibited. § 4454: any clause that circumvents the chapter's obligations and remedies is unenforceable and void. NOTE: Vermont's Chapter 137 contains NO express statutory bar on jury-trial waivers, confession-of-judgment, or one-way attorney-fee clauses in residential leases, so this file does NOT flag those (no Vermont primary source). All rules status=draft-unverified: review by a Vermont tenant attorney / legal-aid clinic before public conclusions.",
+  "rules": [
+    {
+      "id": "vt-prohibited-001",
+      "jurisdiction": "US-VT",
+      "title": "\"As-is\" / waiver of the warranty of habitability",
+      "severity": "illegal",
+      "description": "Per 9 V.S.A. § 4457(a) every residential rental agreement carries an implied warranty that the premises are safe, clean, and fit for human habitation; § 4457(b) makes any provision by which the tenant waives that warranty contrary to public policy, unenforceable, and void. An 'as-is' or habitability-waiver clause does not hold up in Vermont.",
+      "tenant_explainer": "You can't sign away your right to a livable home. In Vermont a clause saying you take the place 'as-is' or 'waive the warranty of habitability' is void — the landlord still owes you safe, clean, code-compliant housing.",
+      "citations": [
+        {"label": "9 V.S.A. § 4457(a)-(b)", "url": "https://legislature.vermont.gov/statutes/section/09/137/04457", "quote": "In any residential rental agreement, the landlord shall be deemed to covenant and warrant to deliver over and maintain, throughout the period of the tenancy, premises that are safe, clean, and fit for human habitation … No rental agreement shall contain any provision by which the tenant waives the protections of the implied warranty of habitability. Any such waiver shall be deemed contrary to public policy and shall be unenforceable and void."}
+      ],
+      "patterns": [
+        "accepts?\\s+(?:the\\s+)?(?:premises|unit|apartment|dwelling)\\s+(?:in\\s+)?(?:its\\s+)?(?:present|current|existing)\\s+condition",
+        "(?:premises|unit|apartment|dwelling)[^.]{0,30}\\bas[\\s-]?is\\b",
+        "waive[sd]?[^.]{0,40}(?:implied\\s+)?warranty\\s+of\\s+habitability",
+        "(?:disclaim\\w*|no|without)\\s+(?:any\\s+|all\\s+)?(?:implied\\s+)?warrant(?:y|ies)\\s+of\\s+habitability"
+      ],
+      "keywords": ["warranty of habitability"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "vt-prohibited-002",
+      "jurisdiction": "US-VT",
+      "title": "Landlord exculpation / hold-harmless for unsafe conditions",
+      "severity": "questionable",
+      "description": "Vermont's implied warranty of habitability (9 V.S.A. § 4457(a)) obligates the landlord to deliver and maintain safe premises throughout the tenancy. A clause exculpating the landlord from liability for injury caused by unsafe conditions, or requiring the tenant to 'hold the landlord harmless,' tends to circumvent that obligation and may be unenforceable and void under § 4454. Flag for review of scope.",
+      "tenant_explainer": "Your landlord has to keep the place safe. A clause saying they're 'not liable for any injury' or that you'll 'hold the landlord harmless' tries to sidestep that duty — in Vermont that may not hold up.",
+      "citations": [
+        {"label": "9 V.S.A. § 4457(a)", "url": "https://legislature.vermont.gov/statutes/section/09/137/04457", "quote": "In any residential rental agreement, the landlord shall be deemed to covenant and warrant to deliver over and maintain, throughout the period of the tenancy, premises that are safe, clean, and fit for human habitation and that comply with the requirements of applicable building, housing, and health regulations."},
+        {"label": "9 V.S.A. § 4454", "url": "https://legislature.vermont.gov/statutes/section/09/137/04454", "quote": "No rental agreement shall contain any provision that attempts to circumvent or circumvents obligations and remedies established by this chapter and any such provision shall be unenforceable and void."}
+      ],
+      "patterns": [
+        "hold\\s+(?:the\\s+)?landlord\\s+harmless",
+        "indemnify\\s+(?:and\\s+hold\\s+harmless\\s+)?(?:the\\s+)?landlord",
+        "landlord\\s+shall\\s+not\\s+be\\s+(?:held\\s+)?liable",
+        "releases?\\s+(?:the\\s+)?landlord\\s+from\\s+(?:any\\s+|all\\s+)?liability"
+      ],
+      "keywords": ["hold harmless", "indemnify the landlord"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "vt-prohibited-003",
+      "jurisdiction": "US-VT",
+      "title": "Self-help eviction / lockout (denying access except by court)",
+      "severity": "illegal",
+      "description": "Per 9 V.S.A. § 4463(b)-(c), no landlord may directly or indirectly deny a tenant access to and possession of the rented premises, or of the tenant's property, except through proper judicial process. A clause letting the landlord re-enter, retake possession, change the locks, or seize belongings 'without resort to court' is unenforceable.",
+      "tenant_explainer": "A landlord can't lock you out, retake the unit, or grab your belongings to force you out — they have to go through court. A lease clause that says otherwise doesn't hold up in Vermont.",
+      "citations": [
+        {"label": "9 V.S.A. § 4463(b)-(c)", "url": "https://legislature.vermont.gov/statutes/section/09/137/04463", "quote": "No landlord may directly or indirectly deny a tenant access to and possession of the tenant’s rented or leased premises, except through proper judicial process. No landlord may directly or indirectly deny a tenant access to and possession of the tenant’s property, except through proper judicial process."}
+      ],
+      "patterns": [
+        "without\\s+(?:resort(?:ing)?\\s+to|the\\s+necessity\\s+of|recourse\\s+to|going\\s+to)\\s+(?:any\\s+|a\\s+)?(?:court|legal\\s+process|judicial\\s+process|eviction\\s+proceedings?)",
+        "landlord\\s+may\\s+(?:re-?enter\\s+and\\s+take\\s+possession|retake\\s+possession|repossess|dispossess)",
+        "landlord\\s+may[^.]{0,40}(?:lock\\s+(?:the\\s+)?tenant\\s+out|change\\s+(?:the\\s+)?locks?[^.]{0,30}(?:exclud|prevent|deny|bar)\\w*[^.]{0,20}(?:tenant|access))"
+      ],
+      "keywords": ["self-help", "without resort to court"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "vt-prohibited-004",
+      "jurisdiction": "US-VT",
+      "title": "Shutting off utilities to force the tenant out",
+      "severity": "illegal",
+      "description": "Per 9 V.S.A. § 4463(a), no landlord may willfully cause, directly or indirectly, the interruption or termination of any utility service being supplied to the tenant, except for temporary interruptions for emergency repairs. A clause letting the landlord shut off heat, water, or electricity over unpaid rent or any other dispute is unenforceable.",
+      "tenant_explainer": "Your landlord can't cut off your heat, water, or power to pressure you — the only exception is a brief shut-off for emergency repairs. A lease clause allowing utility shut-offs is not enforceable in Vermont.",
+      "citations": [
+        {"label": "9 V.S.A. § 4463(a)", "url": "https://legislature.vermont.gov/statutes/section/09/137/04463", "quote": "No landlord may willfully cause, directly or indirectly, the interruption or termination of any utility service being supplied to the tenant, except for temporary interruptions for emergency repairs."}
+      ],
+      "patterns": [
+        "(?:shut(?:ting)?\\s+off|discontinu\\w+|interrupt\\w+|terminat\\w+|cut\\s+off|disconnect\\w*)\\s+(?:the\\s+)?(?:tenant'?s?\\s+)?(?:utility\\s+service|utilities|heat|water|electricity|power)",
+        "(?:utility\\s+service|utilities|heat|water|electricity)[^.]{0,40}(?:may\\s+be|shall\\s+be|will\\s+be)\\s+(?:shut\\s+off|discontinued|interrupted|terminated|disconnected)"
+      ],
+      "keywords": [],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "vt-prohibited-005",
+      "jurisdiction": "US-VT",
+      "title": "Penalty for complaining / waiver of the retaliation defense",
+      "severity": "illegal",
+      "description": "Per 9 V.S.A. § 4465, a landlord may not retaliate — by changing lease terms or by bringing or threatening an action — against a tenant who complains to a housing/health agency, complains to the landlord of a chapter violation, or joins a tenants' union. A clause that fines a tenant for complaining, or makes the tenant waive the retaliation protections, circumvents § 4465 and is void under § 4454.",
+      "tenant_explainer": "Your landlord can't punish you for reporting bad conditions or joining a tenants' group. A lease clause that charges you a penalty for complaining, or makes you give up your protection against retaliation, isn't allowed in Vermont.",
+      "citations": [
+        {"label": "9 V.S.A. § 4465(a)", "url": "https://legislature.vermont.gov/statutes/section/09/137/04465", "quote": "A landlord of a residential dwelling unit may not retaliate by establishing or changing terms of a rental agreement or by bringing or threatening to bring an action against a tenant who: (1) has complained to a governmental agency charged with responsibility for enforcement of a building, housing, or health regulation … (2) has complained to the landlord of a violation of this chapter; or (3) has organized or become a member of a tenant’s union or similar organization."},
+        {"label": "9 V.S.A. § 4454", "url": "https://legislature.vermont.gov/statutes/section/09/137/04454", "quote": "No rental agreement shall contain any provision that attempts to circumvent or circumvents obligations and remedies established by this chapter and any such provision shall be unenforceable and void."}
+      ],
+      "patterns": [
+        "landlord\\s+may[^.]{0,40}retaliat\\w*",
+        "(?:fee|penalty|penalties|charge|fine)[^.]{0,50}(?:filing|file[sd]?|making|made|submitting)?[^.]{0,20}(?:a\\s+)?complaint",
+        "(?:fee|penalty|penalties|charge|fine)[^.]{0,40}(?:complain|reporting\\s+(?:a\\s+)?(?:violation|condition)|housing\\s+(?:code|agency))",
+        "tenant\\s+waives?[^.]{0,40}retaliat\\w*"
+      ],
+      "keywords": [],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "vt-prohibited-006",
+      "jurisdiction": "US-VT",
+      "title": "Blanket waiver of statutory tenant rights",
+      "severity": "illegal",
+      "description": "Per 9 V.S.A. § 4454, no rental agreement may contain any provision that circumvents the obligations and remedies established by Chapter 137; any such provision is unenforceable and void. A clause in which the tenant 'waives all rights and remedies' under the residential rental statute is void on its face.",
+      "tenant_explainer": "A lease can't make you sign away the protections Vermont's rental law gives you. A clause that says you 'waive all rights and remedies' under the landlord-tenant statute is void.",
+      "citations": [
+        {"label": "9 V.S.A. § 4454", "url": "https://legislature.vermont.gov/statutes/section/09/137/04454", "quote": "No rental agreement shall contain any provision that attempts to circumvent or circumvents obligations and remedies established by this chapter and any such provision shall be unenforceable and void."}
+      ],
+      "patterns": [
+        "waive[sd]?\\s+(?:any\\s+|all\\s+|the\\s+)?(?:rights?|remed(?:y|ies)|protections?)[^.]{0,40}(?:under|of)\\s+(?:this\\s+chapter|the\\s+(?:residential\\s+)?(?:rental|landlord[\\s-]?tenant)\\s+(?:act|statute|law|agreements?\\s+act)|9\\s+V\\.?S\\.?A)",
+        "tenant\\s+waives?\\s+(?:any\\s+|all\\s+)?(?:statutory\\s+)?(?:rights?\\s+and\\s+remed(?:y|ies)|rights?\\s+and\\s+protections?)"
+      ],
+      "keywords": [],
+      "status": "draft-unverified"
+    }
+  ]
+}

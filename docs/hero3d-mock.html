@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"/><title>3D hero — scan + flag</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --background: oklch(0.985 0.006 85); --foreground: oklch(0.205 0.01 260);
+    --popover: oklch(0.995 0.004 85); --primary: oklch(0.46 0.07 178);
+    --muted-foreground: oklch(0.5 0.01 260); --border: oklch(0.205 0.01 260 / 0.1);
+    --sev-unenforceable: oklch(0.55 0.13 25); --sev-unenforceable-tint: oklch(0.55 0.13 25 / 0.08);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--background);color:var(--foreground);font-family:Inter,system-ui,sans-serif;padding:40px 56px;display:flex;gap:40px}
+  body.dark{--background:oklch(0.145 0.008 260);--foreground:oklch(0.94 0.008 85);--popover:oklch(0.175 0.008 260);--primary:oklch(0.7 0.09 178);--muted-foreground:oklch(0.68 0.01 85);--border:oklch(0.94 0.008 85 / 0.1);--sev-unenforceable:oklch(0.7 0.13 25);--sev-unenforceable-tint:oklch(0.7 0.13 25 / 0.12)}
+  .stage{position:relative;width:440px}
+  .vis{position:relative}
+  .vis img{display:block;width:100%;height:auto;user-select:none}
+  .ll-rise{animation:ll-rise .5s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes ll-rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .ll-scan-wrap{position:absolute;inset:0;z-index:10;overflow:hidden;pointer-events:none;
+    -webkit-mask:url(hero-3d-preview.png) center/100% 100% no-repeat;
+    mask:url(hero-3d-preview.png) center/100% 100% no-repeat}
+  .ll-scan-beam{position:absolute;left:-45%;right:-45%;top:48%;height:40px;transform-origin:center;
+    background:linear-gradient(to bottom,transparent,color-mix(in oklch,var(--primary) 32%,transparent) 52%,color-mix(in oklch,var(--primary) 60%,transparent) 76%,transparent);
+    box-shadow:0 1px 0 color-mix(in oklch,var(--primary) 75%,transparent);
+    animation:ll-scan 2.0s cubic-bezier(.4,0,.2,1) .5s both}
+  @keyframes ll-scan{0%{transform:rotate(-28deg) translateY(-300px);opacity:0}12%{opacity:1}88%{opacity:1}100%{transform:rotate(-28deg) translateY(280px);opacity:0}}
+  .flag{position:absolute;bottom:24px;right:-8px;width:18rem;max-width:88%;border:1px solid var(--border);background:var(--popover);border-radius:10px;padding:16px;box-shadow:0 2px 6px rgba(35,33,30,.06),0 16px 40px rgba(35,33,30,.13);animation:flagin .5s cubic-bezier(.4,0,.2,1) 1.5s both}
+  @keyframes flagin{from{opacity:0;transform:translateY(10px) scale(.985)}to{opacity:1;transform:none}}
+  .pill{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:2px 8px;font-size:.72rem;font-weight:500;color:var(--sev-unenforceable);background:var(--sev-unenforceable-tint)}
+  .pill .dot{width:7px;height:7px;border-radius:50%;background:currentColor}
+  .flag h3{margin:10px 0 0;font-size:.92rem;font-weight:500;letter-spacing:-.01em}
+  .flag p{margin:4px 0 0;font-size:.8rem;line-height:1.35;color:var(--muted-foreground)}
+  .cite{margin-top:10px;display:inline-block;font-family:"JetBrains Mono",monospace;font-size:.72rem;color:var(--primary)}
+  .lbl{position:absolute;top:-26px;left:0;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-foreground)}
+</style></head>
+<body>
+<div class="stage"><span class="lbl">light</span>
+  <div class="ll-rise vis">
+    <div class="ll-scan-wrap"><span class="ll-scan-beam"></span></div>
+    <img src="hero-3d-preview.png" alt=""/>
+  </div>
+  <div class="flag">
+    <span class="pill"><span class="dot"></span>Illegal</span>
+    <h3>Landlord exculpation / hold-harmless</h3>
+    <p>Connecticut doesn't let a lease waive the landlord's liability for its own negligence.</p>
+    <span class="cite">Conn. Gen. Stat. § 47a-4(a)(3) ↗</span>
+  </div>
+</div>
+<script>
+  // clone into a dark stage
+  const dark=document.querySelector(".stage").cloneNode(true);
+  dark.querySelector(".lbl").textContent="dark";
+  const wrap=document.createElement("div");wrap.className="dark";wrap.style.cssText="background:oklch(0.145 0.008 260);margin:-40px -56px;padding:40px 56px";
+  wrap.appendChild(dark);document.body.appendChild(wrap);
+</script>
+</body></html>

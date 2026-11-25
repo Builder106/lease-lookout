@@ -1,0 +1,120 @@
+{
+  "jurisdiction": "US-MA",
+  "_note": "Massachusetts statutory/regulatory bars on residential lease terms, quoted verbatim from malegislature.gov and from 940 CMR 3.17 (the Attorney General's c. 93A landlord-tenant regulation) on mass.gov, both retrieved 2026-06-20. M.G.L. c. 186, § 15 voids any indemnify/hold-harmless/exculpation clause for the landlord's own negligence. § 15F voids jury-trial waivers and constructive-eviction waivers, and gives the ouster (lockout) remedy. § 14 makes utility shutoff, interference with quiet enjoyment, and self-help (force) repossession a punishable offense and voids any waiver. § 18 bars reprisal for reporting violations or tenant-union activity and voids any waiver. 940 CMR 3.17(3)(a)1 makes a lease term that violates any law an unfair/deceptive practice, and 3.17(1) makes renting/keeping an uninhabitable unit unlawful (so an 'as-is'/habitability-waiver term is unenforceable). NOTE ON SCOPE: Massachusetts has no clean primary-source statute squarely voiding 'confession of judgment' or 'one-way attorney-fee' lease clauses, so — per the never-invent-law rule — those are intentionally NOT included here. status=draft-unverified: must be reviewed by a Massachusetts tenant attorney / legal-aid clinic before public conclusions.",
+  "rules": [
+    {
+      "id": "ma-prohibited-001",
+      "jurisdiction": "US-MA",
+      "title": "\"As-is\" / waiver of habitability",
+      "severity": "illegal",
+      "description": "Under 940 CMR 3.17(1) it is an unfair or deceptive act for an owner to rent or keep a dwelling that is unfit for human habitation or contains a code violation that may endanger health or safety, and 940 CMR 3.17(3)(a)1 makes any lease term that violates any law an unfair or deceptive practice. A lease clause having the tenant accept the unit 'as-is' or waive the implied warranty of habitability cannot relieve the owner of that duty and is unenforceable.",
+      "tenant_explainer": "You can't sign away your right to a livable home. 'Tenant accepts the unit as-is' or 'waives the warranty of habitability' doesn't hold up in Massachusetts — the landlord still owes you a safe, code-compliant place.",
+      "citations": [
+        {"label": "940 CMR 3.17(1)", "url": "https://www.law.cornell.edu/regulations/massachusetts/940-CMR-3-17", "quote": "Conditions and Maintenance of a Dwelling Unit. It shall be an unfair or deceptive act or practice for an owner to: (a) Rent a dwelling unit which, at the inception of the tenancy 1. contains a condition which amounts to a violation of law which may endanger or materially impair the health, safety, or well-being of the occupant; or 2. is unfit for human habitation;"},
+        {"label": "940 CMR 3.17(3)(a)", "url": "https://www.law.cornell.edu/regulations/massachusetts/940-CMR-3-17", "quote": "It shall be unfair or deceptive act or practice for an owner to include in any rental agreement any term which:"}
+      ],
+      "patterns": [
+        "accepts?\\s+(?:the\\s+)?(?:premises|unit|apartment|dwelling)\\s+(?:in\\s+)?(?:its\\s+)?(?:present|current|existing)\\s+condition",
+        "(?:premises|unit|apartment|dwelling)[^.]{0,30}\\bas[\\s-]?is\\b",
+        "\\bas[\\s-]?is\\b[^.]{0,30}(?:condition|where[\\s-]?is)",
+        "waive[sd]?[^.]{0,40}(?:implied\\s+)?warranty\\s+of\\s+habitability",
+        "(?:disclaim\\w*|no|without)\\s+(?:any\\s+|all\\s+)?(?:implied\\s+)?warrant(?:y|ies)\\s+of\\s+habitability"
+      ],
+      "keywords": ["warranty of habitability"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "ma-prohibited-002",
+      "jurisdiction": "US-MA",
+      "title": "Landlord exculpation / indemnity / hold-harmless for its own negligence",
+      "severity": "illegal",
+      "description": "Per M.G.L. c. 186, § 15, any lease covenant whose effect is to indemnify the landlord, hold the landlord harmless, or exonerate the landlord from liability to the tenant for injury, loss, or damage arising from the landlord's own negligence or misconduct is against public policy and void.",
+      "tenant_explainer": "Your landlord can't use the lease to escape responsibility for harm caused by their own negligence. 'Landlord not liable for any injury,' 'indemnify the landlord,' or 'hold harmless' clauses are void in Massachusetts.",
+      "citations": [
+        {"label": "M.G.L. c. 186, § 15", "url": "https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section15", "quote": "Any provision of a lease or other rental agreement relating to real property whereby a lessee or tenant enters into a covenant, agreement or contract, by the use of any words whatsoever, the effect of which is to indemnify the lessor or landlord or hold the lessor or landlord harmless, or preclude or exonerate the lessor or landlord from any or all liability to the lessee or tenant, or to any other person, for any injury, loss, damage or liability arising from any omission, fault, negligence or other misconduct of the lessor or landlord on or about the leased or rented premises … shall be deemed to be against public policy and void."}
+      ],
+      "patterns": [
+        "hold\\s+(?:the\\s+)?(?:lessor|landlord)\\s+harmless",
+        "indemnify\\s+(?:and\\s+hold\\s+harmless\\s+)?(?:the\\s+)?(?:lessor|landlord)",
+        "(?:lessor|landlord)\\s+shall\\s+not\\s+be\\s+(?:held\\s+)?liable[^.]{0,60}(?:negligence|misconduct|fault|any\\s+(?:and\\s+all\\s+)?(?:injury|loss|damage|cause))",
+        "releases?\\s+(?:the\\s+)?(?:lessor|landlord)\\s+from\\s+(?:any\\s+|all\\s+)?liability"
+      ],
+      "keywords": ["hold harmless", "indemnify the landlord"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "ma-prohibited-003",
+      "jurisdiction": "US-MA",
+      "title": "Waiver of jury trial",
+      "severity": "illegal",
+      "description": "Per M.G.L. c. 186, § 15F, any provision of a residential lease whereby the tenant agrees to waive the right to a trial by jury in litigation with the landlord is against public policy and void.",
+      "tenant_explainer": "A Massachusetts lease can't make you give up your right to a jury in a dispute with your landlord. That waiver is void.",
+      "citations": [
+        {"label": "M.G.L. c. 186, § 15F", "url": "https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section15F", "quote": "Any provision of a lease or other rental agreement relating to residential real property whereby the tenant agrees to waive his right to trial by jury in any subsequent litigation with the landlord, or agrees that no action or failure to act by the landlord shall be construed as a constructive eviction, shall be deemed to be against public policy and void."}
+      ],
+      "patterns": [
+        "waive[sd]?\\s+(?:any\\s+|the\\s+|his\\s+|her\\s+|their\\s+|its\\s+)?(?:right\\s+to\\s+(?:a\\s+)?)?(?:trial\\s+by\\s+jury|jury\\s+trial)",
+        "waiver\\s+of\\s+(?:a\\s+|the\\s+)?(?:trial\\s+by\\s+jury|jury\\s+trial)"
+      ],
+      "keywords": ["waiver of trial by jury", "waive trial by jury"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "ma-prohibited-004",
+      "jurisdiction": "US-MA",
+      "title": "Waiver of constructive eviction",
+      "severity": "illegal",
+      "description": "Per M.G.L. c. 186, § 15F, a residential-lease provision stating that no action or failure to act by the landlord shall be construed as a constructive eviction is against public policy and void. A clause barring the tenant from raising constructive eviction is unenforceable.",
+      "tenant_explainer": "If the landlord makes the place unlivable, that can count as a constructive eviction — and a lease clause saying it never can is void in Massachusetts.",
+      "citations": [
+        {"label": "M.G.L. c. 186, § 15F", "url": "https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section15F", "quote": "Any provision of a lease or other rental agreement relating to residential real property whereby the tenant … agrees that no action or failure to act by the landlord shall be construed as a constructive eviction, shall be deemed to be against public policy and void."}
+      ],
+      "patterns": [
+        "(?:no\\s+(?:action|act|failure)|nothing)[^.]{0,60}construed?\\s+(?:as\\s+)?(?:a\\s+)?constructive\\s+eviction",
+        "(?:waive[sd]?|no\\s+claim\\s+(?:of|for))[^.]{0,30}constructive\\s+eviction"
+      ],
+      "keywords": ["constructive eviction"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "ma-prohibited-005",
+      "jurisdiction": "US-MA",
+      "title": "Self-help eviction / lockout / utility shutoff",
+      "severity": "illegal",
+      "description": "Per M.G.L. c. 186, § 14, a landlord who willfully fails to furnish required utilities or services, who interferes with the tenant's quiet enjoyment, or who attempts to regain possession by force without judicial process commits a punishable offense and is liable to the tenant; any waiver of that section is void. § 15F separately gives the tenant a remedy when removed or excluded except by valid court order. A lease clause authorizing the landlord to lock the tenant out, shut off utilities, or retake possession without going to court is unenforceable.",
+      "tenant_explainer": "A Massachusetts landlord can't lock you out, shut off your heat, water, or electricity, or force you out — they have to go to court. Doing otherwise is illegal, and a lease clause saying they can doesn't hold up.",
+      "citations": [
+        {"label": "M.G.L. c. 186, § 14", "url": "https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section14", "quote": "any lessor or landlord who directly or indirectly interferes with the quiet enjoyment of any residential premises by the occupant, or who attempts to regain possession of such premises by force without benefit of judicial process, shall be punished by a fine of not less than twenty-five dollars nor more than three hundred dollars, or by imprisonment for not more than six months."},
+        {"label": "M.G.L. c. 186, § 15F", "url": "https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section15F", "quote": "If a tenant is removed from the premises or excluded therefrom by the landlord or his agent except pursuant to a valid court order, the tenant may recover possession or terminate the rental agreement and, in either case, recover three months' rent or three times the damages sustained by him, and the cost of suit, including reasonable attorney's fees."}
+      ],
+      "patterns": [
+        "without\\s+(?:resort(?:ing)?\\s+to|the\\s+necessity\\s+of|recourse\\s+to|benefit\\s+of)\\s+(?:any\\s+|a\\s+)?(?:court|legal\\s+process|judicial\\s+process|summary\\s+process)",
+        "(?:lessor|landlord)\\s+may\\s+(?:re-?enter\\s+and\\s+take\\s+possession|retake\\s+possession|repossess|dispossess|change\\s+the\\s+locks?|lock\\s+(?:the\\s+tenant\\s+)?out)",
+        "lock[\\s-]?out",
+        "(?:shut(?:ting)?\\s+off|discontinu\\w+|interrupt\\w+|terminat\\w+)\\s+(?:the\\s+)?(?:essential\\s+)?(?:services|utilities|heat|water|electricity)"
+      ],
+      "keywords": ["self-help", "without resort to court", "lock the tenant out"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "ma-prohibited-006",
+      "jurisdiction": "US-MA",
+      "title": "Penalty for complaining, or retaliation against the tenant",
+      "severity": "illegal",
+      "description": "Per M.G.L. c. 186, § 18, a landlord may not threaten or take reprisals against a tenant for reporting a code violation, enforcing tenant rights, or joining a tenants' union, and any waiver of that protection in a lease is void. 940 CMR 3.17(6)(b) makes retaliation an unfair or deceptive practice. A lease clause that penalizes the tenant for complaining, or that waives the anti-retaliation protection, is unenforceable.",
+      "tenant_explainer": "Your landlord can't punish you for reporting bad conditions or joining a tenants' group. A lease clause that fines you for complaining — or that signs away this protection — is void in Massachusetts.",
+      "citations": [
+        {"label": "M.G.L. c. 186, § 18", "url": "https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section18", "quote": "Any person or agent thereof who threatens to or takes reprisals against any tenant of residential premises for the tenant's act of … reporting to the board of health … a violation or a suspected violation of any health or building code … or for organizing or joining a tenants' union or similar organization … shall be liable for damages which shall not be less than one month's rent or more than three month's rent … Any waiver of this provision in any lease or other rental agreement shall be void and unenforceable."},
+        {"label": "940 CMR 3.17(6)(b)", "url": "https://www.law.cornell.edu/regulations/massachusetts/940-CMR-3-17", "quote": "Retaliate or threaten to retaliate in any manner against a tenant for exercising or attempting to exercise any legal rights as set forth in M.G.L. c. 186, § 18;"}
+      ],
+      "patterns": [
+        "(?:lessor|landlord)[^.]{0,40}(?:may|reserves?\\s+the\\s+right\\s+to|shall\\s+be\\s+entitled\\s+to)[^.]{0,40}(?:retaliat\\w*|reprisal)",
+        "waive[sd]?[^.]{0,60}(?:retaliat\\w*|reprisal|c\\.?\\s*186[^.]{0,10}(?:§|section|s\\.)\\s*18)",
+        "(?:fee|penalty|penalties|charge|fine)[^.]{0,50}(?:filing|file[sd]?|making|made|submitting|report\\w*)[^.]{0,20}(?:a\\s+)?(?:complaint|violation|condition|board\\s+of\\s+health)",
+        "(?:tenant\\s+)?(?:shall\\s+not|may\\s+not|agrees?\\s+not\\s+to)\\s+(?:file|report|complain)[^.]{0,40}(?:board\\s+of\\s+health|code|inspection|violation)"
+      ],
+      "keywords": ["retaliation", "reprisal"],
+      "status": "draft-unverified"
+    }
+  ]
+}

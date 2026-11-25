@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"/><title>Hero scan + redline preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --background: oklch(0.985 0.006 85);
+    --foreground: oklch(0.205 0.01 260);
+    --card: oklch(0.995 0.004 85);
+    --popover: oklch(0.995 0.004 85);
+    --primary: oklch(0.46 0.07 178);
+    --muted-foreground: oklch(0.5 0.01 260);
+    --border: oklch(0.205 0.01 260 / 0.1);
+    --sev-unenforceable: oklch(0.55 0.13 25);
+    --sev-unenforceable-tint: oklch(0.55 0.13 25 / 0.08);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--background);color:var(--foreground);font-family:Inter,system-ui,sans-serif;padding:46px 56px}
+  .stage{position:relative;width:460px;padding-bottom:28px}
+  .mono{font-family:"JetBrains Mono",monospace}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:.6875rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-foreground)}
+  .panel{position:relative;border:1px solid var(--border);background:var(--card);border-radius:4px;padding:24px;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+  .panel::before,.panel::after{content:"";position:absolute;width:9px;height:9px;border:1px solid var(--primary);opacity:.5}
+  .panel::before{top:-1px;right:-1px;border-width:1px 1px 0 0}
+  .panel::after{bottom:-1px;left:-1px;border-width:0 0 1px 1px}
+  .hdr{display:flex;align-items:center;justify-content:space-between}
+  .clauses{margin-top:20px;display:flex;flex-direction:column;gap:14px;font-size:.8125rem;line-height:1.7;color:color-mix(in oklch,var(--foreground) 65%,transparent)}
+  .sec{font-family:"JetBrains Mono",monospace;color:var(--muted-foreground)}
+  .faint{color:color-mix(in oklch,var(--foreground) 35%,transparent)}
+  /* ---- the animation under test (mirrors globals.css) ---- */
+  .ll-rise{animation:ll-rise .42s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes ll-rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .ll-scan-wrap{position:absolute;inset:0;z-index:10;overflow:hidden;border-radius:inherit;pointer-events:none}
+  .ll-scan-beam{position:absolute;left:0;right:0;top:-16%;height:54px;
+    background:linear-gradient(to bottom,transparent,color-mix(in oklch,var(--primary) 15%,transparent) 58%,color-mix(in oklch,var(--primary) 30%,transparent) 82%,transparent);
+    box-shadow:0 1px 0 color-mix(in oklch,var(--primary) 55%,transparent);
+    animation:ll-scan 1.7s cubic-bezier(.4,0,.2,1) .5s both}
+  @keyframes ll-scan{0%{top:-16%;opacity:0}10%{opacity:1}88%{opacity:1}100%{top:104%;opacity:0}}
+  .ll-redline{border-radius:2px;padding-bottom:1px;background-color:var(--sev-unenforceable-tint);background-image:linear-gradient(var(--sev-unenforceable),var(--sev-unenforceable));background-repeat:no-repeat;background-position:left calc(100% - 1px);background-size:100% 2px;animation:ll-redline-in .6s cubic-bezier(.4,0,.2,1) 1.45s both}
+  @keyframes ll-redline-in{from{background-color:transparent;background-size:0% 2px}to{background-color:var(--sev-unenforceable-tint);background-size:100% 2px}}
+  .ll-flag-in{animation:ll-flag-in .5s cubic-bezier(.4,0,.2,1) 1.55s both}
+  @keyframes ll-flag-in{from{opacity:0;transform:translateY(10px) scale(.985)}to{opacity:1;transform:none}}
+  /* flag card */
+  .flag{position:absolute;bottom:-16px;right:-20px;width:20rem;max-width:90%;border:1px solid var(--border);background:var(--popover);border-radius:10px;padding:16px;box-shadow:0 10px 24px rgba(0,0,0,.12)}
+  .pill{display:inline-flex;align-items:center;gap:6px;font-family:"JetBrains Mono",monospace;font-size:.625rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sev-unenforceable);border:1px solid color-mix(in oklch,var(--sev-unenforceable) 40%,transparent);background:var(--sev-unenforceable-tint);border-radius:999px;padding:2px 8px}
+  .flag h3{margin:10px 0 0;font-size:.9375rem;font-weight:500;letter-spacing:-.01em}
+  .flag p{margin:4px 0 0;font-size:.8125rem;line-height:1.35;color:var(--muted-foreground)}
+  .cite{margin-top:10px;display:inline-block;font-family:"JetBrains Mono",monospace;font-size:.75rem;color:var(--primary)}
+</style></head>
+<body>
+<div class="stage">
+  <div class="ll-rise panel" style="animation-delay:.06s">
+    <div class="ll-scan-wrap"><span class="ll-scan-beam"></span></div>
+    <div class="hdr">
+      <span class="eyebrow">Residential Lease Agreement</span>
+      <span class="mono" style="font-size:.625rem;color:var(--muted-foreground)">14 PP · PDF</span>
+    </div>
+    <div class="clauses">
+      <p><span class="sec">§ 11</span>&nbsp;&nbsp;Rent is due on the first day of each month, payable to the Landlord at the address designated herein.</p>
+      <p><span class="sec">§ 12</span>&nbsp;&nbsp;Tenant shall keep the premises clean and sanitary and is responsible for repairs not caused by ordinary wear.</p>
+      <p><span class="sec">§ 13</span>&nbsp;&nbsp;Tenant agrees to <mark class="ll-redline" style="padding:0 2px;color:var(--foreground)">hold the Landlord harmless and indemnify the Landlord against any and all claims</mark> arising on the premises, regardless of cause.</p>
+      <p class="faint"><span class="mono">§ 14</span>&nbsp;&nbsp;The Landlord may enter the premises to inspect, repair, or show the unit as needed.</p>
+    </div>
+  </div>
+  <div class="ll-flag-in flag">
+    <span class="pill">● Illegal</span>
+    <h3>Landlord exculpation / hold-harmless</h3>
+    <p>Connecticut doesn't let a lease waive the landlord's liability for its own negligence.</p>
+    <span class="cite">Conn. Gen. Stat. § 47a-4(a)(3) ↗</span>
+  </div>
+</div>
+</body></html>

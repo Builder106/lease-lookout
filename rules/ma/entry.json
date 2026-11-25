@@ -1,0 +1,25 @@
+{
+  "jurisdiction": "US-MA",
+  "_note": "Massachusetts landlord-entry rules, quoted verbatim from M.G.L. c. 186, § 15B(1)(a) on malegislature.gov and 940 CMR 3.17(6)(e) (the Attorney General's c. 93A landlord-tenant regulation) on mass.gov, both retrieved 2026-06-20. NOTE ON SECTION NUMBERING: the entry/access rule lives in § 15B(1)(a) (the security-deposit section's opening clause), NOT in § 15 — § 15 is the landlord-exculpation void provision. Both the statute and the regulation enumerate the ONLY purposes for which a lessor may enter before the lease ends (inspect, repair, show to a prospective tenant/buyer/mortgagee), plus court order, apparent abandonment, and end-of-tenancy damage inspection. A clause letting the landlord enter at any time / for any reason / without notice exceeds those purposes. status=draft-unverified: must be reviewed by a Massachusetts tenant attorney / legal-aid clinic before public conclusions.",
+  "rules": [
+    {
+      "id": "ma-entry-001",
+      "jurisdiction": "US-MA",
+      "title": "Landlord may enter at any time / for any reason / without notice",
+      "severity": "illegal",
+      "description": "Per M.G.L. c. 186, § 15B(1)(a), a residential lease may not contain a provision letting the lessor enter before the lease ends except to inspect, to make repairs, or to show the unit to a prospective tenant, purchaser, or mortgagee (plus by court order, on apparent abandonment, or for end-of-tenancy damage inspection). 940 CMR 3.17(6)(e) makes entry for any other purpose an unfair or deceptive practice. A clause granting the landlord a general right to enter at any time, for any reason, or without notice is unenforceable.",
+      "tenant_explainer": "In Massachusetts a landlord can enter only for specific reasons — to inspect, make repairs, or show the place — plus a court order, apparent abandonment, or an end-of-tenancy damage check. A lease clause saying they can 'enter at any time' or 'for any reason' goes beyond what the law allows.",
+      "citations": [
+        {"label": "M.G.L. c. 186, § 15B(1)(a)", "url": "https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section15B", "quote": "No lease relating to residential real property shall contain a provision that a lessor may, except to inspect the premises, to make repairs thereto or to show the same to a prospective tenant, purchaser, mortgagee or its agents, enter the premises before the termination date of such lease."},
+        {"label": "940 CMR 3.17(6)(e)", "url": "https://www.mass.gov/doc/940-cmr-3-consumer-protection-general-regulations/download", "quote": "Enter a dwelling unit other than (i) to inspect the premises, or (ii) to make repairs thereto, or (iii) to show the same to a prospective tenant, purchaser, mortgagee or its agents, or (iv) pursuant to a court order, or (v) if the premises appear to have been abandoned by the tenant, or (vi) to inspect, during the last 30 days of the tenancy or after either party has given notice to the other of intention to terminate the tenancy, for the purpose of determining the amount of damage"}
+      ],
+      "patterns": [
+        "(?:lessor|landlord)\\s+may\\s+enter[^.]{0,40}(?:at\\s+any\\s+time|for\\s+any\\s+reason|at\\s+(?:its|his|her|their)\\s+(?:sole\\s+)?discretion|without\\s+(?:any\\s+)?(?:notice|prior\\s+notice))",
+        "enter\\s+(?:the\\s+)?(?:premises|unit|apartment|dwelling)[^.]{0,30}(?:at\\s+any\\s+time|without\\s+(?:prior\\s+)?notice|for\\s+any\\s+(?:reason|purpose))",
+        "(?:right|access)\\s+to\\s+enter[^.]{0,30}(?:at\\s+any\\s+time|without\\s+(?:prior\\s+)?notice|for\\s+any\\s+(?:reason|purpose))"
+      ],
+      "keywords": ["enter at any time", "without notice", "for any reason"],
+      "status": "draft-unverified"
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+# Local-only Figma design reference — not part of the app build.
+# (Also gitignored; this stops `vercel deploy` from uploading it.)
+project

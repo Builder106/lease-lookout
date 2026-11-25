@@ -1,0 +1,21 @@
+RESIDENTIAL LEASE AGREEMENT (New York) — synthetic test fixture (KITCHEN SINK)
+This fixture deliberately plants one prohibited or abusive clause per NY rule. It is
+NOT a real or usable lease — it exists only to prove the engine flags each rule.
+
+1. Security Deposit. The Tenant shall pay a security deposit of two months' rent. The security deposit shall be non-refundable. The Landlord may commingle the security deposit with the Landlord's own funds, and the deposit shall become the property of the Landlord.
+
+2. Habitability. The Tenant accepts the premises as-is and waives the warranty of habitability.
+
+3. Liability. The Tenant shall hold the Landlord harmless, and the Landlord shall not be liable for any injury caused by the Landlord's negligence.
+
+4. Jury Trial. The Tenant waives the right to a trial by jury in any action for personal injury or property damage.
+
+5. Default and Possession. Upon default, the Landlord may re-enter and take possession of the premises without resort to court, change the locks, and shut off utilities until the balance is paid.
+
+6. Complaints. The Tenant shall pay a one hundred dollar penalty for filing any complaint with a housing agency, and waives any claim of retaliation.
+
+7. Fees. The Tenant shall pay a seventy-five dollar application fee. A late fee applies to rent received after the first of the month.
+
+8. Early Termination. Upon early termination, the Tenant shall be liable for all remaining rent for the entire term, immediately due and payable.
+
+9. Rent Increases. The Landlord may increase the rent at any time upon ten days notice.

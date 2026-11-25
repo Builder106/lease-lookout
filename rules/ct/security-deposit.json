@@ -1,0 +1,70 @@
+{
+  "jurisdiction": "US-CT",
+  "_note": "Conn. Gen. Stat. § 47a-21 (Security deposits), retrieved verbatim from cga.ct.gov on 2026-06-05. § 47a-21(b): max two months' rent (under 62), one month (62+); (a)(11) defines 'security deposit' as any advance rental payment except first month's rent or a key/special-equipment deposit; (c) the deposit remains the tenant's property; (d) returned with accrued interest minus the value of damages from the tenant's failure to meet 'tenant's obligations' ((a)(14)), within 21 days of termination or 15 days after a written forwarding address, whichever is later. status=draft-unverified.",
+  "rules": [
+    {
+      "id": "ct-deposit-001",
+      "jurisdiction": "US-CT",
+      "title": "Security deposit exceeds the legal maximum",
+      "severity": "illegal",
+      "description": "Per § 47a-21(b), a security deposit may not exceed two months' rent (one month's rent if the tenant is 62 or older). A clause demanding more is unenforceable as to the excess.",
+      "tenant_explainer": "Your landlord can't make you pay more than two months' rent as a security deposit — just one month if you're 62 or older. If the lease asks for more, that extra isn't enforceable.",
+      "citations": [
+        {"label": "Conn. Gen. Stat. § 47a-21(b)", "url": "https://www.cga.ct.gov/current/pub/chap_831.htm#sec_47a-21", "quote": "(b) Amount of security deposit. (1) In the case of a tenant under sixty-two years of age, a landlord shall not demand a security deposit in an amount that exceeds two months' rent. (2) In the case of a tenant sixty-two years of age or older, a landlord shall not demand a security deposit in an amount that exceeds one month's rent."}
+      ],
+      "patterns": [
+        "security\\s+deposit\\s+(?:of\\s+|equal\\s+to\\s+|in\\s+the\\s+amount\\s+of\\s+|totaling\\s+)?(?:three|3|four|4|five|5|six|6)\\s+months?",
+        "(?:three|3|four|4|five|5|six|6)\\s+months?(?:'|’|s)?\\s+rent\\s+(?:as\\s+|for\\s+)?(?:a\\s+)?security\\s+deposit"
+      ],
+      "keywords": [],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "ct-deposit-002",
+      "jurisdiction": "US-CT",
+      "title": "Non-refundable security deposit",
+      "severity": "illegal",
+      "description": "Under § 47a-21(c) the deposit remains the tenant's property, and under § 47a-21(d) it must be returned with accrued interest, minus only the value of damages from the tenant's failure to meet their obligations. Labeling a security deposit 'non-refundable' contradicts the statutory return scheme and is unenforceable.",
+      "tenant_explainer": "A security deposit isn't a fee — it's your money being held. Calling it 'non-refundable' doesn't make it so; you're owed it back, with interest, minus any real damage or unpaid rent.",
+      "citations": [
+        {"label": "Conn. Gen. Stat. § 47a-21(c) & (d)", "url": "https://www.cga.ct.gov/current/pub/chap_831.htm#sec_47a-21", "quote": "Any security deposit paid by a tenant shall remain the property of such tenant … (d) … the person who is the landlord at the time a tenancy is terminated … shall pay to the tenant … (A) The amount of any security deposit … less the value of any damages … as a result of such tenant's failure to comply with such tenant's obligations; and (B) any accrued interest."}
+      ],
+      "patterns": ["non-?refundable\\s+(?:security\\s+)?deposit"],
+      "keywords": ["nonrefundable deposit"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "ct-deposit-003",
+      "jurisdiction": "US-CT",
+      "title": "Non-refundable cleaning / redecorating / amenity fee (disguised deposit)",
+      "severity": "questionable",
+      "description": "A charge that functions as a disguised security deposit may be subject to the § 47a-21(b) cap and return rules; § 47a-21(a)(11) defines a security deposit broadly as 'any advance rental payment' other than first month's rent or a key/equipment deposit. A flat non-refundable cleaning/redecorating/amenity fee is a gray area worth checking. (Move-in/move-out and application fees are separately barred — see ct-fees-001/002.)",
+      "tenant_explainer": "Watch for non-refundable 'cleaning' or 'amenity' fees — depending on how they work, they may really be a security deposit in disguise, which has to follow the deposit rules (cap, interest, return).",
+      "citations": [
+        {"label": "Conn. Gen. Stat. § 47a-21(a)(11) & (b)", "url": "https://www.cga.ct.gov/current/pub/chap_831.htm#sec_47a-21", "quote": "'Security deposit' means any advance rental payment, or any installment payment collected pursuant to section 47a-22a, except an advance payment for the first month's rent or a deposit for a key or any special equipment."}
+      ],
+      "patterns": ["non-?refundable\\s+(?:cleaning|redecorating|amenity|community|pet)\\s+fee", "(?:cleaning|redecorating|amenity)\\s+fee[^.]{0,25}non-?refundable"],
+      "keywords": [],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "ct-deposit-005",
+      "jurisdiction": "US-CT",
+      "title": "Security deposit automatically forfeited if the tenant breaks the lease",
+      "severity": "illegal",
+      "description": "Under § 47a-21(c) the deposit remains the tenant's property and under § 47a-21(d) is returnable minus only the value of actual damages; under § 47a-11a a landlord must mitigate by re-renting. A clause making the deposit automatically forfeited on early termination — divorced from actual damages — is unenforceable.",
+      "tenant_explainer": "Breaking your lease doesn't mean your landlord just keeps your whole deposit. It's still your money; they can only keep what covers actual damage or rent they couldn't recover after trying to re-rent.",
+      "citations": [
+        {"label": "Conn. Gen. Stat. § 47a-21(c) & (d)", "url": "https://www.cga.ct.gov/current/pub/chap_831.htm#sec_47a-21", "quote": "Any security deposit paid by a tenant shall remain the property of such tenant … (d) … shall pay to the tenant … the amount of any security deposit … less the value of any damages … as a result of such tenant's failure to comply with such tenant's obligations; and … any accrued interest."},
+        {"label": "Conn. Gen. Stat. § 47a-11a — duty to mitigate", "url": "https://www.cga.ct.gov/current/pub/chap_830.htm#sec_47a-11a", "quote": "If the tenant abandons the dwelling unit, the landlord shall make reasonable efforts to rent it at a fair rental in mitigation of damages."}
+      ],
+      "patterns": [
+        "(?:security\\s+)?deposit\\s+(?:shall\\s+be\\s+|is\\s+|will\\s+be\\s+|shall\\s+be\\s+automatically\\s+)?forfeited",
+        "forfeit(?:s|ure\\s+of)?\\s+(?:the\\s+)?(?:entire\\s+)?(?:security\\s+)?deposit",
+        "(?:security\\s+)?deposit[^.]{0,50}(?:forfeited|retained\\s+by\\s+(?:the\\s+)?landlord|non-?refundable)[^.]{0,40}(?:terminat|break|breach|vacat|early|remainder|remaining)"
+      ],
+      "keywords": ["forfeit the security deposit", "deposit shall be forfeited"],
+      "status": "draft-unverified"
+    }
+  ]
+}

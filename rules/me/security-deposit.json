@@ -1,0 +1,78 @@
+{
+  "jurisdiction": "US-ME",
+  "_note": "Maine security-deposit rules, retrieved verbatim from the Maine Legislature statute site (legislature.maine.gov) on 2026-06-20. 14 M.R.S. ch. 710-A: §6032 (deposit may not exceed 2 months' rent), §6033 (return: 21 days for a tenancy at will / not more than 30 days for a written agreement, with an itemized written statement; otherwise the landlord forfeits the right to withhold), §6038 (deposit may not be commingled with the landlord's assets; held beyond the claim of creditors), §6036 (any waiver of a chapter 710-A tenant protection is against public policy and void). ALL rules status=draft-unverified: review by a Maine tenant attorney / Pine Tree Legal before publishing conclusions.",
+  "rules": [
+    {
+      "id": "me-deposit-001",
+      "jurisdiction": "US-ME",
+      "title": "Security deposit exceeds two months' rent",
+      "severity": "illegal",
+      "description": "Per 14 M.R.S. §6032, a residential lease or tenancy-at-will agreement may not require a security deposit equivalent to more than two months' rent. A clause demanding three or more months as a deposit is unenforceable as to the excess.",
+      "tenant_explainer": "In Maine your security deposit can't be more than two months' rent. If the lease asks for three months — or stacks deposits so the total runs past two months — the extra isn't enforceable.",
+      "citations": [
+        {"label": "14 M.R.S. §6032 (Maximum security deposit)", "url": "https://legislature.maine.gov/statutes/14/title14sec6032.html", "quote": "A lease or tenancy at will agreement for a dwelling intended for human habitation may not require a security deposit equivalent to more than the rent for 2 months."}
+      ],
+      "patterns": [
+        "security\\s+deposit\\s+(?:of\\s+|equal\\s+to\\s+|in\\s+the\\s+amount\\s+of\\s+|totaling\\s+)?(?:three|3|four|4|five|5|six|6)\\s+months?",
+        "(?:three|3|four|4|five|5|six|6)\\s+months?(?:'|’|s)?\\s+rent\\s+(?:as\\s+|for\\s+)?(?:a\\s+)?security\\s+deposit"
+      ],
+      "keywords": [],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "me-deposit-002",
+      "jurisdiction": "US-ME",
+      "title": "Security deposit return deadline missing or too long",
+      "severity": "illegal",
+      "description": "Per 14 M.R.S. §6033, the landlord must return the deposit — or a written statement itemizing the reasons for any retention, with payment of the balance — within 21 days of a tenancy at will ending, or within the time stated in a written agreement, not to exceed 30 days. A clause giving the landlord more than 30 days (or 'a reasonable time' / no deadline) is unenforceable; missing the deadline forfeits the right to withhold any of the deposit.",
+      "tenant_explainer": "After you move out, Maine gives the landlord a hard deadline to return your deposit or send an itemized list of deductions: 21 days for a month-to-month tenancy, and never more than 30 days under a written lease. A clause that stretches it past 30 days — or sets no deadline at all — doesn't hold up, and a landlord who blows the deadline loses the right to keep any of it.",
+      "citations": [
+        {"label": "14 M.R.S. §6033(2) (Return; time; retention)", "url": "https://legislature.maine.gov/statutes/14/title14sec6033.html", "quote": "A landlord shall return to a tenant the full security deposit deposited with the landlord by the tenant or, if there is actual cause for retaining the security deposit or any portion of it, the landlord shall provide the tenant with a written statement itemizing the reasons for the retention of the security deposit or any portion of it: A. In the case of a written rental agreement, within the time, not to exceed 30 days, stated in the agreement; and B. In the case of a tenancy at will, within 21 days after the termination of the tenancy or the surrender and acceptance of the premises, whichever occurs later."},
+        {"label": "14 M.R.S. §6033(3) (Penalty)", "url": "https://legislature.maine.gov/statutes/14/title14sec6033.html", "quote": "If a landlord fails to provide a written statement or to return the security deposit within the time specified in subsection 2, the landlord shall forfeit his right to withhold any portion of the security deposit."}
+      ],
+      "patterns": [
+        "(?:return|refund)[^.]{0,60}(?:security\\s+)?deposit[^.]{0,40}within\\s+(?:[4-9]\\d|\\d{3,}|forty|fifty|sixty|ninety)\\s+days",
+        "(?:security\\s+)?deposit[^.]{0,40}(?:returned|refunded)[^.]{0,40}within\\s+(?:[4-9]\\d|\\d{3,}|forty|fifty|sixty|ninety)\\s+days",
+        "(?:return|refund)[^.]{0,40}(?:security\\s+)?deposit[^.]{0,30}within\\s+a\\s+reasonable\\s+(?:time|period)"
+      ],
+      "keywords": [],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "me-deposit-003",
+      "jurisdiction": "US-ME",
+      "title": "Security deposit commingled / not held in trust",
+      "severity": "illegal",
+      "description": "Per 14 M.R.S. §6038, a security deposit may not be treated as an asset commingled with the landlord's assets; it must be held in a bank or financial-institution account beyond the claim of the landlord's creditors. A clause letting the landlord commingle, spend, or take ownership of the deposit is unenforceable.",
+      "tenant_explainer": "Your deposit isn't the landlord's money to mix with their own. Maine requires it kept in a separate account, out of reach of the landlord's creditors. A clause letting them commingle it, spend it, or treat it as theirs isn't allowed.",
+      "citations": [
+        {"label": "14 M.R.S. §6038(1) (Treatment of security deposit)", "url": "https://legislature.maine.gov/statutes/14/title14sec6038.html", "quote": "During the term of a tenancy, a security deposit given to a landlord as part of a residential rental agreement may not be treated as an asset to be commingled with the assets of the landlord or any other entity or person. All security deposits received after October 1, 1979 must be held in an account of a bank or other financial institution under terms that place the security deposit beyond the claim of creditors of the landlord or any other entity or person, including a foreclosing mortgagee or trustee in bankruptcy …."}
+      ],
+      "patterns": [
+        "(?:may|can|shall|will|right\\s+to|landlord\\s+to)\\s+(?:freely\\s+)?commingl\\w*",
+        "(?:security\\s+)?deposit[^.]{0,40}(?:becomes?|is|shall\\s+be|may\\s+be|will\\s+be)[^.]{0,20}(?:the\\s+)?(?:property|asset|funds?)\\s+of\\s+(?:the\\s+)?landlord",
+        "landlord\\s+may\\s+(?:use|commingle|mix|spend|deposit)\\s+(?:the\\s+)?(?:security\\s+)?deposit[^.]{0,40}(?:own|general|operating|personal)\\s+(?:account|funds?)"
+      ],
+      "keywords": ["commingle the deposit"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "me-deposit-004",
+      "jurisdiction": "US-ME",
+      "title": "Non-refundable security deposit",
+      "severity": "illegal",
+      "description": "Under 14 M.R.S. §6033 a deposit must be returned (less itemized lawful retention) within the statutory deadline, and §6036 makes any waiver of a chapter 710-A tenant protection void as against public policy. Labeling a security deposit 'non-refundable' purports to waive that return scheme and is unenforceable.",
+      "tenant_explainer": "A deposit isn't a fee — calling it 'non-refundable' doesn't make it so. Maine law says you're owed it back (minus any itemized, lawful deductions), and a clause trying to waive that protection is void.",
+      "citations": [
+        {"label": "14 M.R.S. §6036 (Waiver of provisions)", "url": "https://legislature.maine.gov/statutes/14/title14sec6036.html", "quote": "Any provision, whether oral or written, in or pertaining to a lease or tenancy at will agreement whereby any provision of this chapter for the benefit of a tenant or members of the tenant's household is waived is against public policy and is void."},
+        {"label": "14 M.R.S. §6033(2) (Return; time; retention)", "url": "https://legislature.maine.gov/statutes/14/title14sec6033.html", "quote": "A landlord shall return to a tenant the full security deposit deposited with the landlord by the tenant or, if there is actual cause for retaining the security deposit or any portion of it, the landlord shall provide the tenant with a written statement itemizing the reasons for the retention of the security deposit or any portion of it …."}
+      ],
+      "patterns": [
+        "non-?refundable\\s+(?:security\\s+)?deposit",
+        "(?:security\\s+)?deposit\\s+(?:is|shall\\s+be|will\\s+be)\\s+non-?refundable"
+      ],
+      "keywords": ["nonrefundable deposit"],
+      "status": "draft-unverified"
+    }
+  ]
+}

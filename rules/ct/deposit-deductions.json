@@ -1,0 +1,25 @@
+{
+  "jurisdiction": "US-CT",
+  "_note": "Conn. Gen. Stat. § 47a-21(d) read with § 47a-21(a)(14) ('tenant's obligations'), retrieved verbatim from cga.ct.gov on 2026-06-05: at termination the landlord returns the deposit plus accrued interest, less the value of damages from the tenant's failure to comply with the tenant's obligations (§ 47a-11) — i.e. NOT ordinary wear and tear. Return window: 21 days after termination, or 15 days after a written forwarding address, whichever is later. status=draft-unverified.",
+  "rules": [
+    {
+      "id": "ct-deposit-004",
+      "jurisdiction": "US-CT",
+      "title": "Automatic deposit deduction for painting / cleaning / ordinary wear",
+      "severity": "questionable",
+      "description": "Per § 47a-21(d), a landlord may deduct from the deposit only the value of damages caused by the tenant's failure to meet their obligations (plus unpaid rent) — not ordinary wear and tear. A clause auto-deducting for repainting, routine cleaning, or 'normal wear' is suspect; flag it to check the charge reflects actual tenant-caused damage.",
+      "tenant_explainer": "Your landlord can take money out of your deposit for damage you caused or unpaid rent — not for normal wear and tear, routine repainting, or standard cleaning. Watch for clauses that auto-charge those to your deposit.",
+      "citations": [
+        {"label": "Conn. Gen. Stat. § 47a-21(d) — return of deposit; lawful deductions", "url": "https://www.cga.ct.gov/current/pub/chap_831.htm#sec_47a-21", "quote": "… shall pay to the tenant … (A) The amount of any security deposit … less the value of any damages … as a result of such tenant's failure to comply with such tenant's obligations; and (B) any accrued interest. … Not later than twenty-one days after termination of a tenancy or fifteen days after receiving written notification of [the tenant's forwarding address], whichever is later."},
+        {"label": "Conn. Gen. Stat. § 47a-21(a)(14) — 'tenant's obligations' (limits deductions)", "url": "https://www.cga.ct.gov/current/pub/chap_831.htm#sec_47a-21", "quote": "'Tenant's obligations' means (A) the amount of any rental or utility payment due the landlord from a tenant; (B) a tenant's obligations under the provisions of section 47a-11; and (C) the actual reasonable cost of changing the locks … pursuant to section 47a-7b …."}
+      ],
+      "patterns": [
+        "deduct[^.]{0,50}(?:painting|repaint\\w*|cleaning|carpet|normal\\s+wear|ordinary\\s+wear)",
+        "(?:painting|repainting|cleaning|carpet\\s+cleaning)\\s+(?:fee|cost|charge)[^.]{0,40}(?:deduct|deposit)",
+        "(?:from\\s+(?:the\\s+)?(?:security\\s+)?deposit)[^.]{0,40}(?:painting|repaint\\w*|cleaning|normal\\s+wear|ordinary\\s+wear)"
+      ],
+      "keywords": [],
+      "status": "draft-unverified"
+    }
+  ]
+}

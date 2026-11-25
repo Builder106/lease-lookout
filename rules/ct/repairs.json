@@ -1,0 +1,45 @@
+{
+  "jurisdiction": "US-CT",
+  "_note": "Conn. Gen. Stat. § 47a-7 (Landlord's responsibilities) read with § 47a-4(a)(1) (the tenant cannot waive statutory rights), retrieved verbatim from cga.ct.gov on 2026-06-05. The landlord's duty to maintain a habitable, code-compliant unit cannot be shifted wholesale onto the tenant or waived. status=draft-unverified.",
+  "rules": [
+    {
+      "id": "ct-repairs-001",
+      "jurisdiction": "US-CT",
+      "title": "Tenant made responsible for all repairs / maintenance",
+      "severity": "illegal",
+      "description": "Under § 47a-7 the landlord must keep the premises fit and habitable and make necessary repairs; § 47a-4(a)(1) bars waiving that statutory protection. A clause shifting all repair/maintenance duty onto the tenant is unenforceable as to the landlord's non-waivable obligations. (The tenant remains responsible for damage they cause, § 47a-11.)",
+      "tenant_explainer": "Keeping the place livable — heat, hot water, plumbing, structural and code repairs — is your landlord's job, not yours. A lease making you responsible for 'all repairs' can't sign that duty away. You're still on the hook for damage you actually cause.",
+      "citations": [
+        {"label": "Conn. Gen. Stat. § 47a-7(a)", "url": "https://www.cga.ct.gov/current/pub/chap_830.htm#sec_47a-7", "quote": "A landlord shall: … (2) make all repairs and do whatever is necessary to put and keep the premises in a fit and habitable condition, except where the premises are intentionally rendered unfit or uninhabitable by the tenant … (4) maintain in good and safe working order … all electrical, plumbing, sanitary, heating, ventilating and other facilities … (6) supply running water and reasonable amounts of hot water at all times and reasonable heat."},
+        {"label": "Conn. Gen. Stat. § 47a-4(a)(1) — waiver of statutory rights prohibited", "url": "https://www.cga.ct.gov/current/pub/chap_830.htm#sec_47a-4", "quote": "A rental agreement shall not provide that the tenant: (1) Agrees to waive or forfeit rights or remedies under this chapter …."}
+      ],
+      "patterns": [
+        "tenant\\s+(?:is\\s+|shall\\s+be\\s+|will\\s+be\\s+|agrees\\s+to\\s+be\\s+)?responsible\\s+for\\s+all\\s+(?:repairs|maintenance|repair\\s+and\\s+maintenance)",
+        "tenant\\s+(?:shall|must|agrees\\s+to|is\\s+required\\s+to)\\s+(?:make|pay\\s+for|perform)\\s+all\\s+repairs"
+      ],
+      "keywords": [],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "ct-repairs-002",
+      "jurisdiction": "US-CT",
+      "title": "\"As-is\" / waiver of the warranty of habitability",
+      "severity": "illegal",
+      "description": "Under § 47a-7 the landlord must keep the unit fit and habitable; § 47a-4(a)(1) makes that protection non-waivable. A clause making the tenant accept the unit 'as-is' or waive the (implied) warranty of habitability is unenforceable as to the landlord's statutory duties.",
+      "tenant_explainer": "You can't sign away your right to a livable home. 'Tenant accepts the unit as-is' or 'waives the warranty of habitability' doesn't let the landlord off the hook for heat, hot water, and code-level repairs.",
+      "citations": [
+        {"label": "Conn. Gen. Stat. § 47a-7(a) — landlord must keep premises fit and habitable", "url": "https://www.cga.ct.gov/current/pub/chap_830.htm#sec_47a-7", "quote": "A landlord shall: … (2) make all repairs and do whatever is necessary to put and keep the premises in a fit and habitable condition …."},
+        {"label": "Conn. Gen. Stat. § 47a-4(a)(1) & (b) — waiver prohibited; provision unenforceable", "url": "https://www.cga.ct.gov/current/pub/chap_830.htm#sec_47a-4", "quote": "A rental agreement shall not provide that the tenant: (1) Agrees to waive or forfeit rights or remedies under this chapter … (b) A provision prohibited by subsection (a) of this section … is unenforceable."}
+      ],
+      "patterns": [
+        "accepts?\\s+(?:the\\s+)?(?:premises|unit|apartment|dwelling)\\s+(?:in\\s+)?(?:its\\s+)?(?:present|current|existing)\\s+condition",
+        "(?:premises|unit|apartment|dwelling)[^.]{0,30}\\bas[\\s-]?is\\b",
+        "\\bas[\\s-]?is\\b[^.]{0,30}(?:condition|where[\\s-]?is)",
+        "waive[sd]?[^.]{0,40}(?:implied\\s+)?warranty\\s+of\\s+habitability",
+        "(?:disclaim\\w*|no|without)\\s+(?:any\\s+|all\\s+)?(?:implied\\s+)?warrant(?:y|ies)\\s+of\\s+habitability"
+      ],
+      "keywords": ["warranty of habitability"],
+      "status": "draft-unverified"
+    }
+  ]
+}

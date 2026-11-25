@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"/><title>LeaseLookout — watchtower refinements</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#faf8f2;--ink:#23211e;--muted:#6b675e;--emerald:#1d6e62;--red:#b4422b;--border:rgba(35,33,30,.12);}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,sans-serif}
+  .wrap{max-width:1080px;margin:0 auto;padding:40px 48px 64px}
+  h1{font-family:"Instrument Serif",serif;font-weight:400;font-size:38px;letter-spacing:-.02em;margin:0 0 4px}
+  .sub{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 32px}
+  .row{display:grid;grid-template-columns:150px 1fr 64px 40px;align-items:center;gap:28px;padding:28px 0;border-top:1px solid var(--border)}
+  .name{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;color:var(--muted);line-height:1.5}
+  .name b{display:block;font-family:Inter;font-size:14px;letter-spacing:0;color:var(--ink);margin-bottom:5px;font-weight:600}
+  .wordmark{display:flex;align-items:center;gap:8px}
+  .wordmark .wm{font-weight:600;font-size:25px;letter-spacing:-.01em}
+  .fav{display:flex;align-items:center;justify-content:center}
+  .mark{color:var(--ink)}
+  .dark{background:#17150f;border-radius:12px;margin-top:40px;padding:28px 36px;color:#ece6d8}
+  .dark .name b{color:#ece6d8}.dark .mark{color:#ece6d8}.dark .row{border-top:1px solid rgba(236,230,216,.14)}
+  .darkhd{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;color:#9c968a;margin:0 0 6px}
+  svg{display:block}
+</style></head><body><div class="wrap">
+<h1>LeaseLookout — watchtower, refined</h1>
+<p class="sub">3 takes · mark · wordmark · favicon 32 · 16 — emerald tower, red = the watch/flag, ink baseline = the lease</p>
+<div id="light"></div>
+<div class="dark"><p class="darkhd">On dark</p><div id="darkrow"></div></div>
+</div>
+<script>
+const MARKS={
+  cabin:`<svg class="mark" width="S" height="S" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3.5 21h17" stroke="currentColor" stroke-width="1.5"/>
+    <path d="M8.2 21 9.4 14M15.8 21l-1.2-7" stroke="#1d6e62" stroke-width="1.7"/>
+    <path d="M9 17.4h6" stroke="#1d6e62" stroke-width="1.3" opacity=".65"/>
+    <path d="M7.9 14h8.2" stroke="#1d6e62" stroke-width="1.8"/>
+    <path d="M9.2 14v-3.1h5.6V14" stroke="#1d6e62" stroke-width="1.7"/>
+    <path d="M8.4 10.9 12 8.1l3.6 2.8" stroke="#1d6e62" stroke-width="1.7"/>
+    <path d="M10.6 12.4h2.8" stroke="#b4422b" stroke-width="1.8"/></svg>`,
+  taper:`<svg class="mark" width="S" height="S" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3.5 21h17" stroke="currentColor" stroke-width="1.5"/>
+    <path d="M8.6 21 10 10h4l1.4 11" stroke="#1d6e62" stroke-width="1.7"/>
+    <path d="M8.5 13h7" stroke="#1d6e62" stroke-width="1.8"/>
+    <path d="M9.7 10 12 7.6 14.3 10" stroke="#1d6e62" stroke-width="1.7"/>
+    <circle cx="12" cy="6" r="1.05" fill="#b4422b"/></svg>`,
+  spots:`<svg class="mark" width="S" height="S" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 20.2h18" stroke="currentColor" stroke-width="1.5"/>
+    <path d="M5.1 20.2 6 13.6M9.9 20.2 9 13.6" stroke="#1d6e62" stroke-width="1.7"/>
+    <path d="M5.4 13.6h4.2" stroke="#1d6e62" stroke-width="1.8"/>
+    <path d="M5.9 13.6 7.5 11.4l1.6 2.2" stroke="#1d6e62" stroke-width="1.7"/>
+    <path d="M13 10.6h5.6M13 14h5.6" stroke="currentColor" stroke-width="1.3" opacity=".5"/>
+    <path d="M13 17.4h5.6" stroke="#b4422b" stroke-width="1.8"/></svg>`,
+};
+const DEFS=[
+  ["cabin","Fire-lookout cabin","the classic lookout tower — a cabin on a truss; red = the watch-window. Most “lookout.”"],
+  ["taper","Tapered tower + beacon","one clean silhouette; red beacon = alert. Best at favicon size."],
+  ["spots","Tower spotting a clause","the lookout (left) flagging a redlined clause on the lease line. Narrative — better as a wide lockup than a tiny favicon."],
+];
+function row(k,t,d){
+  const m=s=>MARKS[k].replace(/width="S" height="S"/,`width="${s}" height="${s}"`);
+  return `<div class="row"><div class="name"><b>${t}</b>${d}</div>
+    <div class="wordmark">${m(50)}<span class="wm" style="margin-left:6px">LeaseLookout</span></div>
+    <div class="fav">${m(32)}</div><div class="fav">${m(16)}</div></div>`;
+}
+document.getElementById("light").innerHTML=DEFS.map(d=>row(d[0],d[1],d[2])).join("");
+document.getElementById("darkrow").innerHTML=DEFS.map(d=>row(d[0],d[1],"")).join("");
+</script></body></html>

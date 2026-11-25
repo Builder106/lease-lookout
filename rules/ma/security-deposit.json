@@ -1,0 +1,98 @@
+{
+  "jurisdiction": "US-MA",
+  "_note": "Massachusetts security-deposit rules, quoted verbatim from M.G.L. c. 186, § 15B on malegislature.gov, retrieved 2026-06-20. § 15B(1)(b)(iii) caps a security deposit at the first month's rent. § 15B(1)(e) makes the deposit the tenant's property, not to be commingled with the lessor's assets nor subject to the lessor's creditors. § 15B(3)(a) requires a separate, interest-bearing Massachusetts bank account beyond the claim of creditors. § 15B(3)(b) requires 5% annual interest. § 15B(4) requires return within 30 days with a sworn itemized list of any damage. § 15B(7) awards treble damages for forfeiting violations. § 15B(8) voids any conflicting lease term or waiver. status=draft-unverified: must be reviewed by a Massachusetts tenant attorney / legal-aid clinic before public conclusions.",
+  "rules": [
+    {
+      "id": "ma-deposit-001",
+      "jurisdiction": "US-MA",
+      "title": "Security deposit exceeds one month's rent",
+      "severity": "illegal",
+      "description": "Per M.G.L. c. 186, § 15B(1)(b), at or before the start of a tenancy a lessor may require no more than first month's rent, last month's rent, a security deposit equal to the first month's rent, and the cost of a new key and lock. A security deposit larger than one month's rent — or a demand for two or three months as a deposit — exceeds the statutory cap and is unenforceable as to the excess.",
+      "tenant_explainer": "In Massachusetts the most a landlord can take as a security deposit is one month's rent. If the lease asks for two or three months as a deposit, the extra isn't allowed.",
+      "citations": [
+        {"label": "M.G.L. c. 186, § 15B(1)(b)", "url": "https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section15B", "quote": "At or prior to the commencement of any tenancy, no lessor or agent of the lessor may require a tenant or prospective tenant to pay, to the lessor or to an agent of the lessor, any amount in excess of the following: (i) rent for the first full month of occupancy; and, (ii) rent for the last full month of occupancy calculated at the same rate as the first month; and, (iii) a security deposit equal to the first month's rent"}
+      ],
+      "patterns": [
+        "security\\s+deposit\\s+(?:of\\s+|equal\\s+to\\s+|in\\s+the\\s+amount\\s+of\\s+|totaling\\s+)?(?:two|2|three|3|four|4|five|5|six|6)\\s+months?",
+        "(?:two|2|three|3|four|4|five|5|six|6)\\s+months?(?:'|’|s)?\\s+rent\\s+(?:as\\s+|for\\s+)?(?:a\\s+)?security\\s+deposit"
+      ],
+      "keywords": [],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "ma-deposit-002",
+      "jurisdiction": "US-MA",
+      "title": "Security deposit commingled / treated as the landlord's money",
+      "severity": "illegal",
+      "description": "Per M.G.L. c. 186, § 15B(1)(e), a security deposit continues to be the tenant's property, may not be commingled with the lessor's assets, and is not subject to the lessor's creditors. § 15B(3)(a) requires it to be held in a separate, interest-bearing Massachusetts bank account beyond the claim of creditors. A clause letting the landlord commingle the deposit or treat it as their own funds is unenforceable.",
+      "tenant_explainer": "Your deposit stays your money — the landlord just holds it in a separate bank account. A clause letting them mix it with their own funds or treat it as theirs isn't allowed in Massachusetts.",
+      "citations": [
+        {"label": "M.G.L. c. 186, § 15B(1)(e)", "url": "https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section15B", "quote": "A security deposit shall continue to be the property of the tenant making such deposit, shall not be commingled with the assets of the lessor, and shall not be subject to the claims of any creditor of the lessor or of the lessor's successor in interest, including a foreclosing mortgagee or trustee in bankruptcy"},
+        {"label": "M.G.L. c. 186, § 15B(3)(a)", "url": "https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section15B", "quote": "Any security deposit received by such lessor shall be held in a separate, interest-bearing account in a bank, located within the commonwealth under such terms as will place such deposit beyond the claim of creditors of the lessor"}
+      ],
+      "patterns": [
+        "commingl\\w*",
+        "(?:security\\s+)?deposit[^.]{0,40}(?:becomes?|is|shall\\s+be|may\\s+be|will\\s+be)[^.]{0,20}(?:the\\s+)?(?:property|asset|funds?)\\s+of\\s+(?:the\\s+)?(?:lessor|landlord)",
+        "(?:lessor|landlord)\\s+may\\s+(?:use|commingle|mix|spend)\\s+(?:the\\s+)?(?:security\\s+)?deposit"
+      ],
+      "keywords": ["commingle the deposit"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "ma-deposit-003",
+      "jurisdiction": "US-MA",
+      "title": "No interest paid on the security deposit",
+      "severity": "illegal",
+      "description": "Per M.G.L. c. 186, § 15B(3)(b), a lessor holding a security deposit for one year or longer must pay the tenant interest at 5% per year (or the lesser amount actually earned at the bank), payable at the end of each year of the tenancy. A clause stating the deposit earns no interest, or that the landlord keeps any interest, conflicts with the statute and is void under § 15B(8).",
+      "tenant_explainer": "If your landlord holds your deposit for a year or more, they owe you interest on it — 5% a year, or whatever the bank actually paid, every year. A clause saying you get no interest doesn't hold up.",
+      "citations": [
+        {"label": "M.G.L. c. 186, § 15B(3)(b)", "url": "https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section15B", "quote": "A lessor of residential real property who holds a security deposit pursuant to this section for a period of one year or longer from the commencement of the term of the tenancy shall, beginning with the first day of the tenancy, pay interest at the rate of five per cent per year, or other such lesser amount of interest as has been received from the bank where the deposit has been held payable to the tenant at the end of each year of the tenancy."},
+        {"label": "M.G.L. c. 186, § 15B(8)", "url": "https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section15B", "quote": "Any provision of a lease which conflicts with any provision of this section and any waiver by a tenant or prospective tenant of any provision of this section shall be deemed to be against public policy and therefore void and unenforceable."}
+      ],
+      "patterns": [
+        "(?:security\\s+)?deposit\\s+(?:shall|will|does)\\s+(?:not\\s+|never\\s+)(?:bear|earn|accrue|accumulate|pay)\\s+(?:any\\s+)?interest",
+        "no\\s+interest\\s+(?:shall|will|is|of\\s+any\\s+kind)?\\s*(?:be\\s+)?(?:paid|payable|due|accrue[sd]?)\\s+(?:on\\s+)?(?:the\\s+)?(?:security\\s+)?deposit",
+        "(?:lessor|landlord)\\s+(?:shall|may|will)\\s+(?:retain|keep)\\s+(?:any\\s+|all\\s+)?interest[^.]{0,30}deposit"
+      ],
+      "keywords": ["no interest"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "ma-deposit-004",
+      "jurisdiction": "US-MA",
+      "title": "Security deposit not returned within 30 days / no itemized list",
+      "severity": "illegal",
+      "description": "Per M.G.L. c. 186, § 15B(4), the lessor must return the deposit (or its balance) within thirty days after the tenancy ends, and any deduction for damage must be supported by a sworn, itemized list within those thirty days. A clause giving the landlord more than 30 days, or letting them keep the deposit without an itemized accounting, conflicts with the statute and is void under § 15B(8).",
+      "tenant_explainer": "You're owed your deposit back within 30 days of moving out. If the landlord keeps any of it for damage, they have to send you a signed, itemized list within those 30 days — a clause giving them longer, or no list at all, isn't enforceable.",
+      "citations": [
+        {"label": "M.G.L. c. 186, § 15B(4)", "url": "https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section15B", "quote": "The lessor shall, within thirty days after the termination of occupancy under a tenancy-at-will or the end of the tenancy as specified in a valid written lease agreement, return to the tenant the security deposit or any balance thereof"},
+        {"label": "M.G.L. c. 186, § 15B(4)(iii)", "url": "https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section15B", "quote": "the lessor shall provide to the tenant within such thirty days an itemized list of damages, sworn to by the lessor or his agent under pains and penalties of perjury, itemizing in precise detail the nature of the damage and of the repairs necessary to correct such damage"}
+      ],
+      "patterns": [
+        "(?:return|refund)[^.]{0,40}(?:security\\s+)?deposit[^.]{0,40}within\\s+(?:forty-five|45|sixty|60|ninety|90|forty|40|fifty|50)\\b[^.]{0,10}days",
+        "within\\s+(?:forty-five|45|sixty|60|ninety|90|forty|40|fifty|50)\\b[^.]{0,10}days[^.]{0,40}(?:return|refund)[^.]{0,30}(?:security\\s+)?deposit",
+        "(?:lessor|landlord)\\s+(?:need\\s+not|is\\s+not\\s+required\\s+to|shall\\s+not\\s+be\\s+(?:required|obligated))[^.]{0,40}itemiz\\w*"
+      ],
+      "keywords": [],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "ma-deposit-005",
+      "jurisdiction": "US-MA",
+      "title": "Non-refundable security deposit",
+      "severity": "questionable",
+      "description": "A security deposit remains the tenant's property (M.G.L. c. 186, § 15B(1)(e)) and must be returned, less lawful itemized deductions, within thirty days of the tenancy's end (§ 15B(4)). Labeling the deposit 'non-refundable' conflicts with that scheme and is void under § 15B(8). (A statute-authorized optional fee in lieu of a deposit is a different thing and is not a security deposit.)",
+      "tenant_explainer": "A deposit isn't a fee — calling it 'non-refundable' doesn't make it so. In Massachusetts you're owed it back within 30 days of moving out, minus an itemized list of any real damage.",
+      "citations": [
+        {"label": "M.G.L. c. 186, § 15B(1)(e)", "url": "https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section15B", "quote": "A security deposit shall continue to be the property of the tenant making such deposit, shall not be commingled with the assets of the lessor"},
+        {"label": "M.G.L. c. 186, § 15B(8)", "url": "https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section15B", "quote": "Any provision of a lease which conflicts with any provision of this section and any waiver by a tenant or prospective tenant of any provision of this section shall be deemed to be against public policy and therefore void and unenforceable."}
+      ],
+      "patterns": [
+        "non-?refundable\\s+(?:security\\s+)?deposit",
+        "(?:security\\s+)?deposit\\s+(?:is|shall\\s+be|will\\s+be)\\s+non-?refundable"
+      ],
+      "keywords": ["nonrefundable deposit"],
+      "status": "draft-unverified"
+    }
+  ]
+}

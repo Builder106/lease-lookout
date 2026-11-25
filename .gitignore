@@ -1,0 +1,71 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# python (parser engine)
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# keep the example env committed (re-include after the .env* rule above)
+!.env.example
+
+# test fixtures: downloaded third-party samples + generated synthetic PDFs
+/tests/fixtures/sample_leases/
+/tests/fixtures/synthetic/*.pdf
+
+# figma design export
+project/
+# External design-inspiration screenshots (not part of the app)
+docs/inspiration/
+
+# Generated legal-review packet artifacts (regenerable from scripts/)
+docs/ruleset-review-*.docx
+docs/ruleset-review-*.pdf
+
+# Blender backups
+*.blend1
+
+# Actual lease agreements (not part of the app, but kept for reference)
+Columbia Lease Agreement.pdf
+.vscode/settings.json

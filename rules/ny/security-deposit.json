@@ -1,0 +1,58 @@
+{
+  "jurisdiction": "US-NY",
+  "_note": "New York security-deposit rules, retrieved verbatim from nysenate.gov on 2026-06-17. GOL § 7-108(1-a)(a) (HSTPA 2019): deposit/advance may not exceed one month's rent for residential units. GOL § 7-108(1-a)(e): within 14 days of vacating, landlord must give an itemized statement and return the balance, or forfeit the right to retain any of it. GOL § 7-103: the deposit remains the tenant's money, held in trust, not to be commingled. status=draft-unverified.",
+  "rules": [
+    {
+      "id": "ny-deposit-001",
+      "jurisdiction": "US-NY",
+      "title": "Security deposit exceeds one month's rent",
+      "severity": "illegal",
+      "description": "Per GOL § 7-108(1-a)(a), a residential security deposit or advance may not exceed one month's rent. A clause demanding more (e.g. two months, or first + last + security) is unenforceable as to the excess.",
+      "tenant_explainer": "In New York a security deposit can't be more than one month's rent. If the lease asks for two months — or first, last, and a deposit on top — the extra isn't enforceable.",
+      "citations": [
+        {"label": "N.Y. General Obligations Law § 7-108(1-a)(a)", "url": "https://www.nysenate.gov/legislation/laws/GOB/7-108", "quote": "No deposit or advance shall exceed the amount of one month's rent, unless the deposit or advance is for a seasonal use dwelling unit … or … an owner-occupied cooperative apartment …."}
+      ],
+      "patterns": [
+        "security\\s+deposit\\s+(?:of\\s+|equal\\s+to\\s+|in\\s+the\\s+amount\\s+of\\s+|totaling\\s+)?(?:two|2|three|3|four|4|five|5|six|6)\\s+months?",
+        "(?:two|2|three|3|four|4|five|5|six|6)\\s+months?(?:'|’|s)?\\s+rent\\s+(?:as\\s+|for\\s+)?(?:a\\s+)?security\\s+deposit"
+      ],
+      "keywords": [],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "ny-deposit-002",
+      "jurisdiction": "US-NY",
+      "title": "Security deposit commingled / treated as the landlord's money",
+      "severity": "illegal",
+      "description": "Per GOL § 7-103, a security deposit remains the tenant's money, must be held in trust, and may not be commingled with the landlord's funds or treated as the landlord's asset. A clause letting the landlord commingle or take ownership of the deposit is unenforceable.",
+      "tenant_explainer": "Your deposit is still your money — the landlord just holds it in trust. A clause letting them mix it with their own funds or treat it as theirs isn't allowed.",
+      "citations": [
+        {"label": "N.Y. General Obligations Law § 7-103", "url": "https://www.nysenate.gov/legislation/laws/GOB/7-103", "quote": "… such money … shall continue to be the money of the person making such deposit or advance and shall be held in trust by the person with whom such deposit or advance shall be made and shall not be mingled with the personal moneys or become an asset of the person receiving the same …."}
+      ],
+      "patterns": [
+        "commingl\\w*",
+        "(?:security\\s+)?deposit[^.]{0,40}(?:becomes?|is|shall\\s+be|may\\s+be|will\\s+be)[^.]{0,20}(?:the\\s+)?(?:property|asset|funds?)\\s+of\\s+(?:the\\s+)?landlord",
+        "landlord\\s+may\\s+(?:use|commingle|mix|spend)\\s+(?:the\\s+)?(?:security\\s+)?deposit"
+      ],
+      "keywords": ["commingle the deposit"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "ny-deposit-003",
+      "jurisdiction": "US-NY",
+      "title": "Non-refundable security deposit",
+      "severity": "illegal",
+      "description": "A security deposit is the tenant's money held in trust (GOL § 7-103) and must be returned, less itemized lawful deductions, within 14 days of vacating (GOL § 7-108(1-a)(e)). Labeling it 'non-refundable' contradicts that scheme and is unenforceable.",
+      "tenant_explainer": "A deposit isn't a fee — calling it 'non-refundable' doesn't make it so. You're owed it back within 14 days of moving out, minus an itemized list of any real deductions.",
+      "citations": [
+        {"label": "N.Y. General Obligations Law § 7-108(1-a)(e)", "url": "https://www.nysenate.gov/legislation/laws/GOB/7-108", "quote": "Within fourteen days after the tenant has vacated the premises, the landlord shall provide the tenant with an itemized statement indicating the basis for the amount of the deposit retained, if any, and shall return any remaining portion of the deposit to the tenant. If a landlord fails to provide the tenant with the statement and deposit within fourteen days, the landlord shall forfeit any right to retain any portion of the deposit."}
+      ],
+      "patterns": [
+        "non-?refundable\\s+(?:security\\s+)?deposit",
+        "(?:security\\s+)?deposit\\s+(?:is|shall\\s+be|will\\s+be)\\s+non-?refundable"
+      ],
+      "keywords": ["nonrefundable deposit"],
+      "status": "draft-unverified"
+    }
+  ]
+}

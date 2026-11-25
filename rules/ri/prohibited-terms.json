@@ -1,0 +1,114 @@
+{
+  "jurisdiction": "US-RI",
+  "_note": "Rhode Island statutory bars on residential lease terms, retrieved verbatim from the R.I. Legislature statute server (webserver.rilegislature.gov) on 2026-06-20, Title 34 Ch. 18 (Residential Landlord and Tenant Act). § 34-18-17 lists provisions a rental agreement 'may not' contain — waiver of chapter rights/remedies (a)(1), confession of judgment (a)(2), one-sided landlord attorney's fees (a)(3), and landlord exculpation/indemnity (a)(4); § 34-18-17(b) makes any such provision unenforceable and exposes a deliberate landlord to up to three months' rent plus attorney's fees. § 34-18-44 prohibits self-help recovery of possession, including willful interruption of essential services. § 34-18-34 gives the tenant remedies (up to three months' rent or treble damages plus attorney's fees) for unlawful ouster, exclusion, or diminution of service. § 34-18-46 prohibits retaliatory conduct. NOTE: RI has no statute specifically voiding a jury-trial-waiver clause; such a clause would instead fall under the § 34-18-17(a)(1) bar on waiving chapter rights, so it is not asserted as its own statute here. ALL rules status=draft-unverified: must be reviewed by a Rhode Island tenant attorney / legal-aid clinic before public conclusions.",
+  "rules": [
+    {
+      "id": "ri-prohibited-001",
+      "jurisdiction": "US-RI",
+      "title": "Waiver of the tenant's rights or remedies under the Act",
+      "severity": "illegal",
+      "description": "Per R.I. Gen. Laws § 34-18-17(a)(1), a rental agreement may not provide that the tenant agrees to waive or forego rights or remedies under the Residential Landlord and Tenant Act. Any such provision is unenforceable (§ 34-18-17(b)). This covers blanket 'tenant waives all rights/defenses under Chapter 34-18' clauses.",
+      "tenant_explainer": "A lease can't make you sign away the rights or remedies the Rhode Island tenant law gives you. A clause that says 'tenant waives all rights and remedies under the Residential Landlord and Tenant Act' doesn't hold up.",
+      "citations": [
+        {"label": "R.I. Gen. Laws § 34-18-17(a)(1)", "url": "https://webserver.rilegislature.gov/Statutes/TITLE34/34-18/34-18-17.htm", "quote": "A rental agreement may not provide that the tenant: (1) Agrees to waive or forego rights or remedies under this chapter;"},
+        {"label": "R.I. Gen. Laws § 34-18-17(b)", "url": "https://webserver.rilegislature.gov/Statutes/TITLE34/34-18/34-18-17.htm", "quote": "A provision prohibited by subsection (a) included in a rental agreement is unenforceable. If a landlord deliberately uses a rental agreement containing provisions known to be prohibited, the tenant may recover, in addition to his or her actual damages, an amount up to three (3) months periodic rent and reasonable attorney’s fees."}
+      ],
+      "patterns": [
+        "tenant\\s+(?:agrees?\\s+to\\s+)?waives?[^.]{0,40}(?:all\\s+)?(?:rights?|remedies)[^.]{0,40}(?:under|pursuant\\s+to|of)\\s+(?:this\\s+(?:chapter|act)|chapter\\s+34-18|the\\s+residential\\s+landlord)",
+        "waives?\\s+(?:and\\s+forego(?:es)?\\s+)?(?:any\\s+|all\\s+)?(?:rights?\\s+(?:and|or|&)\\s+remedies|remedies\\s+(?:and|or|&)\\s+rights?)[^.]{0,40}(?:this\\s+chapter|the\\s+act|34-18)"
+      ],
+      "keywords": ["waive or forego"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "ri-prohibited-002",
+      "jurisdiction": "US-RI",
+      "title": "Confession of judgment",
+      "severity": "illegal",
+      "description": "Per R.I. Gen. Laws § 34-18-17(a)(2), a rental agreement may not authorize any person to confess judgment on a claim arising out of the rental agreement. Such a 'cognovit' / confession-of-judgment clause is unenforceable (§ 34-18-17(b)).",
+      "tenant_explainer": "A lease can't make you pre-authorize the landlord (or anyone) to enter a court judgment against you without a hearing. That 'confession of judgment' clause is unenforceable in Rhode Island.",
+      "citations": [
+        {"label": "R.I. Gen. Laws § 34-18-17(a)(2)", "url": "https://webserver.rilegislature.gov/Statutes/TITLE34/34-18/34-18-17.htm", "quote": "A rental agreement may not provide that the tenant: … (2) Authorizes any person to confess judgment on a claim arising out of the rental agreement;"}
+      ],
+      "patterns": [
+        "confess(?:ion|es)?\\s+(?:of\\s+)?judgment",
+        "cognovit",
+        "authorizes?\\s+any\\s+person\\s+to\\s+confess"
+      ],
+      "keywords": ["confession of judgment"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "ri-prohibited-003",
+      "jurisdiction": "US-RI",
+      "title": "Tenant agrees to pay the landlord's attorney's fees",
+      "severity": "questionable",
+      "description": "Per R.I. Gen. Laws § 34-18-17(a)(3), a rental agreement may not provide that the tenant agrees to pay the landlord's attorney's fees inconsistent with the Act. Only fees 'inconsistent with this chapter' are barred — a one-way clause making the tenant pay the landlord's legal fees regardless of who wins is unenforceable (§ 34-18-17(b)), but a mutual prevailing-party fee clause can be lawful, so a flagged clause must be read in full.",
+      "tenant_explainer": "A lease can't make you cover the landlord's lawyer bills in a way the law doesn't allow. A one-sided 'tenant pays landlord's attorney's fees' clause is unenforceable in Rhode Island.",
+      "citations": [
+        {"label": "R.I. Gen. Laws § 34-18-17(a)(3)", "url": "https://webserver.rilegislature.gov/Statutes/TITLE34/34-18/34-18-17.htm", "quote": "A rental agreement may not provide that the tenant: … (3) Agrees to pay the landlord’s attorney’s fees inconsistent with this chapter; or"}
+      ],
+      "patterns": [
+        "tenant\\s+(?:agrees?\\s+to\\s+|shall\\s+|will\\s+|must\\s+)?pay[^.]{0,40}landlord(?:'|’)?s?\\s+(?:reasonable\\s+)?attorney(?:'|’)?s?\\s+fees",
+        "(?:reasonable\\s+)?attorney(?:'|’)?s?\\s+fees[^.]{0,30}(?:incurred\\s+by|of)\\s+(?:the\\s+)?landlord[^.]{0,40}(?:paid|borne)\\s+by\\s+(?:the\\s+)?tenant"
+      ],
+      "keywords": [],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "ri-prohibited-004",
+      "jurisdiction": "US-RI",
+      "title": "Landlord exculpation / hold-harmless / indemnification",
+      "severity": "illegal",
+      "description": "Per R.I. Gen. Laws § 34-18-17(a)(4), a rental agreement may not provide that the tenant agrees to the exculpation or limitation of any landlord liability arising under law, or to indemnify the landlord for that liability or its costs. 'Landlord not liable', 'hold harmless', and 'tenant shall indemnify the landlord' clauses are unenforceable (§ 34-18-17(b)).",
+      "tenant_explainer": "Your landlord can't use the lease to escape responsibility for harm they're liable for, or push that liability onto you. 'Landlord not liable for any injury', 'hold harmless', and 'tenant indemnifies the landlord' clauses are unenforceable in Rhode Island.",
+      "citations": [
+        {"label": "R.I. Gen. Laws § 34-18-17(a)(4)", "url": "https://webserver.rilegislature.gov/Statutes/TITLE34/34-18/34-18-17.htm", "quote": "A rental agreement may not provide that the tenant: … (4) Agrees to the exculpation or limitation of any liability of the landlord arising under law or to indemnify the landlord for that liability or the costs connected with the liability."}
+      ],
+      "patterns": [
+        "hold\\s+(?:the\\s+)?landlord\\s+harmless",
+        "indemnify\\s+(?:and\\s+hold\\s+harmless\\s+)?(?:the\\s+)?landlord",
+        "landlord\\s+shall\\s+not\\s+be\\s+(?:held\\s+)?liable",
+        "releases?\\s+(?:the\\s+)?landlord\\s+from\\s+(?:any\\s+|all\\s+)?liability"
+      ],
+      "keywords": ["hold harmless", "indemnify the landlord", "exculpation"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "ri-prohibited-005",
+      "jurisdiction": "US-RI",
+      "title": "Self-help eviction (lockout, seizing possession, cutting utilities)",
+      "severity": "illegal",
+      "description": "Per R.I. Gen. Laws § 34-18-44, a landlord may not recover or take possession of the dwelling unit by action or otherwise — including by willfully diminishing services through interrupting heat, running water, hot water, electric, gas, or other essential service — except on abandonment, surrender, or as the chapter permits. Under § 34-18-34 a tenant unlawfully ousted or cut off from essential services may recover up to three months' rent or treble damages plus attorney's fees. A clause authorizing the landlord to lock the tenant out, retake possession, or shut off utilities without court process is unenforceable.",
+      "tenant_explainer": "A landlord can't lock you out, retake the apartment, or shut off your heat, water, gas, or electricity to force you out — they have to go through the court eviction process. A lease clause saying they can do any of that doesn't hold up, and doing it can cost the landlord up to three months' rent or treble damages plus your attorney's fees.",
+      "citations": [
+        {"label": "R.I. Gen. Laws § 34-18-44", "url": "https://webserver.rilegislature.gov/Statutes/TITLE34/34-18/34-18-44.htm", "quote": "A landlord may not recover or take possession of the dwelling unit by action or otherwise, including willful diminution of services to the tenant by interrupting or causing the interruption of heat, running water, hot water, electric, gas, or other essential service to the tenant, except in case of abandonment, surrender, or as permitted in this chapter."},
+        {"label": "R.I. Gen. Laws § 34-18-34", "url": "https://webserver.rilegislature.gov/Statutes/TITLE34/34-18/34-18-34.htm", "quote": "If a landlord unlawfully removes or excludes the tenant from the premises or willfully diminishes services to the tenant by interrupting or causing the interruption of heat, running water, hot water, electric, gas, or other essential service, the tenant may recover possession or terminate the rental agreement and, in either case, recover an amount not more than three (3) months periodic rent or threefold the actual damages sustained by him or her, whichever is greater, and reasonable attorney’s fees."}
+      ],
+      "patterns": [
+        "(?:re-?enter|retake|repossess|recover|take\\s+possession)[^.]{0,60}without\\s+(?:resort(?:ing)?\\s+to|the\\s+necessity\\s+of|recourse\\s+to|notice\\s+or)\\s+(?:any\\s+|a\\s+)?(?:court|legal\\s+process|judicial\\s+process|eviction\\s+process|process\\s+of\\s+law)",
+        "landlord\\s+may\\s+(?:re-?enter\\s+and\\s+take\\s+possession|retake\\s+possession|repossess|enter\\s+and\\s+take\\s+possession|lock\\s+(?:the\\s+)?tenant\\s+out|change\\s+(?:the\\s+)?locks?)",
+        "landlord\\s+may\\s+(?:shut(?:\\s+off)?|discontinue|interrupt|terminate|cut\\s+off)\\s+(?:the\\s+)?(?:tenant(?:'|’)?s\\s+)?(?:essential\\s+)?(?:services|utilities|heat|water|hot\\s+water|electric(?:ity)?|gas)"
+      ],
+      "keywords": ["self-help", "lock the tenant out"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "ri-prohibited-006",
+      "jurisdiction": "US-RI",
+      "title": "Retaliation for complaints or tenant organizing",
+      "severity": "illegal",
+      "description": "Per R.I. Gen. Laws § 34-18-46(a), a landlord may not retaliate — by raising rent, cutting services, or bringing/threatening an eviction — because the tenant complained to a code-enforcement agency, complained to the landlord of a § 34-18-22 violation, joined a tenants' union, or exercised other lawful rights. A lease clause that penalizes, fines, or threatens eviction for complaining or organizing is contrary to this section.",
+      "tenant_explainer": "Your landlord can't punish you — with a rent hike, fewer services, or an eviction threat — for reporting bad conditions, complaining about repairs, or joining a tenants' group. A lease clause that fines or threatens you for doing so runs against Rhode Island's anti-retaliation law.",
+      "citations": [
+        {"label": "R.I. Gen. Laws § 34-18-46(a)", "url": "https://webserver.rilegislature.gov/Statutes/TITLE34/34-18/34-18-46.htm", "quote": "Except as provided in this section, a landlord may not retaliate by increasing rent or decreasing services or by bringing or threatening to bring an action for possession because: (1) The tenant has complained to a governmental agency charged with responsibility for enforcement of a building or housing code of a violation applicable to the premises materially affecting health and safety; or (2) The tenant has complained to the landlord of a violation under § 34-18-22; or (3) The tenant has organized or become a member of a tenants’ union or similar organization …."}
+      ],
+      "patterns": [
+        "(?:fee|penalty|penalties|charge|fine|evict\\w*|terminat\\w*\\s+(?:the\\s+)?(?:lease|tenancy)|increase\\s+(?:the\\s+)?rent)[^.]{0,60}(?:for\\s+|if\\s+(?:the\\s+)?tenant\\s+|upon\\s+)?(?:complain\\w*|report\\w*\\s+(?:a\\s+)?(?:violation|condition)|housing\\s+code|tenants?(?:'|’)?\\s+(?:union|association|organization))",
+        "(?:tenant\\s+)?(?:may\\s+not|shall\\s+not|is\\s+prohibited\\s+from|agrees?\\s+not\\s+to)[^.]{0,30}(?:join\\w*|form\\w*|organiz\\w*|become\\s+a\\s+member)[^.]{0,20}tenants?(?:'|’)?\\s+(?:union|association|organization)"
+      ],
+      "keywords": [],
+      "status": "draft-unverified"
+    }
+  ]
+}

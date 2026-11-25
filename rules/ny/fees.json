@@ -1,0 +1,40 @@
+{
+  "jurisdiction": "US-NY",
+  "_note": "New York fee caps (HSTPA 2019), retrieved verbatim from nysenate.gov on 2026-06-17. RPL § 238-a(1)(b): application background/credit-check fees capped at the actual cost or $20, whichever is less (and waived if the applicant supplies a recent report). RPL § 238-a(2): no late fee unless rent is more than 5 days late, and it may not exceed the lesser of $50 or 5% of the monthly rent. status=draft-unverified.",
+  "rules": [
+    {
+      "id": "ny-fees-001",
+      "jurisdiction": "US-NY",
+      "title": "Application / screening fee over the $20 cap",
+      "severity": "questionable",
+      "description": "Per RPL § 238-a(1)(b), a landlord may charge only the actual cost of a background and credit check, capped at $20 (and not at all if the applicant provides their own recent report). A separate 'application', 'processing', or 'admin' fee, or a screening fee over $20, is not permitted. Flag to check the amount and purpose.",
+      "tenant_explainer": "In New York the most a landlord can charge to screen you is $20 (the actual cost of a background + credit check) — and nothing if you hand over a recent report yourself. A bigger 'application' or 'processing' fee isn't allowed.",
+      "citations": [
+        {"label": "N.Y. Real Property Law § 238-a(1)(b)", "url": "https://www.nysenate.gov/legislation/laws/RPP/238-A", "quote": "A landlord, lessor, sub-lessor or grantor may charge a fee or fees to reimburse costs associated with conducting a background check and credit check, provided the cumulative fee or fees for such checks is no more than the actual cost of the background check and credit check or twenty dollars, whichever is less …."}
+      ],
+      "patterns": [
+        "(?:rental\\s+)?application\\s+fee",
+        "processing\\s+fee",
+        "administrative\\s+fee",
+        "\\badmin\\s+fee\\b",
+        "(?:background|credit)\\s+check\\s+fee"
+      ],
+      "keywords": ["application fee"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "ny-fees-002",
+      "jurisdiction": "US-NY",
+      "title": "Late fee before 5 days, or over the statutory cap",
+      "severity": "questionable",
+      "description": "Per RPL § 238-a(2), a landlord may not demand a late fee unless rent is more than 5 days late, and the fee may not exceed the lesser of $50 or 5% of the monthly rent. Flag late-fee clauses to check the timing and amount.",
+      "tenant_explainer": "A late fee can't kick in until rent is more than 5 days late, and it can't be more than $50 or 5% of your monthly rent, whichever is smaller. Watch for fees that hit sooner or run higher.",
+      "citations": [
+        {"label": "N.Y. Real Property Law § 238-a(2)", "url": "https://www.nysenate.gov/legislation/laws/RPP/238-A", "quote": "No landlord, lessor, sub-lessor or grantor may demand any payment, fee, or charge for the late payment of rent unless the payment of rent has not been made within five days of the date it was due, and such payment, fee, or charge shall not exceed fifty dollars or five percent of the monthly rent, whichever is less …."}
+      ],
+      "patterns": ["late\\s+(?:charge|fee|payment\\s+charge)"],
+      "keywords": [],
+      "status": "draft-unverified"
+    }
+  ]
+}

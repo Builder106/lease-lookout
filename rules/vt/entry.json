@@ -1,0 +1,24 @@
+{
+  "jurisdiction": "US-VT",
+  "_note": "Vermont landlord-access rules under 9 V.S.A. § 4460 (Access), retrieved verbatim from legislature.vermont.gov on 2026-06-20. § 4460(a): a landlord may enter with the tenant's consent, which shall not be unreasonably withheld. § 4460(b): for inspection, repairs, agreed services, or to show the unit, the landlord may enter only between 9:00 A.M. and 9:00 P.M. on no less than 48 hours' notice. § 4460(c): entry without consent or notice is allowed only on a reasonable belief of imminent danger to person or property. § 4454 voids clauses that circumvent the chapter. status=draft-unverified: review by a Vermont tenant attorney / legal-aid clinic before public conclusions.",
+  "rules": [
+    {
+      "id": "vt-entry-001",
+      "jurisdiction": "US-VT",
+      "title": "Landlord entry without 48 hours' notice / at any time",
+      "severity": "illegal",
+      "description": "Per 9 V.S.A. § 4460, to inspect, make repairs, supply agreed services, or show the unit, a landlord may enter only between 9:00 A.M. and 9:00 P.M. on no less than 48 hours' notice; entry without notice is allowed only on a reasonable belief of imminent danger. A clause permitting entry 'at any time' or 'without notice' is unenforceable to that extent and void under § 4454.",
+      "tenant_explainer": "Except in a real emergency, your Vermont landlord has to give at least 48 hours' notice and can only come in between 9 a.m. and 9 p.m. A lease letting them enter 'at any time' or 'without notice' doesn't hold up.",
+      "citations": [
+        {"label": "9 V.S.A. § 4460(b)-(c)", "url": "https://legislature.vermont.gov/statutes/section/09/137/04460", "quote": "A landlord may also enter the dwelling unit for the following purposes between the hours of 9:00 A.M. and 9:00 P.M. on no less than 48 hours’ notice: (1) when necessary to inspect the premises; (2) to make necessary or agreed repairs, alterations, or improvements; (3) to supply agreed services; or (4) to exhibit the dwelling unit to prospective or actual purchasers, mortgagees, tenants, workers, or contractors. … A landlord may only enter the dwelling unit without consent or notice when the landlord has a reasonable belief that there is imminent danger to any person or to property."},
+        {"label": "9 V.S.A. § 4454", "url": "https://legislature.vermont.gov/statutes/section/09/137/04454", "quote": "No rental agreement shall contain any provision that attempts to circumvent or circumvents obligations and remedies established by this chapter and any such provision shall be unenforceable and void."}
+      ],
+      "patterns": [
+        "(?:enter|entry|access)[^.]{0,60}(?:at\\s+any\\s+time|without\\s+(?:prior\\s+|advance\\s+|any\\s+)?notice|at\\s+(?:the\\s+landlord'?s?\\s+)?(?:sole\\s+)?discretion)",
+        "(?:at\\s+any\\s+time|without\\s+(?:prior\\s+|advance\\s+|any\\s+)?notice)[^.]{0,50}(?:enter|entry)"
+      ],
+      "keywords": [],
+      "status": "draft-unverified"
+    }
+  ]
+}

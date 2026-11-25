@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"/><title>Stat band — count-up</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{ --primary: oklch(0.46 0.07 178); --primary-foreground: oklch(0.985 0.006 85); }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,system-ui,sans-serif;background:oklch(0.985 0.006 85)}
+  .band{background:var(--primary);color:var(--primary-foreground)}
+  .inner{max-width:1100px;margin:0 auto;padding:52px 56px}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:.6875rem;letter-spacing:.18em;text-transform:uppercase;color:color-mix(in oklch,var(--primary-foreground) 70%,transparent)}
+  dl{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin:26px 0 0}
+  dt{font-family:"Instrument Serif",serif;font-size:3rem;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+  dd{margin:8px 0 0;font-size:.9375rem;color:color-mix(in oklch,var(--primary-foreground) 80%,transparent)}
+</style></head>
+<body>
+<div class="band"><div class="inner">
+  <p class="eyebrow">What LeaseLookout covers</p>
+  <dl>
+    <div><dt data-count="17">17</dt><dd>clause types checked</dd></div>
+    <div><dt>§47a</dt><dd>the statute we read against</dd></div>
+    <div><dt data-count="100%">100%</dt><dd>of flags cite primary law</dd></div>
+  </dl>
+</div></div>
+<script>
+const PARTS=/^(\D*)(\d[\d.,]*)(.*)$/, DUR=1100;
+document.querySelectorAll("dt[data-count]").forEach(node=>{
+  const value=node.getAttribute("data-count"), m=value.match(PARTS);
+  if(!m) return;
+  const [,prefix,numStr,suffix]=m, target=parseFloat(numStr.replace(/,/g,""));
+  const dec=numStr.includes(".")?numStr.split(".")[1].length:0;
+  const fmt=n=>`${prefix}${n.toLocaleString("en-US",{minimumFractionDigits:dec,maximumFractionDigits:dec})}${suffix}`;
+  let start=0;
+  const tick=ts=>{ if(!start)start=ts; const p=Math.min((ts-start)/DUR,1); const e=1-Math.pow(1-p,3);
+    if(p<1){ node.textContent=fmt(target*e); requestAnimationFrame(tick);} else node.textContent=value; };
+  requestAnimationFrame(tick);
+});
+</script></body></html>

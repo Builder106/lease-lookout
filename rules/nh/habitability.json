@@ -1,0 +1,26 @@
+{
+  "jurisdiction": "US-NH",
+  "_note": "New Hampshire habitability rules, retrieved verbatim from the NH General Court statute site (gencourt.state.nh.us / gc.nh.gov) on 2026-06-20. RSA 540:13-d establishes a statutory defense to a nonpayment eviction where the premises are in substantial violation of the standards of fitness for health and safety in RSA 48-A (or local codes) and that violation materially affects habitability. RSA 540-A:4, VII(b) recognizes a damages claim for 'breach of warranty of habitability' and 'breach of the covenant of quiet enjoyment.' IMPORTANT — unlike New York's RPL 235-b(2), New Hampshire has NO statute that expressly declares a habitability-waiver / 'as-is' clause VOID; the protection is framed as an eviction defense and a damages claim. The habitability-waiver rule below is therefore severity 'questionable,' not 'illegal,' and its description does not overstate the statute. status=draft-unverified: must be reviewed by a NH tenant attorney / legal-aid clinic before public conclusions.",
+  "rules": [
+    {
+      "id": "nh-habitability-001",
+      "jurisdiction": "US-NH",
+      "title": "\"As-is\" / waiver of habitability or of the duty to repair",
+      "severity": "questionable",
+      "description": "New Hampshire law gives a tenant a statutory defense to a nonpayment eviction when the premises substantially violate the health-and-safety fitness standards and that materially affects habitability (RSA 540:13-d), and recognizes a damages claim for breach of the warranty of habitability (RSA 540-A:4, VII(b)). A clause in which the tenant accepts the unit 'as-is' or waives habitability / the landlord's duty to repair attempts to contract around those protections. Flagged as questionable because no New Hampshire statute expressly declares such a waiver void (contrast NY RPL 235-b), so a court — not this tool — decides enforceability.",
+      "tenant_explainer": "New Hampshire lets you withhold rent or claim damages when a home is unfit for health and safety, and recognizes a warranty of habitability. A lease line saying you accept the place 'as-is' or give up your right to a habitable home tries to sidestep that — it's worth questioning, though a court has the final say.",
+      "citations": [
+        {"label": "N.H. RSA 540:13-d, I", "url": "https://gc.nh.gov/rsa/html/LV/540/540-13-d.htm", "quote": "No action for possession based on nonpayment of rent shall be maintained in regard to any premises leased or rented for residential purposes, other than for vacation or recreation, if such premises are in substantial violation of the standards of fitness for health and safety set forth in RSA 48-A or in local codes, ordinances or bylaws established pursuant thereto, and such violation materially affects the habitability of said premises"},
+        {"label": "N.H. RSA 540-A:4, VII(b)", "url": "https://gc.nh.gov/rsa/html/LV/540-A/540-A-4.htm", "quote": "An award of damages to the plaintiff for the violations of RSA 540-A, breach of warranty of habitability, breach of the covenant of quiet enjoyment or any other claim arising out of the facts alleged in the plaintiff's petition."}
+      ],
+      "patterns": [
+        "accepts?\\s+(?:the\\s+)?(?:premises|unit|apartment|dwelling)\\s+(?:in\\s+)?(?:its\\s+)?(?:present|current|existing)\\s+condition",
+        "(?:premises|unit|apartment|dwelling)[^.]{0,30}\\bas[\\s-]?is\\b",
+        "waive[sd]?[^.]{0,40}(?:implied\\s+)?warranty\\s+of\\s+habitability",
+        "tenant\\s+(?:waives?|assumes?|accepts?)[^.]{0,40}(?:all\\s+)?(?:responsibility|duty|obligation)\\s+(?:for|to\\s+(?:make|perform))\\s+(?:all\\s+)?repairs"
+      ],
+      "keywords": ["warranty of habitability", "as-is"],
+      "status": "draft-unverified"
+    }
+  ]
+}

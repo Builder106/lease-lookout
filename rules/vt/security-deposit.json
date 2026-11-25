@@ -1,0 +1,61 @@
+{
+  "jurisdiction": "US-VT",
+  "_note": "Vermont security-deposit rules under 9 V.S.A. § 4461 (Security deposits), retrieved verbatim from legislature.vermont.gov on 2026-06-20. § 4461(a) defines a security deposit as money 'refundable to the tenant.' § 4461(b) lists the ONLY permissible deductions (unpaid rent; damage beyond normal wear and tear; unpaid utility/other charges owed the landlord; cost to remove abandoned articles). § 4461(c) requires the deposit plus a written itemized statement within 14 days of the landlord learning the tenant vacated (60 days for seasonal). § 4461(e): a landlord who misses the 14-day deadline forfeits the right to withhold any portion, and a willful failure is liable for double the amount wrongfully withheld plus attorney's fees. NOTE: Vermont has NO statutory cap on the deposit amount and NO statewide interest requirement — § 4461(g) lets a town authorize interest and bars an ordinance from limiting how a deposit is held — so this file does NOT flag deposit size, commingling, or absence of interest. § 4454 voids any clause that circumvents chapter obligations and remedies. All rules status=draft-unverified: review by a Vermont tenant attorney / legal-aid clinic before public conclusions.",
+  "rules": [
+    {
+      "id": "vt-deposit-001",
+      "jurisdiction": "US-VT",
+      "title": "Deposit-return deadline longer than 14 days",
+      "severity": "illegal",
+      "description": "Per 9 V.S.A. § 4461(c), the landlord must return the security deposit together with a written itemized statement of any deductions within 14 days of learning the tenant vacated (60 days for a seasonal, non-primary-residence unit). A clause setting a longer window (e.g. 30, 45, or 60 days for a year-round home) is unenforceable to that extent, and under § 4461(e) a late landlord forfeits the right to withhold anything.",
+      "tenant_explainer": "In Vermont your landlord has 14 days after you move out to send back your deposit with an itemized list of any deductions. A lease that gives them 30, 45, or 60 days for a regular home doesn't override the law — and if they blow the 14-day deadline, they lose the right to keep any of it.",
+      "citations": [
+        {"label": "9 V.S.A. § 4461(c)", "url": "https://legislature.vermont.gov/statutes/section/09/137/04461", "quote": "A landlord shall return the security deposit along with a written statement itemizing any deductions to a tenant within 14 days from the date on which the landlord discovers that the tenant vacated or abandoned the dwelling unit or the date the tenant vacated the dwelling unit, provided the landlord received notice from the tenant of that date."},
+        {"label": "9 V.S.A. § 4461(e)", "url": "https://legislature.vermont.gov/statutes/section/09/137/04461", "quote": "If a landlord fails to return the security deposit with a statement within 14 days, the landlord forfeits the right to withhold any portion of the security deposit. If the failure is willful, the landlord shall be liable for double the amount wrongfully withheld, plus reasonable attorney’s fees and costs."}
+      ],
+      "patterns": [
+        "(?:security\\s+)?deposit[^.]{0,60}(?:within|after)\\s+(?:thirty|30|forty-?five|45|sixty|60|ninety|90)\\b[^.]{0,8}\\bdays",
+        "(?:within|after)\\s+(?:thirty|30|forty-?five|45|sixty|60|ninety|90)\\b[^.]{0,8}\\bdays[^.]{0,40}(?:return|refund)[^.]{0,30}(?:security\\s+)?deposit"
+      ],
+      "keywords": [],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "vt-deposit-002",
+      "jurisdiction": "US-VT",
+      "title": "Non-refundable security deposit",
+      "severity": "illegal",
+      "description": "Per 9 V.S.A. § 4461(a) a security deposit is by definition money that is 'refundable to the tenant at the termination or expiration of the tenancy.' Labeling a deposit 'non-refundable' contradicts that definition and the itemized-return scheme of § 4461(c); under § 4454 any clause that circumvents the chapter's obligations is unenforceable and void.",
+      "tenant_explainer": "A deposit isn't a fee. Vermont law defines it as money that comes back to you when the tenancy ends, minus any itemized deductions — so calling it 'non-refundable' doesn't make it so.",
+      "citations": [
+        {"label": "9 V.S.A. § 4461(a)", "url": "https://legislature.vermont.gov/statutes/section/09/137/04461", "quote": "A security deposit is any advance, deposit, or prepaid rent, however named, which is refundable to the tenant at the termination or expiration of the tenancy."},
+        {"label": "9 V.S.A. § 4454", "url": "https://legislature.vermont.gov/statutes/section/09/137/04454", "quote": "No rental agreement shall contain any provision that attempts to circumvent or circumvents obligations and remedies established by this chapter and any such provision shall be unenforceable and void."}
+      ],
+      "patterns": [
+        "non-?refundable\\s+(?:security\\s+)?deposit",
+        "(?:security\\s+)?deposit\\s+(?:is|shall\\s+be|will\\s+be)\\s+non-?refundable"
+      ],
+      "keywords": ["nonrefundable deposit"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "vt-deposit-003",
+      "jurisdiction": "US-VT",
+      "title": "Deposit automatically forfeited / kept as liquidated damages",
+      "severity": "illegal",
+      "description": "Per 9 V.S.A. § 4461(b) a landlord may retain the deposit only for specific, itemizable reasons — unpaid rent, damage beyond normal wear and tear, unpaid utility or other charges owed the landlord, and the cost of removing abandoned articles — and must itemize them in writing under § 4461(c). A clause that automatically forfeits the deposit on early termination or any breach, or treats it as pre-set 'liquidated damages' regardless of actual loss, bypasses that scheme and is void under § 4454.",
+      "tenant_explainer": "Your landlord can only keep your deposit for real, itemized reasons like unpaid rent or actual damage beyond ordinary wear. A clause that says the whole deposit is forfeited if you leave early or break a rule — no matter the actual cost — isn't allowed.",
+      "citations": [
+        {"label": "9 V.S.A. § 4461(b)", "url": "https://legislature.vermont.gov/statutes/section/09/137/04461", "quote": "The landlord may retain all or a portion of the security deposit for: (1) nonpayment of rent; (2) damage to property of the landlord, unless the damage is the result of normal wear and tear or the result of actions or events beyond the control of the tenant; (3) nonpayment of utility or other charges that the tenant was required to pay directly to the landlord or to a utility; and (4) expenses required to remove from the rental unit articles abandoned by the tenant."},
+        {"label": "9 V.S.A. § 4454", "url": "https://legislature.vermont.gov/statutes/section/09/137/04454", "quote": "No rental agreement shall contain any provision that attempts to circumvent or circumvents obligations and remedies established by this chapter and any such provision shall be unenforceable and void."}
+      ],
+      "patterns": [
+        "(?:security\\s+)?deposit[^.]{0,60}(?:forfeit\\w*|automatically\\s+forfeited|retained\\s+in\\s+full)",
+        "(?:security\\s+)?deposit[^.]{0,40}(?:as\\s+)?liquidated\\s+damages",
+        "forfeit\\w*[^.]{0,40}(?:security\\s+)?deposit[^.]{0,40}(?:regardless|without\\s+regard|whether\\s+or\\s+not)"
+      ],
+      "keywords": ["deposit is forfeited"],
+      "status": "draft-unverified"
+    }
+  ]
+}

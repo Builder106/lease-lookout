@@ -1,0 +1,115 @@
+{
+  "jurisdiction": "US-ME",
+  "_note": "Maine statutory bars on residential lease terms, retrieved verbatim from the Maine Legislature statute site (legislature.maine.gov) on 2026-06-20. 14 M.R.S. §6021(5) (waiver of the warranty of fitness for human habitation is void), §6030(2)(A) (provision absolving the landlord from liability for its own negligence is unenforceable), §6030(2)(B) (provision requiring the tenant to pay the landlord's legal fees in enforcing the lease is unenforceable), §6030(2)(C) (provision requiring a lien on the tenant's property for rent is unenforceable), §6030(2)(D) (provision requiring the tenant to acknowledge the lease terms are fair and reasonable is unenforceable), §6014 (evictions effected without resort to court process — including utility shutoffs, lockouts, or seizing the tenant's property — are illegal and against public policy). NOTE: Maine has no statute I could locate that bars a residential jury-trial waiver or a confession-of-judgment clause, so no such rule is authored here — never invent law. ALL rules status=draft-unverified: review by a Maine tenant attorney / Pine Tree Legal before publishing conclusions.",
+  "rules": [
+    {
+      "id": "me-prohibited-001",
+      "jurisdiction": "US-ME",
+      "title": "\"As-is\" / waiver of the warranty of habitability",
+      "severity": "illegal",
+      "description": "Per 14 M.R.S. §6021(2), every residential rental carries an implied warranty that the unit is fit for human habitation, and §6021(5) makes any agreement (other than the narrow rent-reduction exception) by which the tenant waives those rights void. An 'as-is' or habitability-waiver clause is unenforceable.",
+      "tenant_explainer": "You can't sign away your right to a livable home. 'Tenant accepts the unit as-is' or 'tenant waives the warranty of habitability' is void in Maine — the landlord still owes you a unit fit to live in.",
+      "citations": [
+        {"label": "14 M.R.S. §6021(5) (Waiver)", "url": "https://legislature.maine.gov/statutes/14/title14sec6021.html", "quote": "Any agreement, other than as provided in this subsection, by a tenant to waive any of the rights or benefits provided by this section shall be void."},
+        {"label": "14 M.R.S. §6021(2) (Implied warranty of fitness for human habitation)", "url": "https://legislature.maine.gov/statutes/14/title14sec6021.html", "quote": "In any written or oral agreement for rental of a dwelling unit, the landlord shall be deemed to covenant and warrant that the dwelling unit is fit for human habitation."}
+      ],
+      "patterns": [
+        "accepts?\\s+(?:the\\s+)?(?:premises|unit|apartment|dwelling)\\s+(?:in\\s+)?(?:its\\s+)?(?:present|current|existing)\\s+condition",
+        "(?:premises|unit|apartment|dwelling)[^.]{0,30}\\bas[\\s-]?is\\b",
+        "waive[sd]?[^.]{0,40}(?:implied\\s+)?warranty\\s+of\\s+(?:habitability|fitness)",
+        "(?:disclaim\\w*|no|without)\\s+(?:any\\s+|all\\s+)?(?:implied\\s+)?warrant(?:y|ies)\\s+of\\s+(?:habitability|fitness)"
+      ],
+      "keywords": ["warranty of habitability", "warranty of fitness"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "me-prohibited-002",
+      "jurisdiction": "US-ME",
+      "title": "Landlord exculpation for its own negligence",
+      "severity": "illegal",
+      "description": "Per 14 M.R.S. §6030(2)(A), a lease provision that absolves the landlord (or its agent) from liability for its own negligence is specifically declared unenforceable and an unfair trade practice. 'Landlord not liable' / 'hold harmless' / 'indemnify the landlord' clauses are unenforceable.",
+      "tenant_explainer": "Your landlord can't use the lease to escape responsibility for harm caused by their own negligence. 'Landlord not liable for any injury', 'hold harmless', and 'indemnify the landlord' clauses are unenforceable in Maine.",
+      "citations": [
+        {"label": "14 M.R.S. §6030(2)(A) (Unenforceable provisions)", "url": "https://legislature.maine.gov/statutes/14/title14sec6030.html", "quote": "The following lease or tenancy at will agreement or rule provisions for a dwelling unit … are specifically declared to be unenforceable and in violation of Title 5, section 207: A. Any provision that absolves the landlord from liability for the negligence of the landlord or the landlord's agent …."}
+      ],
+      "patterns": [
+        "hold\\s+(?:the\\s+)?landlord\\s+harmless",
+        "indemnify\\s+(?:and\\s+hold\\s+harmless\\s+)?(?:the\\s+)?landlord",
+        "landlord\\s+(?:shall|will)\\s+not\\s+be\\s+(?:held\\s+)?liable[^.]{0,40}(?:negligen\\w+|fault|any\\s+(?:cause|reason)|whatsoever)",
+        "releases?\\s+(?:the\\s+)?landlord\\s+from\\s+(?:any\\s+|all\\s+)?liability[^.]{0,40}(?:negligen\\w+|fault|any\\s+(?:cause|reason)|whatsoever)"
+      ],
+      "keywords": ["hold harmless", "indemnify the landlord"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "me-prohibited-003",
+      "jurisdiction": "US-ME",
+      "title": "Self-help eviction (lockout, seizing property, cutting utilities)",
+      "severity": "illegal",
+      "description": "Per 14 M.R.S. §6014, an eviction effected without resort to court process is illegal and against public policy; the landlord may not willfully interrupt utility service (§6014(1)(A)), deny the tenant access to or possession of the premises other than through proper judicial process (§6014(1)(B)), or seize the tenant's property other than by proper judicial process (§6014(1)(C)). A lease clause purporting to authorize any of this is unenforceable.",
+      "tenant_explainer": "A landlord can't lock you out, shut off your utilities, or seize your belongings to force you out — they have to go to court. In Maine doing so is an illegal eviction, and any lease clause saying otherwise doesn't hold up.",
+      "citations": [
+        {"label": "14 M.R.S. §6014(1) (Illegal evictions)", "url": "https://legislature.maine.gov/statutes/14/title14sec6014.html", "quote": "Except as permitted by Title 15, chapter 517 or Title 17, chapter 91, evictions that are effected without resort to the provisions of this chapter are illegal and against public policy. Illegal evictions include, but are not limited to, the following. A. No landlord may willfully cause, directly or indirectly, the interruption or termination of any utility service being supplied to the tenant including, but not limited to, water, heat, light, electricity, gas, telephone, sewerage, elevator or refrigeration … B. No landlord may willfully seize, hold or otherwise directly or indirectly deny a tenant access to and possession of the tenant's rented or leased premises, other than through proper judicial process. C. No landlord may willfully seize, hold or otherwise directly or indirectly deny a tenant access to and possession of the tenant's property, other than by proper judicial process."}
+      ],
+      "patterns": [
+        "without\\s+(?:resort(?:ing)?\\s+to|the\\s+necessity\\s+of|recourse\\s+to|the\\s+use\\s+of)\\s+(?:any\\s+|a\\s+)?(?:court|legal\\s+process|judicial\\s+process|eviction\\s+proceedings?)",
+        "lock[\\s-]?out",
+        "chang(?:e|ing)\\s+(?:the\\s+)?locks?[^.]{0,40}(?:remove|evict|possession|vacate|default)",
+        "(?:shut(?:ting)?\\s+off|discontinu\\w+|interrupt\\w+|terminat\\w+)\\s+(?:the\\s+)?(?:tenant'?s?\\s+)?(?:essential\\s+)?(?:services|utilities|heat|water|electricity)"
+      ],
+      "keywords": ["self-help", "without resort to court"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "me-prohibited-004",
+      "jurisdiction": "US-ME",
+      "title": "Tenant must pay the landlord's legal fees (one-way fee clause)",
+      "severity": "illegal",
+      "description": "Per 14 M.R.S. §6030(2)(B), a lease provision requiring the tenant to pay the landlord's legal fees in enforcing the lease is unenforceable and an unfair trade practice. (A narrow exception in §6030(3) allows prevailing-party fees only after a contested hearing in cases of wanton disregard of the lease.) A blanket clause making the tenant pay the landlord's attorney fees is unenforceable.",
+      "tenant_explainer": "A clause that makes you cover the landlord's lawyer whenever they enforce the lease isn't enforceable in Maine. The only narrow exception is a prevailing-party fee a court awards after a contested hearing for wanton disregard of the lease.",
+      "citations": [
+        {"label": "14 M.R.S. §6030(2)(B) (Unenforceable provisions)", "url": "https://legislature.maine.gov/statutes/14/title14sec6030.html", "quote": "The following lease or tenancy at will agreement or rule provisions for a dwelling unit … are specifically declared to be unenforceable and in violation of Title 5, section 207: … B. Any provision that requires the tenant to pay the landlord's legal fees in enforcing the lease or tenancy at will agreement …."}
+      ],
+      "patterns": [
+        "tenant\\s+(?:shall|will|agrees?\\s+to|must)\\s+pay[^.]{0,40}landlord'?s?[^.]{0,20}(?:legal\\s+fees|attorney'?s?'?\\s+fees|attorneys?\\s+fees|costs\\s+of\\s+collection)",
+        "(?:pay|reimburse)[^.]{0,30}landlord'?s?[^.]{0,20}(?:reasonable\\s+)?(?:legal\\s+fees|attorney'?s?'?\\s+fees|attorneys?\\s+fees)"
+      ],
+      "keywords": ["landlord's attorney fees", "landlord's legal fees"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "me-prohibited-005",
+      "jurisdiction": "US-ME",
+      "title": "Lien on the tenant's property for rent",
+      "severity": "illegal",
+      "description": "Per 14 M.R.S. §6030(2)(C), a lease provision requiring the tenant to grant a lien on the tenant's property for rent or other sums due the landlord is unenforceable and an unfair trade practice. A clause giving the landlord a lien on, or the right to hold, the tenant's belongings as security is unenforceable.",
+      "tenant_explainer": "A clause that puts a lien on your belongings — letting the landlord hold your property as security for rent — isn't enforceable in Maine.",
+      "citations": [
+        {"label": "14 M.R.S. §6030(2)(C) (Unenforceable provisions)", "url": "https://legislature.maine.gov/statutes/14/title14sec6030.html", "quote": "The following lease or tenancy at will agreement or rule provisions for a dwelling unit … are specifically declared to be unenforceable and in violation of Title 5, section 207: … C. Any provision that requires the tenant to give a lien upon the tenant's property for the amount of any rent or other sums due the landlord …."}
+      ],
+      "patterns": [
+        "lien\\s+(?:up)?on\\s+(?:the\\s+)?(?:tenant'?s?\\s+)?(?:personal\\s+)?(?:property|possessions|belongings|goods)",
+        "(?:grant|give)[^.]{0,30}lien[^.]{0,30}(?:rent|sums?\\s+due)"
+      ],
+      "keywords": ["lien upon the tenant's property"],
+      "status": "draft-unverified"
+    },
+    {
+      "id": "me-prohibited-006",
+      "jurisdiction": "US-ME",
+      "title": "Tenant acknowledges the lease terms are fair and reasonable",
+      "severity": "illegal",
+      "description": "Per 14 M.R.S. §6030(2)(D), a lease provision requiring the tenant to acknowledge that the provisions of the lease (including tenant rules) are fair and reasonable is unenforceable and an unfair trade practice. Such a boilerplate acknowledgment is unenforceable.",
+      "tenant_explainer": "A clause that makes you sign off that the lease and its rules are 'fair and reasonable' is unenforceable in Maine — you don't waive anything by being made to say so.",
+      "citations": [
+        {"label": "14 M.R.S. §6030(2)(D) (Unenforceable provisions)", "url": "https://legislature.maine.gov/statutes/14/title14sec6030.html", "quote": "The following lease or tenancy at will agreement or rule provisions for a dwelling unit … are specifically declared to be unenforceable and in violation of Title 5, section 207: … D. Any provision that requires the tenant to acknowledge that the provisions of the lease or tenancy at will agreement, including tenant rules, are fair and reasonable …."}
+      ],
+      "patterns": [
+        "tenant\\s+(?:acknowledges?|agrees?)\\s+that\\s+(?:the\\s+)?(?:provisions|terms|rules)\\s+of\\s+(?:this\\s+)?(?:lease|agreement)[^.]{0,40}(?:are\\s+)?fair\\s+and\\s+reasonable",
+        "(?:provisions|terms|rules)[^.]{0,30}(?:are|deemed)\\s+fair\\s+and\\s+reasonable"
+      ],
+      "keywords": ["fair and reasonable"],
+      "status": "draft-unverified"
+    }
+  ]
+}

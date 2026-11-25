@@ -1,0 +1,24 @@
+{
+  "jurisdiction": "US-CT",
+  "_note": "Conn. Gen. Stat. § 47a-7c (Walk-through inspections prior to occupancy), retrieved verbatim from cga.ct.gov on 2026-06-05: on/after Jan 1, 2024 the landlord must OFFER a pre-occupancy walk-through, and may not retain any part of the deposit (or seek payment) for conditions noted on the walk-through checklist. Informational/positive-right rule. status=draft-unverified.",
+  "rules": [
+    {
+      "id": "ct-inspection-001",
+      "jurisdiction": "US-CT",
+      "title": "Pre-occupancy walk-through: your right, and deposit protection",
+      "severity": "info",
+      "description": "Per § 47a-7c, the landlord must offer the tenant the opportunity to do a pre-occupancy walk-through and complete a checklist of existing conditions. The landlord may not later keep any part of the deposit, or charge the tenant, for any condition noted on that checklist. This is a tenant protection, surfaced when the lease references move-in condition / inspections.",
+      "tenant_explainer": "Before you move in, you have the right to a documented walk-through with the landlord. Anything you note as already damaged can't be taken out of your deposit later — so ask for the walk-through and keep your copy.",
+      "citations": [
+        {"label": "Conn. Gen. Stat. § 47a-7c", "url": "https://www.cga.ct.gov/current/pub/chap_830.htm#sec_47a-7c", "quote": "… prior to the tenant's occupancy of a dwelling unit, a landlord shall offer such tenant the opportunity to conduct a walk-through of the dwelling unit. … Upon the tenant's vacating of the dwelling unit, the landlord may not retain any part of the security deposit … or seek payment from the tenant for any condition, defect or damage that was noted in the preoccupancy walk-through checklist."}
+      ],
+      "patterns": [
+        "walk-?through",
+        "(?:move-?in|pre-?occupancy)\\s+(?:inspection|checklist)",
+        "(?:move-?in\\s+)?condition\\s+(?:report|checklist|form)"
+      ],
+      "keywords": ["walk-through"],
+      "status": "draft-unverified"
+    }
+  ]
+}

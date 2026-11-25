@@ -1,0 +1,27 @@
+{
+  "jurisdiction": "US-RI",
+  "_note": "Rhode Island habitability rule, retrieved verbatim from the R.I. Legislature statute server (webserver.rilegislature.gov) on 2026-06-20, Title 34 Ch. 18 (Residential Landlord and Tenant Act). § 34-18-22(a)(2) makes it a mandatory landlord duty to make all repairs and do whatever is necessary to put and keep the premises in a fit and habitable condition; § 34-18-22(a)(1) requires compliance with building and housing codes affecting health and safety. § 34-18-17(a)(1) separately bars any rental-agreement provision by which the tenant waives or foregoes rights or remedies under the chapter, and § 34-18-17(b) makes such a provision unenforceable. Together these make an 'as-is' / habitability-waiver clause unenforceable in RI. status=draft-unverified: must be reviewed by a Rhode Island tenant attorney / legal-aid clinic before public conclusions.",
+  "rules": [
+    {
+      "id": "ri-habitability-001",
+      "jurisdiction": "US-RI",
+      "title": "\"As-is\" / waiver of the landlord's duty to keep the premises habitable",
+      "severity": "illegal",
+      "description": "Per R.I. Gen. Laws § 34-18-22(a), the landlord must comply with health-and-safety building/housing codes and make all repairs necessary to put and keep the premises in a fit and habitable condition — a non-discretionary statutory duty. Because § 34-18-17(a)(1) bars (and § 34-18-17(b) makes unenforceable) any clause by which the tenant waives rights or remedies under the chapter, an 'as-is' clause or a waiver of the landlord's repair/habitability duty does not hold up.",
+      "tenant_explainer": "You can't sign away your right to a livable home. Rhode Island makes it the landlord's job to keep the place up to code and in fit, habitable condition — so 'tenant accepts the unit as-is' or 'landlord has no duty to repair' clauses don't hold up.",
+      "citations": [
+        {"label": "R.I. Gen. Laws § 34-18-22(a)(1)-(2)", "url": "https://webserver.rilegislature.gov/Statutes/TITLE34/34-18/34-18-22.htm", "quote": "A landlord shall: (1) Comply with the requirements of applicable building and housing codes affecting health and safety; (2) Make all repairs and do whatever is necessary to put and keep the premises in a fit and habitable condition;"},
+        {"label": "R.I. Gen. Laws § 34-18-17(a)(1)", "url": "https://webserver.rilegislature.gov/Statutes/TITLE34/34-18/34-18-17.htm", "quote": "A rental agreement may not provide that the tenant: (1) Agrees to waive or forego rights or remedies under this chapter;"}
+      ],
+      "patterns": [
+        "accepts?\\s+(?:the\\s+)?(?:premises|unit|apartment|dwelling)\\s+(?:in\\s+)?(?:its\\s+)?(?:present|current|existing)\\s+condition",
+        "(?:premises|unit|apartment|dwelling)[^.]{0,30}\\bas[\\s-]?is\\b",
+        "\\bas[\\s-]?is\\b[^.]{0,30}(?:condition|where[\\s-]?is)",
+        "landlord\\s+(?:has|shall\\s+have)\\s+no\\s+(?:duty|obligation|responsibility)\\s+to\\s+(?:repair|maintain)",
+        "tenant\\s+(?:agrees?\\s+to\\s+)?waives?[^.]{0,40}(?:warranty\\s+of\\s+habitability|habitability|landlord(?:'|’)?s?\\s+(?:duty|obligation)\\s+to\\s+(?:repair|maintain))"
+      ],
+      "keywords": ["as-is", "warranty of habitability"],
+      "status": "draft-unverified"
+    }
+  ]
+}
