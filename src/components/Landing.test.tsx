@@ -59,15 +59,16 @@ describe('Landing page components', () => {
     expect(html).toContain('Not legal advice.');
     expect(html).toContain('Privacy policy');
     expect(html).toContain('CT statutes (§47a)');
+    expect(html).toContain('Source code (AGPL)');
     expect(html).toContain('Get an invite');
   });
 
   it('renders complete Landing page sections', () => {
     const html = renderToStaticMarkup(<Landing />);
-    expect(html).toContain('Know what your lease');
-    expect(html).toContain('Invite-only beta // Middletown, CT');
+    expect(html).toContain('Get your deposit');
+    expect(html).toContain('Invite-only beta // Open source');
     expect(html).toContain('The asymmetry');
-    expect(html).toContain('Three steps. No legalese.');
+    expect(html).toContain('Move in to money back. No legalese.');
     expect(html).toContain('Real clauses from real CT leases.');
     expect(html).toContain('What we check for.');
     expect(html).toContain('Your lease is yours.');

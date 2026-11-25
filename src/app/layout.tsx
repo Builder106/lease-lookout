@@ -24,9 +24,9 @@ const display = Bricolage_Grotesque({
 });
 
 export const metadata: Metadata = {
-  title: 'LeaseLookout — know what your lease really says',
+  title: 'LeaseLookout: get your security deposit back',
   description:
-    'Upload your lease and see which clauses may be illegal or unenforceable under Connecticut housing law, each with a statute citation. Not legal advice.',
+    "Record your apartment at move-in, know your landlord's legal deadline at move-out, and ask for your deposit with the statute in hand. Open source. Not legal advice.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

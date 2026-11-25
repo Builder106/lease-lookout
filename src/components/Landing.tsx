@@ -1,8 +1,11 @@
 import {
   Ban,
+  CalendarClock,
+  Camera,
   FileSearch,
   KeyRound,
   Lock,
+  Mail,
   Receipt,
   Scale,
   ShieldAlert,
@@ -27,21 +30,32 @@ const NAV = [
   { href: '/#checks', label: 'What we check' },
 ];
 
-const STEPS: { Icon: LucideIcon; title: string; body: string }[] = [
+const SOURCE_URL = 'https://github.com/Builder106/lease-lookout';
+
+const STEPS: { Icon: LucideIcon; title: string; body: string; live: boolean }[] = [
+  {
+    Icon: Camera,
+    title: 'Record move-in',
+    body: 'Walk through room by room and log existing damage with timestamped photos.',
+    live: false,
+  },
   {
     Icon: Upload,
-    title: 'Upload your lease',
-    body: 'Drop in the PDF — digital or scanned. We read both.',
+    title: 'Check your lease',
+    body: 'Upload the PDF and see which clauses may be illegal, each with the statute.',
+    live: true,
   },
   {
-    Icon: Scale,
-    title: 'We read it against CT law',
-    body: 'Every clause is checked against the Connecticut General Statutes.',
+    Icon: CalendarClock,
+    title: 'Track the deadline',
+    body: 'At move-out, see the date your landlord must return your deposit by.',
+    live: false,
   },
   {
-    Icon: FileSearch,
-    title: 'Plain-English report',
-    body: "What's wrong, why it matters, and the statute — so you can verify it.",
+    Icon: Mail,
+    title: 'Ask for it back',
+    body: "If it doesn't come back, send a demand letter that cites the law.",
+    live: false,
   },
 ];
 
@@ -164,23 +178,22 @@ function Hero() {
   return (
     <section className="mx-auto grid max-w-6xl items-center gap-12 px-5 pb-16 pt-14 sm:px-8 sm:pt-20 lg:grid-cols-[1.04fr_1fr] lg:gap-14">
       <div className="ll-rise">
-        <span className="zine-tag">Invite-only beta // Middletown, CT</span>
+        <span className="zine-tag">Invite-only beta // Open source</span>
         <h1 className="mt-5 font-display text-[clamp(2.6rem,5.6vw,4rem)] uppercase leading-[0.95] tracking-[-0.025em]">
-          Know what your lease <span className="zine-highlight">really</span> says.
+          Get your deposit <span className="zine-highlight">back</span>.
         </h1>
         <p className="mt-5 max-w-[34rem] text-[1.0625rem] leading-relaxed text-muted-foreground">
-          Upload your lease and see which clauses may be illegal or unenforceable under Connecticut
-          law — in plain English, each with the statute.
+          Record the apartment when you move in, know your landlord&apos;s legal deadline when you
+          move out, and ask for your money with the statute in hand.
         </p>
         <p className="mt-7 font-mono text-[0.6875rem] uppercase tracking-[0.12em] text-muted-foreground">
-          Connecticut <span className="text-secondary">·</span> §47a ruleset{' '}
-          <span className="text-secondary">·</span> 17 clause types{' '}
-          <span className="text-secondary">·</span> every flag cited
+          CT: 21 days <span className="text-secondary">{'//'}</span> MA: 30 days{' '}
+          <span className="text-secondary">{'//'}</span> every step cited
         </p>
         <div id="access" className="mt-8 scroll-mt-20">
           <InviteForm />
           <p className="mt-3 text-sm text-muted-foreground">
-            No card, no spam — just an invite when your spot opens. Or{' '}
+            No card, no spam. Just an invite when your spot opens. Or{' '}
             <a
               href="#how"
               className="font-medium text-foreground underline-offset-4 hover:underline"
@@ -198,8 +211,8 @@ function Hero() {
 
 function StatBand() {
   const stats = [
-    { n: '17', label: 'clause types checked', count: true },
-    { n: '§47a', label: 'the statute we read against', count: false },
+    { n: '21', label: 'days a Connecticut landlord has to return your deposit', count: true },
+    { n: '30', label: 'days in Massachusetts, with a sworn list of any damages', count: true },
     { n: '100%', label: 'of flags cite primary law', count: true },
   ];
   return (
@@ -234,8 +247,9 @@ function Problem() {
           </h2>
           <p className="mt-5 text-[0.9375rem] leading-relaxed text-muted-foreground">
             Property managers run Yardi and AppFolio to optimize their side. Renters get a dense
-            contract and a deadline. LeaseLookout is the counterweight — it reads your lease for the
-            clauses that quietly tilt the field.
+            contract, and when the deposit doesn&apos;t come back, a lawyer costs more than the
+            deposit. LeaseLookout is the counterweight: it keeps your records, tracks the deadline,
+            and cites the law for you.
           </p>
         </div>
 
@@ -264,7 +278,7 @@ function Problem() {
                 ← Enterprise software
               </span>
               <span className="mt-1.5 block text-muted-foreground">
-                Yardi · AppFolio — their side
+                Yardi and AppFolio, on their side
               </span>
             </div>
 
@@ -295,9 +309,9 @@ function HowItWorks() {
       <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
         <span className="zine-tag">02 / How it works</span>
         <h2 className="mt-4 font-display text-[clamp(1.7rem,3.2vw,2.4rem)] uppercase leading-[0.98] tracking-[-0.02em]">
-          Three steps. No legalese.
+          Move in to money back. No legalese.
         </h2>
-        <ol className="mt-10 grid gap-5 sm:grid-cols-3">
+        <ol className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {STEPS.map((s, i) => (
             <li key={s.title} className="group ll-card border-2 border-border bg-card p-6">
               <div className="flex items-center justify-between">
@@ -309,6 +323,9 @@ function HowItWorks() {
               <h3 className="mt-4 font-display text-lg uppercase tracking-[-0.01em]">{s.title}</h3>
               <p className="mt-1.5 text-[0.9375rem] leading-relaxed text-muted-foreground">
                 {s.body}
+              </p>
+              <p className="mt-3 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-muted-foreground">
+                {s.live ? 'Live for Connecticut' : 'In development'}
               </p>
             </li>
           ))}
@@ -400,7 +417,8 @@ function Privacy() {
           </h2>
           <p className="mt-5 text-[0.9375rem] leading-relaxed text-muted-foreground">
             We don&apos;t sell your lease, share it, or train models on it. Each analysis is tied to
-            your account under row-level security — only you can see your leases and their flags.
+            your account, and only you can see your leases and their flags. The code and the rules
+            are open source, so anyone can check our work.
           </p>
         </div>
         <div className="lg:pt-6">
@@ -413,7 +431,7 @@ function Privacy() {
             </div>
             <p className="mt-3 text-[0.9375rem] leading-relaxed text-muted-foreground">
               Every flag cites the Connecticut statute, so you can read the law yourself instead of
-              trusting us. LeaseLookout isn&apos;t a lawyer — for a specific situation, talk to a
+              trusting us. LeaseLookout isn&apos;t a lawyer. For a specific situation, talk to a
               tenant-rights attorney or legal-aid clinic.
             </p>
           </div>
@@ -433,8 +451,8 @@ function FinalCta() {
           Built first for renters around Wesleyan.
         </h2>
         <p className="mt-5 text-[0.9375rem] leading-relaxed text-muted-foreground">
-          Signing your first lease in Middletown — or anywhere in Connecticut? Get an invite and
-          read it with the statute in hand.
+          Moving in or out somewhere in Connecticut? Get an invite and keep your deposit with the
+          statute in hand.
         </p>
         <div className="mt-8 flex justify-center">
           <InviteForm />
@@ -452,7 +470,7 @@ export function SiteFooter() {
           <div>
             <Wordmark />
             <p className="mt-3 max-w-[16rem] text-[0.8125rem] leading-relaxed text-muted-foreground">
-              A tenant-side read on your lease, cited to Connecticut law. Middletown, CT.
+              Helping renters get their deposits back, cited to the law. Open source.
             </p>
           </div>
           <FooterCol
@@ -472,6 +490,7 @@ export function SiteFooter() {
                 href: 'https://www.cga.ct.gov/current/pub/chap_830.htm',
                 label: 'CT statutes (§47a)',
               },
+              { href: SOURCE_URL, label: 'Source code (AGPL)' },
             ]}
           />
           <div>
