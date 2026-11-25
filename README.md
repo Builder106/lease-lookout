@@ -55,4 +55,4 @@ uv run pytest
 
 ## License
 
-Proprietary — all rights reserved. © 2026 Yinka Vaughan. (Final license posture for this commercial product is still to be decided — see `JOURNAL.md`.)
+Code: [AGPL-3.0](LICENSE). Rules and explainers: [CC BY 4.0](rules/LICENSE). © 2026 Yinka Vaughan.

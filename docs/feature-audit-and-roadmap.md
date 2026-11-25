@@ -12,7 +12,8 @@ LeaseLookout is a tenant-side "defensive API" designed to level the information 
 
 1. **Zero Paid LLM APIs:** All clause parsing relies on deterministic pattern matching or free, locally hosted open-source models (`engine/matchers/`). No metered external API calls.
 2. **Statutory Grounding & UPL Compliance:** LeaseLookout provides legal *information*, not legal advice. Every flagged clause links to a primary statutory citation (e.g., Conn. Gen. Stat. § 47a-4).
-3. **Deployment:** Next.js web application deployed on Vercel (private mode); Python parsing engine executed via serverless function or decoupled worker.
+3. **Open Source:** Code is AGPL-3.0; rulesets and plain-English explainers are CC BY 4.0, so legal aid groups and clinics can reuse them.
+4. **Deployment:** Next.js web application deployed on Vercel (private mode); Python parsing engine executed via serverless function or decoupled worker.
 
 ---
 

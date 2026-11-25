@@ -4,6 +4,10 @@
 > things happen — retrospectives need this raw material to land.
 > Reverse-chronological; one paragraph max per entry.
 
+## 2026-11-25: Open source under AGPL, with a fresh public history #decision
+
+The repo is now public. The app and engine are AGPL-3.0, so anyone who runs a modified hosted copy has to share their changes. The rulesets and plain-English explainers are CC BY 4.0, so legal aid groups and clinics can reuse them with credit. The old private history held outreach emails, personal notes, and local machine paths, and GitHub keeps pull request commits even after a history rewrite. So the public repo starts from a single clean commit. Private material, including the unredacted journal, lives outside the repo.
+
 ## 2026-10-27: Use the package checks in CI #ci #decision
 
 The typecheck job now calls the package script and audits the checked-in npm lockfile. This keeps CI on the project's TypeScript command and checks the locked web dependencies.

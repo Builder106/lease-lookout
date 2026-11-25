@@ -37,5 +37,5 @@ A tenant-side "defensive API": upload a lease PDF, get its illegal/abusive claus
 
 ## Deploy
 
-**GitHub auto-deploy only.**Push to `main` (`Builder106/lease-lookout`) and Vercel builds + ships — the repo is git-connected. Don't use the `vercel deploy`CLI: it uploads gitignored files (e.g. the local`project/`design export) and diverges from the git build. Use`vercel` only for read-only checks (`ls`, `inspect --logs`, `curl`, `env`). The deployment stays**private** (behind Vercel Authentication) — never public.
+**GitHub auto-deploy only.**Push to `main` (`Builder106/lease-lookout`) and Vercel builds + ships — the repo is git-connected. Don't use the `vercel deploy`CLI: it uploads gitignored files (e.g. the local`project/`design export) and diverges from the git build. Use`vercel` only for read-only checks (`ls`, `inspect --logs`, `curl`, `env`). The deployment stays **private** (behind Vercel Authentication), never public. The repo itself is public: never commit secrets, personal details, private correspondence, or machine-specific paths.
 <!-- END:leaselookout -->
