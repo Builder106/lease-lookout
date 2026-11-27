@@ -67,8 +67,8 @@ describe('Landing page components', () => {
   it('renders complete Landing page sections', () => {
     const html = renderToStaticMarkup(<Landing />);
     expect(html).toContain('Get your deposit');
-    expect(html).toContain('Invite-only beta // Open source');
-    expect(html).toContain('The asymmetry');
+    expect(html).toContain('Start your move-in walkthrough');
+    expect(html).toContain('Landlords have enterprise software.');
     expect(html).toContain('Move in to money back. No legalese.');
     expect(html).toContain('Real clauses from real CT leases.');
     expect(html).toContain('What we check for.');

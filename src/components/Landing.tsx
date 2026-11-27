@@ -167,7 +167,7 @@ export function SiteHeader() {
           </Link>
           <Link
             href="/#access"
-            className="ll-shadow-sm hidden border-2 border-border bg-primary px-3.5 py-1.5 font-display text-[0.8125rem] uppercase tracking-[0.01em] text-primary-foreground transition-transform hover:-translate-x-px hover:-translate-y-px sm:inline-flex"
+            className="hidden border-2 border-border bg-secondary px-3.5 py-1.5 font-display text-[0.8125rem] uppercase tracking-[0.01em] text-secondary-foreground shadow-[3px_3px_0_var(--primary)] transition-transform hover:-translate-x-px hover:-translate-y-px sm:inline-flex"
           >
             Get an invite
           </Link>
@@ -181,8 +181,7 @@ function Hero() {
   return (
     <section className="mx-auto grid max-w-6xl items-center gap-12 px-5 pb-16 pt-14 sm:px-8 sm:pt-20 lg:grid-cols-[1.04fr_1fr] lg:gap-14">
       <div className="ll-rise">
-        <span className="zine-tag">Invite-only beta // Open source</span>
-        <h1 className="mt-5 font-display text-[clamp(2.6rem,5.6vw,4rem)] uppercase leading-[0.95] tracking-[-0.025em]">
+        <h1 className="font-display text-[clamp(2.6rem,5.6vw,4rem)] uppercase leading-[0.95] tracking-[-0.025em]">
           Get your deposit <span className="zine-highlight">back</span>.
         </h1>
         <p className="mt-5 max-w-[34rem] text-[1.0625rem] leading-relaxed text-muted-foreground">
@@ -195,7 +194,7 @@ function Hero() {
         </p>
         <Link
           href="/walkthrough"
-          className="ll-shadow-sm mt-8 inline-flex items-center gap-2 border-2 border-border bg-secondary px-5 py-3 font-display uppercase tracking-[0.01em] text-secondary-foreground transition-transform hover:-translate-x-px hover:-translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          className="ll-shadow-sm mt-8 inline-flex items-center gap-2 border-2 border-border bg-primary px-5 py-3 font-display uppercase tracking-[0.01em] text-primary-foreground transition-transform hover:-translate-x-px hover:-translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
           Start your move-in walkthrough
           <ArrowRight className="h-4 w-4" aria-hidden />
@@ -254,8 +253,7 @@ function Problem() {
     <section className="border-b border-border">
       <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
         <div className="max-w-2xl">
-          <span className="zine-tag">01 / The asymmetry</span>
-          <h2 className="mt-4 font-display text-[clamp(1.85rem,3.6vw,2.6rem)] uppercase leading-[0.98] tracking-[-0.02em]">
+          <h2 className="font-display text-[clamp(1.85rem,3.6vw,2.6rem)] uppercase leading-[0.98] tracking-[-0.02em]">
             Landlords have enterprise software. You have a 50-page PDF and a pen.
           </h2>
           <p className="mt-5 text-[0.9375rem] leading-relaxed text-muted-foreground">
@@ -268,7 +266,7 @@ function Problem() {
 
         <figure className="ll-rise relative mt-12 w-full">
           <Image
-            src="/hero-asymmetry-2.png"
+            src="/hero-asymmetry-graphite.png"
             alt="A single upright lease facing off across a gap against a towering stack of landlord enterprise software"
             width={1500}
             height={1035}
@@ -320,8 +318,7 @@ function HowItWorks() {
   return (
     <section id="how" className="border-b border-border">
       <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
-        <span className="zine-tag">02 / How it works</span>
-        <h2 className="mt-4 font-display text-[clamp(1.7rem,3.2vw,2.4rem)] uppercase leading-[0.98] tracking-[-0.02em]">
+        <h2 className="font-display text-[clamp(1.7rem,3.2vw,2.4rem)] uppercase leading-[0.98] tracking-[-0.02em]">
           Move in to money back. No legalese.
         </h2>
         <ol className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -360,8 +357,7 @@ function Examples() {
   return (
     <section id="examples" className="border-b border-border">
       <div className="mx-auto max-w-3xl px-5 py-16 sm:px-8 sm:py-20">
-        <span className="zine-tag">03 / Examples</span>
-        <h2 className="mt-4 font-display text-[clamp(1.7rem,3.2vw,2.4rem)] uppercase leading-[0.98] tracking-[-0.02em]">
+        <h2 className="font-display text-[clamp(1.7rem,3.2vw,2.4rem)] uppercase leading-[0.98] tracking-[-0.02em]">
           Real clauses from real CT leases.
         </h2>
         <p className="mt-3 text-[0.9375rem] text-muted-foreground">
@@ -396,8 +392,7 @@ function WhatWeCheck() {
   return (
     <section id="checks" className="border-b border-border">
       <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
-        <span className="zine-tag">04 / Coverage</span>
-        <h2 className="mt-4 font-display text-[clamp(1.7rem,3.2vw,2.4rem)] uppercase leading-[0.98] tracking-[-0.02em]">
+        <h2 className="font-display text-[clamp(1.7rem,3.2vw,2.4rem)] uppercase leading-[0.98] tracking-[-0.02em]">
           What we check for.
         </h2>
         <p className="mt-3 max-w-2xl text-[0.9375rem] text-muted-foreground">
@@ -432,8 +427,7 @@ function Privacy() {
     <section className="border-b border-border">
       <div className="mx-auto grid max-w-6xl gap-8 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-2 lg:gap-16">
         <div>
-          <span className="zine-tag">Your data</span>
-          <h2 className="mt-4 font-display text-[clamp(1.7rem,3.2vw,2.4rem)] uppercase leading-[0.98] tracking-[-0.02em]">
+          <h2 className="font-display text-[clamp(1.7rem,3.2vw,2.4rem)] uppercase leading-[0.98] tracking-[-0.02em]">
             Your lease is yours.
           </h2>
           <p className="mt-5 text-[0.9375rem] leading-relaxed text-muted-foreground">
@@ -467,8 +461,7 @@ function FinalCta() {
     <section className="border-b border-border">
       <div className="mx-auto max-w-3xl px-5 py-20 text-center sm:px-8">
         <MiddletownFlag className="mx-auto mb-7 w-[min(20rem,82%)]" />
-        <span className="zine-tag">Built for Middletown</span>
-        <h2 className="mt-4 font-display text-[clamp(1.85rem,3.6vw,2.6rem)] uppercase leading-[0.98] tracking-[-0.02em]">
+        <h2 className="font-display text-[clamp(1.85rem,3.6vw,2.6rem)] uppercase leading-[0.98] tracking-[-0.02em]">
           Built first for renters around Wesleyan.
         </h2>
         <p className="mt-5 text-[0.9375rem] leading-relaxed text-muted-foreground">

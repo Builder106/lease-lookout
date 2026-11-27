@@ -2,6 +2,36 @@
 
 Planning notes for the move-in walkthrough redesign. Scope for #BuildHybridAI (due 2026-11-30, 5 pm ET): `/walkthrough` becomes the floor plan, and the landing page links into it. The rest of the site keeps its current look until after the submission.
 
+## Brand
+
+LeaseLookout is the renter's side in a fight landlords usually win by paperwork. The brand is built the way the Gen Z brands that work are built (Gumroad, Cash App, Poppi, Partiful): one color owned everywhere, ink and paper for everything else, one recurring object, and a direct voice.
+
+**One color: Lookout Pink `#FF2E88`.** Pink always means *the renter's side*: the logo's second word, every primary button, recorded rooms, the renter's evidence, the stat band, the one highlighted word in a headline. It never marks the landlord or a problem by itself.
+
+| Role | Light | Dark | Meaning |
+| --- | --- | --- | --- |
+| Lookout Pink | `#FF2E88` | `#FF4D9E` | the renter's side |
+| Pink tint | `#FFD3E7` | `#4A1830` | a recorded room, a highlighted row |
+| Ink | `#0E0E0E` | `#F4F4F4` | text, borders, hard shadows, and the landlord's side |
+| Paper | `#FFFFFF` | `#0E0E0E` | the ground |
+| Concrete | `#EDEDED` | `#1C1C1C` | quiet surfaces, bare rooms |
+| Graphite | `#5E5E5E` | `#A8A8A8` | secondary text |
+
+No blue, no yellow, no cream. The landlord is drawn in ink and grey, the color of a property manager's spreadsheet; the renter's record turns pink as it fills in.
+
+**Type, three jobs:**
+- *Bricolage Grotesque Extra Bold*, capitals: headlines and room names. (Big Shoulders Stencil was tried and dropped: its cut letters were hard to read.)
+- *Bricolage Grotesque*: everything people read.
+- *JetBrains Mono*: citations, dates and stamps, the receipt voice.
+
+**Shape:** square corners, 2 px ink lines, hard 4 px ink shadows that fall down and right, nothing soft or blurred.
+
+**Object: the pin.** An ink stem with a head. Pink heads are the renter's evidence; ink heads are the landlord's claims. It appears in the apartment and as the brand's mark of proof.
+
+**3D:** the apartment is a white card model (white walls, grey furniture, ink edges), like an architect's study model, so the only color in it is the renter's pink.
+
+**Voice:** short, direct, on your side. "Landlords have spreadsheets. You have receipts." No legalese, no slang for its own sake.
+
 ## Brief
 
 - **Subject:** tenants getting a security deposit back. First users are off-campus student renters in Connecticut and Massachusetts.
@@ -52,7 +82,7 @@ Move-out (next milestone) uses the same model: each landlord charge pins to the 
 | charge pin (move-out) | `#ff2e88` | `#ff3d95` |
 | bare room floor | `#d9dce3` | `#2a2d35` |
 
-**Type:** Big Shoulders Stencil for room names, tags and the headline, lettered like the room labels on moving boxes, Inter for body, JetBrains Mono for stamps and timestamps. Stencil text is set in capitals, like a box label; body text stays sentence case.
+**Type:** Bricolage Grotesque Extra Bold capitals for room names, tags and the headline, regular Bricolage for body, JetBrains Mono for stamps and timestamps.
 
 **Shape:** square corners, 2 px ink borders (the brand's zine line), the same ink line on every edge of the model.
 

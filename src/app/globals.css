@@ -10,79 +10,79 @@
 
 :root {
   /* Cream stock + ink */
-  --background: #f3ead8;
-  --foreground: #11110d;
-  --card: #fffdf7;
-  --card-foreground: #11110d;
-  --popover: #fffdf7;
-  --popover-foreground: #11110d;
+  --background: #ffffff;
+  --foreground: #0e0e0e;
+  --card: #ffffff;
+  --card-foreground: #0e0e0e;
+  --popover: #ffffff;
+  --popover-foreground: #0e0e0e;
 
   /* Hot pink — the red flag / alarm / primary */
   --primary: #ff2e88;
-  --primary-foreground: #11110d;
+  --primary-foreground: #0e0e0e;
   /* Electric blue — structure & links */
-  --secondary: #2b4bf2;
-  --secondary-foreground: #f3ead8;
+  --secondary: #0e0e0e;
+  --secondary-foreground: #ffffff;
 
-  --muted: #eadcc0;
-  --muted-foreground: #5c574a;
-  --accent: #eadcc0;
-  --accent-foreground: #11110d;
+  --muted: #ededed;
+  --muted-foreground: #5e5e5e;
+  --accent: #ededed;
+  --accent-foreground: #0e0e0e;
   --destructive: #ff2e88;
-  --destructive-foreground: #11110d;
+  --destructive-foreground: #0e0e0e;
 
-  --border: #11110d;
-  --input-background: #fffdf7;
+  --border: #0e0e0e;
+  --input-background: #ffffff;
   --ring: #ff2e88;
   --radius: 0.125rem;
 
   /* Hard offset shadow ink (mis-registration). Flips to neon in dark. */
-  --shadow-color: #11110d;
+  --shadow-color: #0e0e0e;
 
   /* Severity = the three zine inks */
   --sev-unenforceable: #ff2e88; /* illegal — won't hold up */
-  --sev-unenforceable-tint: #ffe0ee;
-  --sev-check: #f5b700; /* questionable — worth a look */
-  --sev-check-tint: #fbefc7;
-  --sev-info: #2b4bf2; /* good to know */
-  --sev-info-tint: #dee4ff;
+  --sev-unenforceable-tint: #ffd3e7;
+  --sev-check: #0e0e0e; /* questionable — worth a look */
+  --sev-check-tint: #ededed;
+  --sev-info: #5e5e5e; /* good to know */
+  --sev-info-tint: #f6f6f6;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     /* The zine, screenprinted on black */
-    --background: #0f0f0c;
-    --foreground: #f3ead8;
-    --card: #17170f;
-    --card-foreground: #f3ead8;
-    --popover: #17170f;
-    --popover-foreground: #f3ead8;
+    --background: #0e0e0e;
+    --foreground: #f4f4f4;
+    --card: #161616;
+    --card-foreground: #f4f4f4;
+    --popover: #161616;
+    --popover-foreground: #f4f4f4;
 
-    --primary: #ff3d95;
-    --primary-foreground: #11110d;
-    --secondary: #5b7cff;
-    --secondary-foreground: #0f0f0c;
+    --primary: #ff4d9e;
+    --primary-foreground: #0e0e0e;
+    --secondary: #f4f4f4;
+    --secondary-foreground: #0e0e0e;
 
-    --muted: #1a1a15;
-    --muted-foreground: #b3ac9c;
-    --accent: #1a1a15;
-    --accent-foreground: #f3ead8;
-    --destructive: #ff3d95;
-    --destructive-foreground: #11110d;
+    --muted: #1c1c1c;
+    --muted-foreground: #a8a8a8;
+    --accent: #1c1c1c;
+    --accent-foreground: #f4f4f4;
+    --destructive: #ff4d9e;
+    --destructive-foreground: #0e0e0e;
 
-    --border: #f3ead8;
-    --input-background: #17170f;
-    --ring: #ff3d95;
+    --border: #f4f4f4;
+    --input-background: #161616;
+    --ring: #ff4d9e;
 
     /* Neon-blue offset = the print run's mis-registration on black */
-    --shadow-color: #5b7cff;
+    --shadow-color: #ff4d9e;
 
-    --sev-unenforceable: #ff3d95;
-    --sev-unenforceable-tint: rgba(255, 61, 149, 0.2);
-    --sev-check: #ffc83d;
-    --sev-check-tint: rgba(255, 200, 61, 0.16);
-    --sev-info: #5b7cff;
-    --sev-info-tint: rgba(91, 124, 255, 0.16);
+    --sev-unenforceable: #ff4d9e;
+    --sev-unenforceable-tint: rgba(255, 77, 158, 0.22);
+    --sev-check: #f4f4f4;
+    --sev-check-tint: #1c1c1c;
+    --sev-info: #a8a8a8;
+    --sev-info-tint: #161616;
   }
 }
 
@@ -114,10 +114,10 @@
   --color-sev-info: var(--sev-info);
   --color-sev-info-tint: var(--sev-info-tint);
 
-  --font-sans: var(--font-inter);
-  --font-serif: var(--font-instrument-serif);
+  --font-sans: var(--font-text);
+  --font-serif: var(--font-text);
   --font-mono: var(--font-jetbrains-mono);
-  --font-display: var(--font-bricolage);
+  --font-display: var(--font-text);
 
   --radius-sm: var(--radius);
   --radius-md: var(--radius);
@@ -161,6 +161,7 @@
     font-family: var(--font-display);
     font-weight: 800;
     letter-spacing: -0.02em;
+    text-transform: uppercase;
   }
   ::selection {
     background: var(--primary);
@@ -222,19 +223,20 @@
   transform: rotate(-3deg);
 }
 .stamp.is-check {
-  background: var(--sev-check);
-  color: #11110d;
+  /* Brand: pink is reserved for the renter's win; a maybe is ink on paper. */
+  background: var(--background);
+  color: var(--foreground);
   transform: rotate(2deg);
 }
 .stamp.is-info {
-  background: var(--sev-info);
-  color: var(--background);
+  background: var(--accent);
+  color: var(--foreground);
   transform: rotate(-1.5deg);
 }
 
 /* Hard offset shadow = a slightly mis-registered print run. */
 .ll-shadow {
-  box-shadow: 5px 6px 0 var(--shadow-color);
+  box-shadow: 4px 4px 0 var(--shadow-color);
 }
 .ll-shadow-sm {
   box-shadow: 3px 3px 0 var(--shadow-color);
@@ -247,7 +249,7 @@
 }
 /* Card that lifts into a heavier offset on hover. */
 .ll-card {
-  box-shadow: 4px 5px 0 var(--shadow-color);
+  box-shadow: 4px 4px 0 var(--shadow-color);
   transition:
     transform 0.18s cubic-bezier(0.2, 0.7, 0.2, 1),
     box-shadow 0.18s cubic-bezier(0.2, 0.7, 0.2, 1);
@@ -259,7 +261,8 @@
 
 /* Pink highlighter swipe under a key word (used on display headlines). */
 .zine-highlight {
-  background: var(--sev-check);
+  background: var(--primary);
+  color: #0e0e0e;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
   padding: 0 0.08em;

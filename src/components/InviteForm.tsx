@@ -60,7 +60,7 @@ export function InviteForm({ className }: { className?: string }) {
       />
       <button
         type="submit"
-        className="ll-shadow-sm inline-flex shrink-0 items-center justify-center gap-1.5 border-2 border-border bg-primary px-5 py-2.5 font-display text-sm uppercase tracking-[0.01em] text-primary-foreground transition-transform hover:-translate-x-px hover:-translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        className="inline-flex shrink-0 items-center justify-center gap-1.5 border-2 border-border bg-secondary shadow-[3px_3px_0_var(--primary)] px-5 py-2.5 font-display text-sm uppercase tracking-[0.01em] text-secondary-foreground transition-transform hover:-translate-x-px hover:-translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
       >
         Get an invite
         <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
