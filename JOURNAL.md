@@ -4,6 +4,10 @@
 > things happen — retrospectives need this raw material to land.
 > Reverse-chronological; one paragraph max per entry.
 
+## 2026-11-27: Keep deduction-letter review private by default #decision
+
+The walkthrough now cleans a landlord's deduction letter in the browser before comparison. It masks contact details, account numbers, and common street-address formats, then gives the tenant an editable preview so they can remove anything left behind. Only the cleaned letter and saved condition descriptions go to Gemini for the charge-by-charge comparison. Original letters and photos stay in the browser. The comparison reports evidence already recorded, missing from the record, or unclear. It does not decide legal responsibility or replace the statute-cited deadline.
+
 ## 2026-11-27: The walkthrough becomes a floor plan #decision
 
 The move-in page is now a small 3D apartment instead of a form. A document-style redesign was rejected as boring. Rooms in the model are the navigation, each room has its own page, and every photo drops a pin into its room. The front door shows the deposit at stake and the state's return deadline, and a sample landlord charge in the living room turns from pink to blue once that room has a photo, so the page tells the whole deposit story in one frame. Every legal line names a curated rule and reads its citation from `rules/`; a test fails if a line points at a rule that does not exist. Those rules are still draft-unverified. Room names use a stencil face, like the labels on moving boxes. The model is a Blender script (`scripts/blender/apartment.py`), so the asset can be rebuilt. The first on-device test described objects that were not in the photo; the prompt now treats the room name as a hint only, and every description is labelled as written by AI.

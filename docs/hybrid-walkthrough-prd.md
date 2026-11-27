@@ -13,8 +13,8 @@ Months later the landlord sends a list of deductions. The tenant now has to matc
 A public page at `/walkthrough` with three steps.
 
 1. **Record move-in, offline.** The tenant walks room by room, takes a photo, and adds an optional note. The model describes the condition of what's in the photo (scuffs, stains, cracks, missing parts) as a structured entry with a timestamp. This runs on the device, so it works with no connection. If the device has no local model and no connection, the photo is saved and described later.
-2. **Clean the landlord's letter before anything is uploaded.** At move-out the tenant pastes the landlord's list of deductions. Before any of it leaves the device, the page removes names, street addresses, phone numbers, emails, and account numbers. This step is never sent to the cloud. On a device without a local model, the page falls back to pattern matching in the browser, still with nothing uploaded.
-3. **Match each charge to the evidence.** The cleaned deduction list, the move-in record, and any move-out photos go to the cloud model, which needs the longer context and multi-image comparison. For each charge it reports what the move-in record shows: already there (with the photo), not recorded at move-in, or unclear. The page then shows the return deadline for the tenant's state and the statute, quoted from `rules/`.
+2. **Clean the landlord's letter before anything is uploaded.** At move-out the tenant pastes the landlord's list of deductions. The page removes contact details, account numbers, and common street-address formats in the browser. The tenant reviews and can edit the cleaned version before any comparison. The original letter is never sent to the cloud.
+3. **Match each charge to the evidence.** The cleaned deduction list and the saved move-in condition descriptions go to the cloud model, which needs the longer context. For each charge it reports what the move-in record shows: already there, not recorded at move-in, or unclear. Photos stay in the browser. The page then shows the return deadline for the tenant's state and the statute, quoted from `rules/`.
 
 Every AI result shows where it ran ("on this device" or "in the cloud"), using the `inferenceSource` the SDK returns.
 
@@ -23,24 +23,23 @@ Every AI result shows where it ran ("on this device" or "in the cloud"), using t
 | Step | Inference mode | Reason |
 | --- | --- | --- |
 | Describe a move-in photo | `PREFER_ON_DEVICE` | Works with no connection on move-in day; falls back to the cloud on phones and other browsers without a local model |
-| Remove personal details | `ONLY_ON_DEVICE`, with a browser pattern fallback | The privacy promise must hold on every device, so this step has no cloud path at all |
-| Match charges to evidence | `PREFER_IN_CLOUD` | Many images and a long record; falls back to the device when offline |
+| Remove personal details | Browser-only pattern matching | The original letter has no cloud path. The renter reviews the cleaned copy before sending it. |
+| Match charges to evidence | `ONLY_IN_CLOUD` | The cleaned letter and the saved condition record need the same cloud request |
 | Deadline and statute | No model | Computed from the move-out date and quoted from the curated rules |
 
-Remote Config holds the mode for the photo and matching steps and the cloud model name, so they can change without a deploy. The redaction mode is not in Remote Config, so no server-side setting can send a tenant's personal details to the cloud.
+The photo model prefers on-device inference. The comparison uses the cloud because it needs the full record in one request. The redaction path is fixed in the browser, so no server-side setting can send the original letter to the cloud.
 
 ## Ground rules this keeps
 
 - **The AI never decides what the law says.** The model describes photos and matches charges to evidence. Deadlines and statute text come only from the curated rules in `rules/`, which are still marked `draft-unverified`. The page says so, along with "not legal advice."
 - **No demand letter.** The repo rule that letter templates pass legal-aid review before they ship still stands, so this entry stops at the evidence summary.
 - **No paid AI service.** The Firebase project is on the free Spark plan with no billing account attached, so cloud use can't create a charge. Local inference costs nothing. See the 2026-11-26 entry in `JOURNAL.md`.
-- **Nothing stored on our servers.** The record lives in the browser (IndexedDB). Photos and the cleaned deduction list reach Google only during the cloud steps, and the page says that before the tenant confirms.
+- **Nothing stored on our servers.** The record lives in the browser (IndexedDB). The cleaned deduction list and condition descriptions reach Google only when the tenant confirms a comparison. The page says that before the tenant confirms.
 
 ## Firebase pieces
 
 - **AI Logic** (`firebase/ai`, Gemini Developer API backend) in hybrid mode. Requires JS SDK 12.5 or later for `inferenceSource`.
 - **App Check**: reCAPTCHA Enterprise on the hosted page, a debug token in local development.
-- **Remote Config**: inference modes and model name, with defaults built into the app.
 
 Project: `leaselookout-app`, web app "LeaseLookout Web". Config values come from `NEXT_PUBLIC_FIREBASE_*` variables (see `.env.example`).
 
@@ -56,7 +55,7 @@ Project: `leaselookout-app`, web app "LeaseLookout Web". Config values come from
 1. The problem in one sentence, over an empty-apartment shot.
 2. Chrome on a laptop with Wi-Fi off: record two rooms; each entry shows "on this device."
 3. The same page on a phone: the photo step shows "in the cloud."
-4. Paste a sample deduction letter, labeled as a sample on screen; personal details disappear on the device.
+4. Paste a sample deduction letter, labeled as a sample on screen; contact details disappear on the device and the renter reviews the cleaned copy.
 5. Back online: the charge-by-charge comparison, the deadline, and the quoted statute.
 6. Close on what stays private and why.
 

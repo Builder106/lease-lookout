@@ -12,6 +12,7 @@ import {
 } from '@/lib/walkthrough/law';
 
 import { useRecord } from './RecordProvider';
+import { DeductionReview } from './DeductionReview';
 import { RoomList } from './RoomList';
 import { LocalModelNote } from './WalkthroughFrame';
 
@@ -103,6 +104,8 @@ export function WalkthroughIndex() {
       <DepositForm />
 
       <RoomList />
+
+      <DeductionReview />
 
       <p className="text-sm leading-relaxed text-[var(--muted)]">
         Your record stays in this browser; LeaseLookout does not store it. When a photo is described
