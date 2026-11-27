@@ -92,10 +92,14 @@ describe('compareDeductions', () => {
         inferenceSource: 'in_cloud',
       },
     });
-    await expect(compareDeductions({ generateContent }, 'Charge: scuffed wall.', evidence)).resolves.toEqual({
+    await expect(
+      compareDeductions({ generateContent }, 'Charge: scuffed wall.', evidence)
+    ).resolves.toEqual({
       comparison: { matches: [] },
       source: 'in_cloud',
     });
-    expect(generateContent).toHaveBeenCalledWith(buildComparisonPrompt('Charge: scuffed wall.', evidence));
+    expect(generateContent).toHaveBeenCalledWith(
+      buildComparisonPrompt('Charge: scuffed wall.', evidence)
+    );
   });
 });

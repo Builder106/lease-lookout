@@ -48,7 +48,9 @@ export function evidenceText(entries: Evidence[]): string {
   return entries
     .map((entry) => {
       const observations = entry.description.observations
-        .map((observation) => `${observation.item}: ${observation.condition}. ${observation.detail}`)
+        .map(
+          (observation) => `${observation.item}: ${observation.condition}. ${observation.detail}`
+        )
         .join(' ');
       return `${entry.room}, ${entry.takenAt}: ${entry.description.summary} ${observations}`.trim();
     })
@@ -79,7 +81,11 @@ export function parseComparison(text: string): Comparison {
   } catch {
     throw new Error('The comparison did not return readable results. Try again.');
   }
-  if (typeof raw !== 'object' || raw === null || !Array.isArray((raw as { matches?: unknown }).matches)) {
+  if (
+    typeof raw !== 'object' ||
+    raw === null ||
+    !Array.isArray((raw as { matches?: unknown }).matches)
+  ) {
     throw new Error('The comparison did not return readable results. Try again.');
   }
   const matches = (raw as { matches: unknown[] }).matches.filter(
@@ -105,5 +111,8 @@ export async function compareDeductions(
   entries: Evidence[]
 ): Promise<{ comparison: Comparison; source: InferenceSource | undefined }> {
   const result = await model.generateContent(buildComparisonPrompt(letter, entries));
-  return { comparison: parseComparison(result.response.text()), source: result.response.inferenceSource };
+  return {
+    comparison: parseComparison(result.response.text()),
+    source: result.response.inferenceSource,
+  };
 }
