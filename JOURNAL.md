@@ -4,6 +4,10 @@
 > things happen — retrospectives need this raw material to land.
 > Reverse-chronological; one paragraph max per entry.
 
+## 2026-11-26: Hybrid move-in walkthrough for #BuildHybridAI #decision
+
+LeaseLookout is entering the #BuildHybridAI hackathon with a public move-in walkthrough at `/walkthrough` (see `docs/hybrid-walkthrough-prd.md`). Tenants photograph each room and get a dated condition record. Photos are described by Chrome's on-device model when it has one, which matters because the internet is often not connected on move-in day, and by Gemini in the cloud otherwise, through Firebase AI Logic. This relaxes the no-metered-API rule in one narrow way: cloud inference runs only on the `leaselookout-app` Firebase project, which stays on the free Spark plan with no billing account, so it cannot create a charge. The page is the one public exception to the private deployment, and it keeps the record in the browser. The AI only describes photos and matches charges to evidence; deadlines and statute text still come only from `rules/`. The demand letter stays out until legal-aid review. `@grpc/grpc-js` is overridden to a patched release because Firestore's Node build pins a vulnerable one; the app never loads Firestore.
+
 ## 2026-11-25: Open source under AGPL, with a fresh public history #decision
 
 The repo is now public. The app and engine are AGPL-3.0, so anyone who runs a modified hosted copy has to share their changes. The rulesets and plain-English explainers are CC BY 4.0, so legal aid groups and clinics can reuse them with credit. The old private history held outreach emails, personal notes, and local machine paths, and GitHub keeps pull request commits even after a history rewrite. So the public repo starts from a single clean commit. Private material, including the unredacted journal, lives outside the repo.
