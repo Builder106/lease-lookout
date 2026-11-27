@@ -12,6 +12,10 @@ const PROVIDERS: { name: string; role: string }[] = [
   { name: 'Vercel', role: 'Hosts and serves the application.' },
   { name: 'Supabase', role: 'Sign-in, database, and file storage for your account and analyses.' },
   { name: 'Plunk', role: 'Sends access-request email.' },
+  {
+    name: 'Google (Firebase)',
+    role: 'Describes move-in photos in the cloud when your device cannot, through the Gemini API, and checks that requests come from this site.',
+  },
   { name: 'Sinch Mailgun', role: 'Currently relays Supabase Auth account email.' },
   { name: 'Cloudflare', role: 'Domain registration and DNS.' },
 ];
@@ -41,7 +45,7 @@ export default function PrivacyPage() {
             Privacy policy
           </h1>
           <p className="mt-4 font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-muted-foreground">
-            Effective August 29, 2026
+            Effective November 26, 2026
           </p>
           <p className="mt-6 text-[1.0625rem] leading-relaxed text-muted-foreground">
             LeaseLookout reads your lease against Connecticut housing law. Doing that means you
@@ -60,6 +64,12 @@ export default function PrivacyPage() {
                 <span className="text-foreground">Your lease.</span> The PDF you upload, the text we
                 extract from it, and the report we generate — the flagged clauses, their severity,
                 and the statute citations.
+              </li>
+              <li>
+                <span className="text-foreground">Move-in photos.</span> The walkthrough keeps your
+                photos and notes in your own browser; we don&apos;t store them. When your device
+                can&apos;t describe a photo itself, the photo and your note are sent to
+                Google&apos;s Gemini API to be described.
               </li>
               <li>
                 <span className="text-foreground">Invite requests.</span> The email you give us when
