@@ -166,7 +166,7 @@ export function RoomRecord({ roomId }: { roomId: RoomId }) {
           htmlFor="photo"
           className="settle flex cursor-pointer items-center gap-4 border-2 border-[var(--ink)] bg-[var(--ground)] p-4"
         >
-          <span className="inline-flex border-2 border-[var(--ink)] bg-[var(--recorded)] p-2.5 text-white">
+          <span className="inline-flex border-2 border-[var(--ink)] bg-[var(--recorded)] p-2.5 text-[#0e0e0e]">
             <Camera className="h-5 w-5" aria-hidden />
           </span>
           <span className="min-w-0">
@@ -203,7 +203,7 @@ export function RoomRecord({ roomId }: { roomId: RoomId }) {
         <button
           type="submit"
           disabled={!file || busy}
-          className="settle w-full border-2 border-[var(--ink)] bg-[var(--ink)] px-5 py-3 font-display text-[var(--ground)] disabled:cursor-not-allowed disabled:opacity-40"
+          className="settle w-full border-2 border-[var(--ink)] bg-[var(--recorded)] px-5 py-3 font-display text-[#0e0e0e] shadow-[4px_4px_0_var(--ink)] disabled:cursor-not-allowed disabled:opacity-40 disabled:shadow-none"
         >
           {busy ? 'Saving' : `Pin it to the ${room.name.toLowerCase()}`}
         </button>

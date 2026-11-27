@@ -1,42 +1,21 @@
-/* The floor plan's own palette (see DESIGN.md). Scoped to the walkthrough so the
-   rest of the site keeps its look until its own redesign. */
+/* The walkthrough draws from the brand tokens in globals.css (see DESIGN.md):
+   pink is the renter's evidence, ink is the landlord's side. */
 .walkthrough {
-  --ground: #eef0f4;
-  --ink: #11110d;
-  --muted: #555b68;
-  --recorded: #2b4bf2;
-  --recorded-tint: #c9d2fb;
-  --bare: #dfe2e8;
-  --charge: #ff2e88;
+  --ground: var(--background);
+  --ink: var(--foreground);
+  --muted: var(--muted-foreground);
+  --recorded: var(--primary);
+  --recorded-tint: var(--sev-unenforceable-tint);
+  --bare: var(--accent);
+  --charge: var(--foreground);
   --settle: cubic-bezier(0.16, 1, 0.3, 1);
   background: var(--ground);
   color: var(--ink);
 }
 
-/* Box-label lettering for the room names, tags and headline. The wordmark keeps the brand face. */
-.walkthrough main .font-display,
-.walkthrough .apartment .font-display {
-  font-family: var(--font-box), 'Arial Narrow', sans-serif;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.01em;
-}
-
 .walkthrough h1.font-display {
-  font-size: clamp(2.6rem, 6vw, 4rem);
-  line-height: 0.9;
-}
-
-@media (prefers-color-scheme: dark) {
-  .walkthrough {
-    --ground: #0f1013;
-    --ink: #f3f4f6;
-    --muted: #a3a9b6;
-    --recorded: #5b7cff;
-    --recorded-tint: #26305e;
-    --bare: #1c1e24;
-    --charge: #ff3d95;
-  }
+  font-size: clamp(2rem, 4vw, 2.9rem);
+  line-height: 0.95;
 }
 
 .apartment__canvas {
@@ -113,4 +92,11 @@
 .apartment__mark {
   will-change: transform;
   transition: opacity 0.3s var(--settle);
+}
+
+/* On a phone the model is too small for the claim label; the pin and the panel tell it. */
+@media (max-width: 639px) {
+  .apartment__mark--claim {
+    display: none;
+  }
 }

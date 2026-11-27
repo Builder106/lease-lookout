@@ -12,8 +12,9 @@ export type SceneApi = {
 };
 
 const INK = 0x11110d;
-const RECORDED = 0x2b4bf2;
-const CHARGE = 0xff2e88;
+// Brand roles (DESIGN.md): pink is the renter's evidence, ink is the landlord's claim.
+const RECORDED = 0xff2e88;
+const CHARGE = INK;
 
 export type MarkId = 'door' | 'charge';
 // Where the two story labels sit, in three.js space: above the front door, and
@@ -90,8 +91,8 @@ export async function mountApartment(
   const stemGeo = new THREE.CylinderGeometry(0.025, 0.025, 0.7, 8);
   const headGeo = new THREE.SphereGeometry(0.12, 16, 12);
   const stemMat = new THREE.MeshStandardMaterial({ color: INK, roughness: 0.5 });
-  // Ink heads read on both a bare floor and a blue recorded one.
-  const headMat = new THREE.MeshStandardMaterial({ color: INK, roughness: 0.35 });
+  // Pink heads are the renter's evidence (DESIGN.md); ink heads are the landlord's claims.
+  const headMat = new THREE.MeshStandardMaterial({ color: RECORDED, roughness: 0.35 });
   const pins = new Map<RoomId, Group[]>(ROOMS.map((r) => [r.id, []]));
   const makePin = (room: Room, i: number, drop: boolean) => {
     const pin = new THREE.Group();
@@ -208,10 +209,13 @@ export async function mountApartment(
     }
     for (const [id, el] of marks) {
       probe.set(...MARKS[id]).project(camera);
-      const x = ((probe.x + 1) / 2) * w;
-      const y = ((1 - probe.y) / 2) * h;
-      // Story labels hide when their spot leaves the frame instead of piling up at the edge.
-      const inside = x > 0 && x < w && y > 0 && y < h;
+      const rawX = ((probe.x + 1) / 2) * w;
+      const rawY = ((1 - probe.y) / 2) * h;
+      // Story labels hide when their spot leaves the frame, and otherwise stay whole inside it.
+      const inside = rawX > 0 && rawX < w && rawY > 0 && rawY < h;
+      const hw = el.offsetWidth / 2 + 6;
+      const x = Math.min(Math.max(rawX, hw), w - hw);
+      const y = Math.min(Math.max(rawY, el.offsetHeight + 6), h - 6);
       el.style.opacity = inside ? '1' : '0';
       el.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) translate(-50%, -100%)`;
     }
@@ -235,7 +239,7 @@ export async function mountApartment(
         while (list.length > n) scene.remove(list.pop()!);
         const floor = floors.get(room.id);
         if (!floor) continue;
-        const goal = floor.base.clone().lerp(new THREE.Color(RECORDED), n > 0 ? 0.45 : 0);
+        const goal = floor.base.clone().lerp(new THREE.Color(RECORDED), n > 0 ? 0.55 : 0);
         gsap.to(floor.mat.color, {
           r: goal.r,
           g: goal.g,

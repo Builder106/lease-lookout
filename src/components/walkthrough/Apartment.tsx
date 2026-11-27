@@ -159,15 +159,15 @@ export function Apartment() {
             if (el) markEls.current.set('charge', el);
             else markEls.current.delete('charge');
           }}
-          className={`apartment__mark absolute left-0 top-0 max-w-[11rem] border-2 px-2 py-1 font-mono text-[0.65rem] leading-tight ${
+          className={`apartment__mark apartment__mark--claim absolute left-0 top-0 max-w-[12rem] border-2 border-[var(--ink)] px-2 py-1 font-mono text-[0.65rem] leading-tight shadow-[3px_3px_0_var(--ink)] ${
             answered
-              ? 'border-[var(--recorded)] bg-[var(--recorded)] text-white'
-              : 'border-[var(--charge)] bg-[var(--ground)] text-[var(--ink)]'
+              ? 'bg-[var(--recorded)] text-[#0e0e0e]'
+              : 'bg-[var(--ground)] text-[var(--ink)]'
           }`}
         >
           {answered
-            ? 'Already there on day one: your photo answers it'
-            : `Example: landlord charges ${formatDollars(SAMPLE_CHARGE.amount)}, ${SAMPLE_CHARGE.item}`}
+            ? 'Already there on day one. Your photo answers it.'
+            : `Landlord's claim (example): ${formatDollars(SAMPLE_CHARGE.amount)}, ${SAMPLE_CHARGE.item}`}
         </span>
       </div>
     </div>

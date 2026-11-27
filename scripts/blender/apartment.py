@@ -24,11 +24,11 @@ OUT.mkdir(parents=True, exist_ok=True)
 
 ROOMS = {
     # id: (x0, y0, x1, y1, floor color)
-    "living": (0.0, 0.0, 6.0, 4.0, "#d9c6a5"),
-    "kitchen": (6.0, 0.0, 10.0, 4.0, "#d9dce3"),
-    "bedroom": (0.0, 4.0, 4.5, 7.0, "#d9c6a5"),
-    "bathroom": (4.5, 4.0, 7.0, 7.0, "#cfd8e6"),
-    "entry": (7.0, 4.0, 10.0, 7.0, "#d9dce3"),
+    "living": (0.0, 0.0, 6.0, 4.0, "#e2e2e2"),
+    "kitchen": (6.0, 0.0, 10.0, 4.0, "#e9e9e9"),
+    "bedroom": (0.0, 4.0, 4.5, 7.0, "#e2e2e2"),
+    "bathroom": (4.5, 4.0, 7.0, 7.0, "#dadada"),
+    "entry": (7.0, 4.0, 10.0, 7.0, "#e9e9e9"),
 }
 
 WALL_T = 0.12
@@ -36,24 +36,25 @@ TALL = 2.5  # far outer walls
 LOW = 1.0  # interior walls, cut so the rooms behind them stay visible
 CURB = 0.25  # near outer walls
 
+# A white card model (DESIGN.md): greys and ink only, so the renter's pink is the
+# one color on the site. Floors are tinted pink by the site as rooms are recorded.
 PALETTE = {
-    "wall": ("#eef0f4", 0.9),
-    "cap": ("#11110d", 0.6),
-    "ink": ("#11110d", 0.5),
-    "white": ("#f7f8fa", 0.5),
-    "wood": ("#b98b5e", 0.7),
-    # Blue is reserved for recorded rooms on the site, so furniture avoids it.
-    "sofa": ("#d9a521", 0.85),
-    "duvet": ("#8fa05a", 0.9),
-    "door": ("#2a2d35", 0.6),
-    "paleblue": ("#bcd0ff", 0.3),
-    "steel": ("#b8bec9", 0.3),
-    "counter": ("#3a3d45", 0.5),
-    "dark": ("#1a1b20", 0.6),
-    "green": ("#3f8f5a", 0.8),
-    "pot": ("#c46a4a", 0.8),
-    "rug": ("#b9b3a8", 1.0),
-    "mat": ("#2a2d35", 1.0),
+    "wall": ("#f4f4f4", 0.9),
+    "cap": ("#0e0e0e", 0.6),
+    "ink": ("#0e0e0e", 0.5),
+    "white": ("#fafafa", 0.5),
+    "wood": ("#c9c9c9", 0.7),
+    "sofa": ("#8f8f8f", 0.85),
+    "duvet": ("#b3b3b3", 0.9),
+    "door": ("#2b2b2b", 0.6),
+    "paleblue": ("#dcdcdc", 0.3),
+    "steel": ("#a6a6a6", 0.3),
+    "counter": ("#3a3a3a", 0.5),
+    "dark": ("#1c1c1c", 0.6),
+    "green": ("#7a7a7a", 0.8),
+    "pot": ("#5e5e5e", 0.8),
+    "rug": ("#d6d6d6", 1.0),
+    "mat": ("#2b2b2b", 1.0),
 }
 
 

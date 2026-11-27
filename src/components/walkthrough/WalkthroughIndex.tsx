@@ -62,7 +62,7 @@ function DepositForm() {
         </label>
         <button
           type="submit"
-          className="settle border-2 border-[var(--ink)] px-4 py-2 font-display"
+          className="settle border-2 border-[var(--ink)] bg-[var(--recorded)] px-4 py-2 font-display text-[#0e0e0e] shadow-[3px_3px_0_var(--ink)]"
         >
           Set
         </button>
