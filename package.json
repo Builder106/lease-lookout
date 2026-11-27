@@ -22,6 +22,7 @@
   "dependencies": {
     "@supabase/ssr": "^0.12.7",
     "@supabase/supabase-js": "^2.119.2",
+    "firebase": "^13.3.0",
     "lucide-react": "^1.77.0",
     "motion": "^14.14.0",
     "next": "16.4.3",
@@ -50,6 +51,7 @@
   "overrides": {
     "@typescript-eslint/typescript-estree": {
       "minimatch": "^11.0.8"
-    }
+    },
+    "@grpc/grpc-js": "^1.14.7"
   }
 }
