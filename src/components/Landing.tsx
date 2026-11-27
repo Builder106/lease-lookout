@@ -1,4 +1,5 @@
 import {
+  ArrowRight,
   Ban,
   CalendarClock,
   Camera,
@@ -25,6 +26,7 @@ import type { Severity } from '@/lib/report-types';
 
 // "/#…" (not "#…") so the header and footer also work from /privacy.
 const NAV = [
+  { href: '/walkthrough', label: 'Move-in walkthrough' },
   { href: '/#how', label: 'How it works' },
   { href: '/#examples', label: 'Examples' },
   { href: '/#checks', label: 'What we check' },
@@ -32,30 +34,31 @@ const NAV = [
 
 const SOURCE_URL = 'https://github.com/Builder106/lease-lookout';
 
-const STEPS: { Icon: LucideIcon; title: string; body: string; live: boolean }[] = [
+const STEPS: { Icon: LucideIcon; title: string; body: string; status: string; href?: string }[] = [
   {
     Icon: Camera,
     title: 'Record move-in',
-    body: 'Walk through room by room and log existing damage with timestamped photos.',
-    live: false,
+    body: 'Walk through room by room and pin a dated photo of existing damage to each one.',
+    status: 'Live, no account needed',
+    href: '/walkthrough',
   },
   {
     Icon: Upload,
     title: 'Check your lease',
     body: 'Upload the PDF and see which clauses may be illegal, each with the statute.',
-    live: true,
+    status: 'Live for Connecticut',
   },
   {
     Icon: CalendarClock,
     title: 'Track the deadline',
     body: 'At move-out, see the date your landlord must return your deposit by.',
-    live: false,
+    status: 'In development',
   },
   {
     Icon: Mail,
     title: 'Ask for it back',
     body: "If it doesn't come back, send a demand letter that cites the law.",
-    live: false,
+    status: 'In development',
   },
 ];
 
@@ -190,6 +193,16 @@ function Hero() {
           CT: 21 days <span className="text-secondary">{'//'}</span> MA: 30 days{' '}
           <span className="text-secondary">{'//'}</span> every step cited
         </p>
+        <Link
+          href="/walkthrough"
+          className="ll-shadow-sm mt-8 inline-flex items-center gap-2 border-2 border-border bg-secondary px-5 py-3 font-display uppercase tracking-[0.01em] text-secondary-foreground transition-transform hover:-translate-x-px hover:-translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          Start your move-in walkthrough
+          <ArrowRight className="h-4 w-4" aria-hidden />
+        </Link>
+        <p className="mt-3 text-sm text-muted-foreground">
+          No account, and it works without Wi-Fi in browsers that can run AI on the device.
+        </p>
         <div id="access" className="mt-8 scroll-mt-20">
           <InviteForm />
           <p className="mt-3 text-sm text-muted-foreground">
@@ -320,12 +333,20 @@ function HowItWorks() {
                 </span>
                 <span className="font-mono text-[0.75rem] text-muted-foreground">0{i + 1}</span>
               </div>
-              <h3 className="mt-4 font-display text-lg uppercase tracking-[-0.01em]">{s.title}</h3>
+              <h3 className="mt-4 font-display text-lg uppercase tracking-[-0.01em]">
+                {s.href ? (
+                  <Link href={s.href} className="underline-offset-4 hover:underline">
+                    {s.title}
+                  </Link>
+                ) : (
+                  s.title
+                )}
+              </h3>
               <p className="mt-1.5 text-[0.9375rem] leading-relaxed text-muted-foreground">
                 {s.body}
               </p>
               <p className="mt-3 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-muted-foreground">
-                {s.live ? 'Live for Connecticut' : 'In development'}
+                {s.status}
               </p>
             </li>
           ))}

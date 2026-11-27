@@ -47,6 +47,7 @@ describe('Landing page components', () => {
   it('renders SiteHeader with navigation and brand links', () => {
     const html = renderToStaticMarkup(<SiteHeader />);
     expect(html).toContain('LeaseLookout home');
+    expect(html).toContain('href="/walkthrough"');
     expect(html).toContain('How it works');
     expect(html).toContain('Examples');
     expect(html).toContain('What we check');
