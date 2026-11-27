@@ -50,9 +50,11 @@ export const ON_DEVICE_OPTIONS: LanguageModelCreateOptions = {
 // Kept in the prompt itself (not a system instruction) so the on-device and
 // cloud paths receive exactly the same text.
 const INSTRUCTIONS = `You help a renter record the condition of an apartment on move-in day, as evidence for getting a security deposit back.
-Describe only what is visible in the photo. For each surface, fixture, or appliance you can see, give its condition (good, worn, damaged, or missing) and one short factual detail, such as the size and position of a stain, scuff, crack, or chip.
+Describe only what is visible in the photo. The room name is a hint about where the renter stood, not a list of things to report; never mention an object you cannot see.
+For each surface, fixture, or appliance you can see, give its condition (good, worn, damaged, or missing) and one short factual detail, such as the size and position of a stain, scuff, crack, or chip.
+If the photo does not show the inside of a room, say what it shows instead in the summary and list no observations.
 Do not guess what caused any damage, who is responsible, or what a repair costs. Do not give legal advice.
-Write the summary as one plain sentence.`;
+Write the summary as one plain sentence that names the main things you see and any damage.`;
 
 export function photoModel(
   mode: InferenceMode = InferenceMode.PREFER_ON_DEVICE,
