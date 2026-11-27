@@ -1,0 +1,116 @@
+/* The floor plan's own palette (see DESIGN.md). Scoped to the walkthrough so the
+   rest of the site keeps its look until its own redesign. */
+.walkthrough {
+  --ground: #eef0f4;
+  --ink: #11110d;
+  --muted: #555b68;
+  --recorded: #2b4bf2;
+  --recorded-tint: #c9d2fb;
+  --bare: #dfe2e8;
+  --charge: #ff2e88;
+  --settle: cubic-bezier(0.16, 1, 0.3, 1);
+  background: var(--ground);
+  color: var(--ink);
+}
+
+/* Box-label lettering for the room names, tags and headline. The wordmark keeps the brand face. */
+.walkthrough main .font-display,
+.walkthrough .apartment .font-display {
+  font-family: var(--font-box), 'Arial Narrow', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+.walkthrough h1.font-display {
+  font-size: clamp(2.6rem, 6vw, 4rem);
+  line-height: 0.9;
+}
+
+@media (prefers-color-scheme: dark) {
+  .walkthrough {
+    --ground: #0f1013;
+    --ink: #f3f4f6;
+    --muted: #a3a9b6;
+    --recorded: #5b7cff;
+    --recorded-tint: #26305e;
+    --bare: #1c1e24;
+    --charge: #ff3d95;
+  }
+}
+
+.apartment__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.8s var(--settle);
+}
+
+.apartment[data-mode='model'] .apartment__canvas {
+  opacity: 1;
+}
+
+.apartment[data-mode='model'] .apartment__plan {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.apartment[data-mode='plan'] .apartment__tags {
+  display: none;
+}
+
+/* Tags settle into place: a short lift on hover, set down on press. */
+.apartment__tag {
+  will-change: transform;
+  transition:
+    translate 0.25s var(--settle),
+    box-shadow 0.25s var(--settle),
+    background-color 0.25s var(--settle);
+}
+
+.apartment__tag:hover {
+  translate: 0 -3px;
+  box-shadow: 0 3px 0 var(--ink);
+}
+
+.apartment__tag:active {
+  translate: 0 0;
+  box-shadow: none;
+}
+
+/* Room list rows and buttons share the same settle. */
+.settle {
+  transition:
+    translate 0.25s var(--settle),
+    box-shadow 0.25s var(--settle);
+}
+
+.settle:hover {
+  translate: 0 -2px;
+  box-shadow: 0 2px 0 var(--ink);
+}
+
+.settle:active {
+  translate: 0 0;
+  box-shadow: none;
+}
+
+.settle:focus-visible {
+  outline: 3px solid var(--recorded);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .apartment__tag,
+  .settle,
+  .apartment__canvas {
+    transition: none;
+  }
+}
+
+.apartment__mark {
+  will-change: transform;
+  transition: opacity 0.3s var(--settle);
+}
